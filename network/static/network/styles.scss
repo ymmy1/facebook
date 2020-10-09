@@ -1,0 +1,461 @@
+$bg : #4A76A8;
+$bg-dark : #406794;
+$bg-darker : #274466;
+*
+{
+    box-sizing: border-box;
+}
+body
+{
+    background: $bg;
+    color: #fafafa;
+    text-align: center;
+    .navbar
+    {
+        background: $bg-darker;
+        color: #fafafa;
+        .navbar-toggler-icon
+        {
+            color: #fff;
+            display: flex;
+            .fa
+            {
+                margin: auto;
+            }
+        }
+    }
+    a
+    {
+        color: #c1c1c1;
+        &:hover
+        {
+            color: #fafafa;
+        }
+    }
+    #index, #profile, #following
+    {
+        display: flex;
+        padding: 70px 10%;
+        justify-content: space-between;
+        .paginator
+        {
+            margin: 0;
+            margin-top: 50px;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            li
+            {
+                background: $bg-darker;
+                a
+                {
+                    background: $bg-dark;
+                    border: 1px solid $bg-darker;
+                    color: #fff;
+                    font-weight: bold;
+                    font-size: 1.2em;
+                    &:hover
+                    {
+                        background: rgba($bg-dark, 0.1);
+                        
+                    }
+                    
+                }
+                .active-link
+                {
+                    background: $bg-darker;
+
+                }
+            }
+            .disabled
+            {
+                cursor: pointer;
+                a
+                {
+                    color: #cacaca;
+                    &:hover
+                    {
+                        background: rgba($bg-dark, 0.1);
+                    }
+                }
+            }
+        }
+        a
+        {
+            text-decoration: none;
+            &:hover
+            {
+
+                img
+                {
+                    transform: scale(1.5);
+                    transition: transform 0.1s;
+                }
+            }
+        }
+        .leader, .leader2
+        {
+            h2
+            {
+                background: #c4aa5b !important;
+            }
+        }
+        .card-container
+        {
+            display:none;
+        }
+        .posts_container
+        {
+            margin: 0 auto;
+            max-width: 700px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 0 10px;
+            .posts
+            {
+                margin: 0 20px !important;
+                height: fit-content;
+                padding-bottom: 20px;
+                max-width: 600px;
+                form
+                {
+                    display: flex;
+                    justify-content: center;
+    
+                    textarea
+                    {
+                        color: #fff;
+                        width: 90%;
+                        background: rgba($bg-darker, 0.3);
+                        border: 4px solid $bg-darker;
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 10px;
+                        border-right: none;
+                        padding: 10px 0 0 10px;
+                        &::placeholder 
+                        {
+                            color: rgba(#ffffff, 0.7);  
+                        }
+                        &:focus 
+                        {
+                            outline: none; 
+                        }
+                    }
+                    button
+                    {
+                        color: #fff;
+                        font-weight: bold;
+                        background: rgba($bg-darker, 0.7);
+                        border: 4px solid $bg-darker;
+                        border-top-right-radius: 10px;
+                        border-bottom-right-radius: 10px;
+                        border-left: none;
+                        padding: 0 15px;
+                        &:hover
+                        {
+                            background: rgba($bg-darker, 1);
+                        }
+                        
+                    }
+                }
+                .post
+                {
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+                    padding: 15px;
+                    margin: 20px auto;
+                    border: 1px solid rgba(#ffffff, 0.5);
+                    border-radius: 10px;
+                    button
+                    {
+                        background: none;
+                        border: none;
+                        -webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: black;
+                        &:focus
+                        {
+                            border: none;
+                            outline: none;
+                        }
+                    }
+                    .top-info
+                    {
+                        display: flex;
+                        justify-content: space-between;
+                        outline: none;
+                        padding: 5px 0;
+                        .poster-info
+                        {
+                            a
+                            {
+                                margin-right: 5px;
+                                img
+                                {
+                                    width: 50px;
+                                }
+                            }
+                            .unfollow_button
+                            {
+                                color: #4eff4e;
+                            }
+                            .follow_button
+                            {
+                                color: #ffffff;
+                            }
+                        }
+                        .poster-timestamp
+                        {
+                            display: flex;
+                            height: 1em;
+                            .edit_post_button
+                            {
+                                color: grey;
+                            }
+                            .delete_post_button
+                            {
+                                color: red;
+                            }
+                        }
+                    }
+                    .middle-info
+                    {
+                        .post_body
+                        {
+                            text-align: left;
+                            margin-left: 60px;
+                            margin-bottom: 0px;
+                            padding: 10px 0;
+                            word-break: break-all;
+                        }
+                        form
+                        {
+                            textarea
+                            {
+                                background: rgba($bg-darker, 0.1);
+                                border: 4px solid $bg-darker;
+                            }
+                            button
+                            {
+                                color: #fff;
+                                font-weight: bold;
+                                background: rgba($bg-darker, 0.7);
+                                border: 4px solid $bg-darker;
+                                border-radius: 5px;
+                                margin-bottom: 10px;
+                                
+                                -webkit-text-stroke-width: 0px;
+                                -webkit-text-stroke-color: black;
+                            }
+    
+                        }
+                    }
+                    .bottom-info
+                    {
+                        border-top: 1px solid white;
+                        display: flex;
+                        justify-content: space-between;
+                        .like_button, .unlike_button
+                        {
+                            color: red;
+                        }
+                    }
+                }
+    
+            }
+        }
+        .profile-card, #login
+        {
+            margin: 0 !important;
+            height: fit-content;
+            padding-bottom: 20px;
+            
+            img
+            {
+                margin-top: 20px;
+                width: 250px;
+            }
+            a, p
+            {
+                margin: 0;
+                padding: 0;
+                font-size: 1.5em;
+            }
+            .newuser
+            {
+                list-style: none;
+                padding: 50px 0;
+                li
+                {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+    #register, #login, #index .profile-card, #profile .profile-card, #following .profile-card, #index #login, .posts, #edit_profile
+    {
+        -webkit-box-shadow: 0px 10px 52px 5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 10px 52px 5px rgba(0,0,0,0.75);
+        box-shadow: 0px 10px 52px 5px rgba(0,0,0,0.75);
+        border-radius: 5px;
+        max-width: 500px;
+        width: 90%;
+        padding-bottom: 10px;
+        margin: 20px auto;
+        background: $bg-dark;
+        border-radius: 30px;
+        word-break: break-word;
+        h2
+        {
+            background: $bg-darker;
+            padding: 10px 0;
+            margin: 0;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+        
+        form
+        {
+            padding: 10px 10px 0;
+            input
+            {
+                background: rgba(255,255,255, 0.8);
+                &:focus
+                {
+                    background: rgba(255,255,255, 0.95);
+
+                }
+            }
+            input[type=submit]
+            {
+                color: black;
+                font-weight: bold;
+            }
+            .avatar-list
+            {
+                input[type=radio]
+                {
+                    display: none;
+                }
+                label
+                {
+                    border-radius: 50%;
+                    cursor: pointer;
+                    img
+                    {
+                        border-radius: 50%;
+                        width: 100px;
+                    }
+                }
+                .active
+                {
+                    border: 5px solid white;
+                    transform: scale(2);
+                    transition: transform 0.1s;
+                    
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1600px) 
+{
+    body
+    {
+        #index, #profile, #following
+        {
+            padding: 70px 20px;
+        }
+    }
+}
+@media screen and (max-width: 1400px) 
+{
+    body
+    {
+        #index, #profile, #following
+        {
+            .leader, .profile, .login
+            {
+                display: none;
+            }
+            .card-container
+            {
+                width: -webkit-fill-available;
+                display: block;
+                #login
+                {
+                    margin: 0 auto 20px !important;
+                    h2
+                    {
+                        font-size: 1.5em;
+                    }
+                }
+                .profile-card
+                {
+                    margin: 0 auto 50px !important;
+                    width: fi;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 970px) 
+{
+    body
+    {
+        #index, #profile, #following
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .leader, .profile, .login
+            {
+                display: none;
+            }
+            .leader2
+            {
+                margin-bottom: 50px !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 470px) 
+{
+    body
+    {
+        #index, #profile, #following
+        {
+            padding: 70px 0px;
+            .profile-card
+            {
+                img
+                {
+                    width: 190px;
+                }
+            }
+            .posts_container
+            {
+                max-width: 100%;
+                width: 100%;
+                min-width: 100%;
+                .post
+                {
+                    .top-info
+                    {
+                        display: flex;
+                        flex-direction: column-reverse;
+                        justify-content: center;
+                        .poster-timestamp
+                        {
+                            margin: 0 auto 20px ;
+                            font-size: 0.9em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

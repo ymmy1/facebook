@@ -1,0 +1,462 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #4A76A8;
+  color: #fafafa;
+  text-align: center;
+}
+
+body .navbar {
+  background: #274466;
+  color: #fafafa;
+}
+
+body .navbar .navbar-toggler-icon {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .navbar .navbar-toggler-icon .fa {
+  margin: auto;
+}
+
+body a {
+  color: #c1c1c1;
+}
+
+body a:hover {
+  color: #fafafa;
+}
+
+body #index, body #profile, body #following {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 70px 10%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body #index .paginator, body #profile .paginator, body #following .paginator {
+  margin: 0;
+  margin-top: 50px;
+  padding: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body #index .paginator li, body #profile .paginator li, body #following .paginator li {
+  background: #274466;
+}
+
+body #index .paginator li a, body #profile .paginator li a, body #following .paginator li a {
+  background: #406794;
+  border: 1px solid #274466;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+body #index .paginator li a:hover, body #profile .paginator li a:hover, body #following .paginator li a:hover {
+  background: rgba(64, 103, 148, 0.1);
+}
+
+body #index .paginator li .active-link, body #profile .paginator li .active-link, body #following .paginator li .active-link {
+  background: #274466;
+}
+
+body #index .paginator .disabled, body #profile .paginator .disabled, body #following .paginator .disabled {
+  cursor: pointer;
+}
+
+body #index .paginator .disabled a, body #profile .paginator .disabled a, body #following .paginator .disabled a {
+  color: #cacaca;
+}
+
+body #index .paginator .disabled a:hover, body #profile .paginator .disabled a:hover, body #following .paginator .disabled a:hover {
+  background: rgba(64, 103, 148, 0.1);
+}
+
+body #index a, body #profile a, body #following a {
+  text-decoration: none;
+}
+
+body #index a:hover img, body #profile a:hover img, body #following a:hover img {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+
+body #index .leader h2, body #index .leader2 h2, body #profile .leader h2, body #profile .leader2 h2, body #following .leader h2, body #following .leader2 h2 {
+  background: #c4aa5b !important;
+}
+
+body #index .card-container, body #profile .card-container, body #following .card-container {
+  display: none;
+}
+
+body #index .posts_container, body #profile .posts_container, body #following .posts_container {
+  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 10px;
+}
+
+body #index .posts_container .posts, body #profile .posts_container .posts, body #following .posts_container .posts {
+  margin: 0 20px !important;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 20px;
+  max-width: 600px;
+}
+
+body #index .posts_container .posts form, body #profile .posts_container .posts form, body #following .posts_container .posts form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body #index .posts_container .posts form textarea, body #profile .posts_container .posts form textarea, body #following .posts_container .posts form textarea {
+  color: #fff;
+  width: 90%;
+  background: rgba(39, 68, 102, 0.3);
+  border: 4px solid #274466;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: none;
+  padding: 10px 0 0 10px;
+}
+
+body #index .posts_container .posts form textarea::-webkit-input-placeholder, body #profile .posts_container .posts form textarea::-webkit-input-placeholder, body #following .posts_container .posts form textarea::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body #index .posts_container .posts form textarea:-ms-input-placeholder, body #profile .posts_container .posts form textarea:-ms-input-placeholder, body #following .posts_container .posts form textarea:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body #index .posts_container .posts form textarea::-ms-input-placeholder, body #profile .posts_container .posts form textarea::-ms-input-placeholder, body #following .posts_container .posts form textarea::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body #index .posts_container .posts form textarea::placeholder, body #profile .posts_container .posts form textarea::placeholder, body #following .posts_container .posts form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body #index .posts_container .posts form textarea:focus, body #profile .posts_container .posts form textarea:focus, body #following .posts_container .posts form textarea:focus {
+  outline: none;
+}
+
+body #index .posts_container .posts form button, body #profile .posts_container .posts form button, body #following .posts_container .posts form button {
+  color: #fff;
+  font-weight: bold;
+  background: rgba(39, 68, 102, 0.7);
+  border: 4px solid #274466;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: none;
+  padding: 0 15px;
+}
+
+body #index .posts_container .posts form button:hover, body #profile .posts_container .posts form button:hover, body #following .posts_container .posts form button:hover {
+  background: #274466;
+}
+
+body #index .posts_container .posts .post, body #profile .posts_container .posts .post, body #following .posts_container .posts .post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+  padding: 15px;
+  margin: 20px auto;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+body #index .posts_container .posts .post button, body #profile .posts_container .posts .post button, body #following .posts_container .posts .post button {
+  background: none;
+  border: none;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+body #index .posts_container .posts .post button:focus, body #profile .posts_container .posts .post button:focus, body #following .posts_container .posts .post button:focus {
+  border: none;
+  outline: none;
+}
+
+body #index .posts_container .posts .post .top-info, body #profile .posts_container .posts .post .top-info, body #following .posts_container .posts .post .top-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  outline: none;
+  padding: 5px 0;
+}
+
+body #index .posts_container .posts .post .top-info .poster-info a, body #profile .posts_container .posts .post .top-info .poster-info a, body #following .posts_container .posts .post .top-info .poster-info a {
+  margin-right: 5px;
+}
+
+body #index .posts_container .posts .post .top-info .poster-info a img, body #profile .posts_container .posts .post .top-info .poster-info a img, body #following .posts_container .posts .post .top-info .poster-info a img {
+  width: 50px;
+}
+
+body #index .posts_container .posts .post .top-info .poster-info .unfollow_button, body #profile .posts_container .posts .post .top-info .poster-info .unfollow_button, body #following .posts_container .posts .post .top-info .poster-info .unfollow_button {
+  color: #4eff4e;
+}
+
+body #index .posts_container .posts .post .top-info .poster-info .follow_button, body #profile .posts_container .posts .post .top-info .poster-info .follow_button, body #following .posts_container .posts .post .top-info .poster-info .follow_button {
+  color: #ffffff;
+}
+
+body #index .posts_container .posts .post .top-info .poster-timestamp, body #profile .posts_container .posts .post .top-info .poster-timestamp, body #following .posts_container .posts .post .top-info .poster-timestamp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 1em;
+}
+
+body #index .posts_container .posts .post .top-info .poster-timestamp .edit_post_button, body #profile .posts_container .posts .post .top-info .poster-timestamp .edit_post_button, body #following .posts_container .posts .post .top-info .poster-timestamp .edit_post_button {
+  color: grey;
+}
+
+body #index .posts_container .posts .post .top-info .poster-timestamp .delete_post_button, body #profile .posts_container .posts .post .top-info .poster-timestamp .delete_post_button, body #following .posts_container .posts .post .top-info .poster-timestamp .delete_post_button {
+  color: red;
+}
+
+body #index .posts_container .posts .post .middle-info .post_body, body #profile .posts_container .posts .post .middle-info .post_body, body #following .posts_container .posts .post .middle-info .post_body {
+  text-align: left;
+  margin-left: 60px;
+  margin-bottom: 0px;
+  padding: 10px 0;
+  word-break: break-all;
+}
+
+body #index .posts_container .posts .post .middle-info form textarea, body #profile .posts_container .posts .post .middle-info form textarea, body #following .posts_container .posts .post .middle-info form textarea {
+  background: rgba(39, 68, 102, 0.1);
+  border: 4px solid #274466;
+}
+
+body #index .posts_container .posts .post .middle-info form button, body #profile .posts_container .posts .post .middle-info form button, body #following .posts_container .posts .post .middle-info form button {
+  color: #fff;
+  font-weight: bold;
+  background: rgba(39, 68, 102, 0.7);
+  border: 4px solid #274466;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-stroke-color: black;
+}
+
+body #index .posts_container .posts .post .bottom-info, body #profile .posts_container .posts .post .bottom-info, body #following .posts_container .posts .post .bottom-info {
+  border-top: 1px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body #index .posts_container .posts .post .bottom-info .like_button, body #index .posts_container .posts .post .bottom-info .unlike_button, body #profile .posts_container .posts .post .bottom-info .like_button, body #profile .posts_container .posts .post .bottom-info .unlike_button, body #following .posts_container .posts .post .bottom-info .like_button, body #following .posts_container .posts .post .bottom-info .unlike_button {
+  color: red;
+}
+
+body #index .profile-card, body #index #login, body #profile .profile-card, body #profile #login, body #following .profile-card, body #following #login {
+  margin: 0 !important;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 20px;
+}
+
+body #index .profile-card img, body #index #login img, body #profile .profile-card img, body #profile #login img, body #following .profile-card img, body #following #login img {
+  margin-top: 20px;
+  width: 250px;
+}
+
+body #index .profile-card a, body #index .profile-card p, body #index #login a, body #index #login p, body #profile .profile-card a, body #profile .profile-card p, body #profile #login a, body #profile #login p, body #following .profile-card a, body #following .profile-card p, body #following #login a, body #following #login p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+}
+
+body #index .profile-card .newuser, body #index #login .newuser, body #profile .profile-card .newuser, body #profile #login .newuser, body #following .profile-card .newuser, body #following #login .newuser {
+  list-style: none;
+  padding: 50px 0;
+}
+
+body #index .profile-card .newuser li, body #index #login .newuser li, body #profile .profile-card .newuser li, body #profile #login .newuser li, body #following .profile-card .newuser li, body #following #login .newuser li {
+  margin-top: 20px;
+}
+
+body #register, body #login, body #index .profile-card, body #profile .profile-card, body #following .profile-card, body #index #login, body .posts, body #edit_profile {
+  -webkit-box-shadow: 0px 10px 52px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 10px 52px 5px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  max-width: 500px;
+  width: 90%;
+  padding-bottom: 10px;
+  margin: 20px auto;
+  background: #406794;
+  border-radius: 30px;
+  word-break: break-word;
+}
+
+body #register h2, body #login h2, body #index .profile-card h2, body #profile .profile-card h2, body #following .profile-card h2, body #index #login h2, body .posts h2, body #edit_profile h2 {
+  background: #274466;
+  padding: 10px 0;
+  margin: 0;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+body #register form, body #login form, body #index .profile-card form, body #profile .profile-card form, body #following .profile-card form, body #index #login form, body .posts form, body #edit_profile form {
+  padding: 10px 10px 0;
+}
+
+body #register form input, body #login form input, body #index .profile-card form input, body #profile .profile-card form input, body #following .profile-card form input, body #index #login form input, body .posts form input, body #edit_profile form input {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body #register form input:focus, body #login form input:focus, body #index .profile-card form input:focus, body #profile .profile-card form input:focus, body #following .profile-card form input:focus, body #index #login form input:focus, body .posts form input:focus, body #edit_profile form input:focus {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+body #register form input[type=submit], body #login form input[type=submit], body #index .profile-card form input[type=submit], body #profile .profile-card form input[type=submit], body #following .profile-card form input[type=submit], body #index #login form input[type=submit], body .posts form input[type=submit], body #edit_profile form input[type=submit] {
+  color: black;
+  font-weight: bold;
+}
+
+body #register form .avatar-list input[type=radio], body #login form .avatar-list input[type=radio], body #index .profile-card form .avatar-list input[type=radio], body #profile .profile-card form .avatar-list input[type=radio], body #following .profile-card form .avatar-list input[type=radio], body #index #login form .avatar-list input[type=radio], body .posts form .avatar-list input[type=radio], body #edit_profile form .avatar-list input[type=radio] {
+  display: none;
+}
+
+body #register form .avatar-list label, body #login form .avatar-list label, body #index .profile-card form .avatar-list label, body #profile .profile-card form .avatar-list label, body #following .profile-card form .avatar-list label, body #index #login form .avatar-list label, body .posts form .avatar-list label, body #edit_profile form .avatar-list label {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+body #register form .avatar-list label img, body #login form .avatar-list label img, body #index .profile-card form .avatar-list label img, body #profile .profile-card form .avatar-list label img, body #following .profile-card form .avatar-list label img, body #index #login form .avatar-list label img, body .posts form .avatar-list label img, body #edit_profile form .avatar-list label img {
+  border-radius: 50%;
+  width: 100px;
+}
+
+body #register form .avatar-list .active, body #login form .avatar-list .active, body #index .profile-card form .avatar-list .active, body #profile .profile-card form .avatar-list .active, body #following .profile-card form .avatar-list .active, body #index #login form .avatar-list .active, body .posts form .avatar-list .active, body #edit_profile form .avatar-list .active {
+  border: 5px solid white;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+
+@media screen and (max-width: 1600px) {
+  body #index, body #profile, body #following {
+    padding: 70px 20px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  body #index .leader, body #index .profile, body #index .login, body #profile .leader, body #profile .profile, body #profile .login, body #following .leader, body #following .profile, body #following .login {
+    display: none;
+  }
+  body #index .card-container, body #profile .card-container, body #following .card-container {
+    width: -webkit-fill-available;
+    display: block;
+  }
+  body #index .card-container #login, body #profile .card-container #login, body #following .card-container #login {
+    margin: 0 auto 20px !important;
+  }
+  body #index .card-container #login h2, body #profile .card-container #login h2, body #following .card-container #login h2 {
+    font-size: 1.5em;
+  }
+  body #index .card-container .profile-card, body #profile .card-container .profile-card, body #following .card-container .profile-card {
+    margin: 0 auto 50px !important;
+    width: fi;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  body #index, body #profile, body #following {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body #index .leader, body #index .profile, body #index .login, body #profile .leader, body #profile .profile, body #profile .login, body #following .leader, body #following .profile, body #following .login {
+    display: none;
+  }
+  body #index .leader2, body #profile .leader2, body #following .leader2 {
+    margin-bottom: 50px !important;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  body #index, body #profile, body #following {
+    padding: 70px 0px;
+  }
+  body #index .profile-card img, body #profile .profile-card img, body #following .profile-card img {
+    width: 190px;
+  }
+  body #index .posts_container, body #profile .posts_container, body #following .posts_container {
+    max-width: 100%;
+    width: 100%;
+    min-width: 100%;
+  }
+  body #index .posts_container .post .top-info, body #profile .posts_container .post .top-info, body #following .posts_container .post .top-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body #index .posts_container .post .top-info .poster-timestamp, body #profile .posts_container .post .top-info .poster-timestamp, body #following .posts_container .post .top-info .poster-timestamp {
+    margin: 0 auto 20px;
+    font-size: 0.9em;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

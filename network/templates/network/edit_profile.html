@@ -1,0 +1,77 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<section id="edit_profile">
+    <h2>Edit Profile</h2>
+    <img id="profile_avatar" src="../../static/network/img/avatars/{{ user.avatar }}" alt=""> <br>
+    <a href="/profile/{{ user.id }}"> {{ user.username }} </a> <br>
+    <div class="">
+        <form action="{% url 'edit_profile' %}" method="post">
+            <div class="form-group avatar-list">
+                <h4>Change Avatar</h4>
+
+                <input type="radio" id="avatar_tbs_fs_gary_helmet.png" name="avatar" value="avatar_tbs_fs_gary_helmet.png">
+                <label for="avatar_tbs_fs_gary_helmet.png"><img src="../../static/network/img/avatars/avatar_tbs_fs_gary_helmet.png" alt="avatar_tbs_fs_gary_helmet.png"></label>
+                
+                <input type="radio" id="avatar_sloth_face_red.png" name="avatar" value="avatar_sloth_face_red.png">
+                <label for="avatar_sloth_face_red.png"><img src="../../static/network/img/avatars/avatar_sloth_face_red.png" alt="avatar_sloth_face_red.png"></label>
+                
+                <input type="radio" id="avatar_chips.png" name="avatar" value="avatar_chips.png">
+                <label for="avatar_chips.png"><img src="../../static/network/img/avatars/avatar_chips.png" alt="avatar_chips.png"></label>
+                
+                <input type="radio" id="avatar_cr_frog_1.png" name="avatar" value="avatar_cr_frog_1.png">
+                <label for="avatar_cr_frog_1.png"><img src="../../static/network/img/avatars/avatar_cr_frog_1.png" alt="avatar_cr_frog_1.png"></label>
+                
+                <input type="radio" id="avatar_boomerang_tom_and_jerry_jerry.png" name="avatar" value="avatar_boomerang_tom_and_jerry_jerry.png">
+                <label for="avatar_boomerang_tom_and_jerry_jerry.png"><img src="../../static/network/img/avatars/avatar_boomerang_tom_and_jerry_jerry.png" alt="avatar_boomerang_tom_and_jerry_jerry.png"></label>
+                
+                <input type="radio" id="avatar_boomerang_scooby_doo_scooby.png" name="avatar" value="avatar_boomerang_scooby_doo_scooby.png">
+                <label for="avatar_boomerang_scooby_doo_scooby.png"><img src="../../static/network/img/avatars/avatar_boomerang_scooby_doo_scooby.png" alt="avatar_boomerang_scooby_doo_scooby.png"></label>
+                
+                <input type="radio" id="avatar_bp_puppycat.png" name="avatar" value="avatar_bp_puppycat.png">
+                <label for="avatar_bp_puppycat.png"><img src="../../static/network/img/avatars/avatar_bp_puppycat.png" alt="avatar_bp_puppycat.png"></label>
+                
+                <input type="radio" id="avatar_coffee_fullcup_yellow.png" name="avatar" value="avatar_coffee_fullcup_yellow.png">
+                <label for="avatar_coffee_fullcup_yellow.png"><img src="../../static/network/img/avatars/avatar_coffee_fullcup_yellow.png" alt="avatar_coffee_fullcup_yellow.png"></label>
+                
+                <input type="radio" id="avatar_throne.png" name="avatar" value="avatar_throne.png">
+                <label for="avatar_throne.png"><img src="../../static/network/img/avatars/avatar_throne.png" alt="avatar_throne.png"></label>
+                
+                <input type="radio" id="avatar_bucket.png" name="avatar" value="avatar_bucket.png">
+                <label for="avatar_bucket.png"><img src="../../static/network/img/avatars/avatar_bucket.png" alt="avatar_bucket.png"></label>
+                
+                <input type="radio" id="avatar_boomerang_courage_courage.png" name="avatar" value="avatar_boomerang_courage_courage.png">
+                <label for="avatar_boomerang_courage_courage.png"><img src="../../static/network/img/avatars/avatar_boomerang_courage_courage.png" alt="avatar_boomerang_courage_courage.png"></label>
+                
+                <input type="radio" id="avatar_disk.png" name="avatar" value="avatar_disk.png">
+                <label for="avatar_disk.png"><img src="../../static/network/img/avatars/avatar_disk.png" alt="avatar_disk.png"></label>
+                
+                <input type="radio" id="avatar_cat_orange_purple.png" name="avatar" value="avatar_cat_orange_purple.png">
+                <label for="avatar_cat_orange_purple.png"><img src="../../static/network/img/avatars/avatar_cat_orange_purple.png" alt="avatar_cat_orange_purple.png"></label>
+                
+                <input type="radio" id="avatar_catbug.png" name="avatar" value="avatar_catbug.png">
+                <label for="avatar_catbug.png"><img src="../../static/network/img/avatars/avatar_catbug.png" alt="avatar_catbug.png"></label>
+                
+                <input type="radio" id="avatar_donutred.png" name="avatar" value="avatar_donutred.png">
+                <label for="avatar_donutred.png"><img src="../../static/network/img/avatars/avatar_donutred.png" alt="avatar_donutred.png"></label>
+                
+                <input type="radio" id="avatar_ch_3.png" name="avatar" value="avatar_ch_3.png">
+                <label for="avatar_ch_3.png"><img src="../../static/network/img/avatars/avatar_ch_3.png" alt="avatar_ch_3.png"></label>
+            
+                <input type="radio" id="avatar_coffee_bigface_yellow.png" name="avatar" value="avatar_coffee_bigface_yellow.png">
+                <label for="avatar_coffee_bigface_yellow.png"><img src="../../static/network/img/avatars/avatar_coffee_bigface_yellow.png" alt="avatar_coffee_bigface_yellow.png"></label>
+            
+                <input type="radio" id="avatar_wizard.png" name="avatar" value="avatar_wizard.png">
+                <label for="avatar_wizard.png"><img src="../../static/network/img/avatars/avatar_wizard.png" alt="avatar_wizard.png"></label>
+            
+                <input type="radio" id="avatar_ch_5.png" name="avatar" value="avatar_ch_5.png">
+                <label for="avatar_ch_5.png"><img src="../../static/network/img/avatars/avatar_ch_5.png" alt="avatar_ch_5.png"></label>
+                
+                <input type="radio" id="avatar_ds69_hamilton.png" name="avatar" value="avatar_ds69_hamilton.png">
+                <label for="avatar_ds69_hamilton.png"><img src="../../static/network/img/avatars/avatar_ds69_hamilton.png" alt="avatar_ds69_hamilton.png"></label>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Save">
+        </form>
+    </div>
+</section>
+{% endblock %}
