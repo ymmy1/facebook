@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'project5.urls'
+ROOT_URLCONF = 'final.urls'
 
 TEMPLATES = [
     {
