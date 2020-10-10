@@ -1,5 +1,6 @@
 $bg : #F0F2F5;
 $bg-darker : #D8DADF;
+$active : #1877F2;
 
 body
 {
@@ -7,15 +8,83 @@ body
     nav
     {
         background: #FFFFFF;
+        .menu-right
+        {
+            .nav-item
+            {
+                margin-right: 10px;
+                img
+                {
+                    width: 35px;
+                }
+            }
+        }
+        .form
+        {
+            display: inline-block;
+            form
+            {
+                display: flex;
+                input[type="search"], label
+                {
+                    border-top-right-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                    background: $bg;
+                    border: none;
+                    margin: 0;
+                    padding: 10px;
+                    outline: none;
+                }
+                label
+                {
+                    margin: 0;
+                    border-top-right-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                    border-bottom-left-radius: 20px;
+                    border-top-left-radius: 20px;
+                    padding: 10px 12px;
+        
+                }
+            }
+        }
+        .menu-center
+        {
+            li
+            {
+                padding: 5px 30px;
+                border-radius: 10px;
+                cursor: pointer;
+                &:hover
+                {
+                    background:rgba($bg-darker, 0.5);
+                }
+                &:first-child
+                {
+                    border-bottom-left-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                    border-bottom: 5px solid $active;
+                    path
+                    {
+                        fill: $active;
+                    }
+                }
+            }
+        }
         .btn
         {
             background: $bg;
             border-radius: 50%;
+            padding: 5px 10px !important;
             &:hover
             {
                 background: $bg-darker;
             }
         }
 
+    }
+    #index
+    {
+        display: flex;
+        justify-content: space-between;
     }
 }

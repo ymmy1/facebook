@@ -1,4 +1,4 @@
-{% extends "network/layout.html" %}
+{% extends "facebook/layout.html" %}
 
 {% block body %}
 {% if user.is_authenticated %}
@@ -20,7 +20,7 @@
                         {% for profile in users %}
                             {% if post.username_id == profile.id  %}
                                 <a href="/profile/{{ profile.id }}">
-                                    <img src="/../../static/network/img/avatars/{{ profile.avatar }}" alt="">
+                                    <img src="/../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
                                 </a>
                             {% endif %}
                         {% endfor %}
@@ -70,7 +70,7 @@
                             {% for profile in users %}
                                 {% if liked.id == profile.id  %}
                                     <a href="/profile/{{ profile.id }}">
-                                        <img width="20px" src="/../../static/network/img/avatars/{{ profile.avatar }}" alt="">
+                                        <img width="20px" src="/../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
                                     </a>
                                 {% endif %}
                             {% endfor %}

@@ -5,17 +5,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Social Network{% endblock %}</title>
+        <title>{% block title %}Facebook Ymmy{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link type="text/css" rel="stylesheet"  href="{% static 'network/styles.css' %}">
-        <link rel="icon" href="{% static 'network/img/network_ico.png' %}">
+        <link type="text/css" rel="stylesheet"  href="{% static 'facebook/styles.css' %}">
+        <link rel="icon" href="{% static 'facebook/img/facebook_ico.ico' %}">
 
         <!-- Bootstrap settings -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         
-        <script src="{% static 'network/script.js' %}"></script>
+        <script src="{% static 'facebook/script.js' %}"></script>
         <script src="https://kit.fontawesome.com/09bd1a8fdf.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -27,15 +27,20 @@
             </button>
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto menu-left">
                     <li class="nav-item">
-                        <a class="navbar-brand nav-link" href="{% url 'index' %}">Facebook</a>
-                        <input type="search">
+                        <a class="navbar-brand nav-link" href="{% url 'index' %}"><img src="{% static 'facebook/img/facebook_ico.png' %}" alt=""></a>
+                        <div class="form">
+                            <form>
+                                <label for="search"><i class="fas fa-search"></i></label>
+                                <input autocomplete="off" name="search" type="search" placeholder="Search Facebook">
+                            </form>
+                        </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav m-auto">
+                <ul class="navbar-nav m-auto menu-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="l9j0dhe7"><svg viewBox="0 0 28 28" class="a8c37x1j ms05siws hwsy1cff b7h9ocf4 aaxa7vy3" height="28" width="28"><path d="M25.825 12.29C25.824 12.289 25.823 12.288 25.821 12.286L15.027 2.937C14.752 2.675 14.392 2.527 13.989 2.521 13.608 2.527 13.248 2.675 13.001 2.912L2.175 12.29C1.756 12.658 1.629 13.245 1.868 13.759 2.079 14.215 2.567 14.479 3.069 14.479L5 14.479 5 23.729C5 24.695 5.784 25.479 6.75 25.479L11 25.479C11.552 25.479 12 25.031 12 24.479L12 18.309C12 18.126 12.148 17.979 12.33 17.979L15.67 17.979C15.852 17.979 16 18.126 16 18.309L16 24.479C16 25.031 16.448 25.479 17 25.479L21.25 25.479C22.217 25.479 23 24.695 23 23.729L23 14.479 24.931 14.479C25.433 14.479 25.921 14.215 26.132 13.759 26.371 13.245 26.244 12.658 25.825 12.29"></path></svg></span></a>
+                        <a class="nav-link" href="{% url 'index' %}"><span class="l9j0dhe7"><svg viewBox="0 0 28 28" class="a8c37x1j ms05siws hwsy1cff b7h9ocf4 aaxa7vy3" height="28" width="28"><path d="M25.825 12.29C25.824 12.289 25.823 12.288 25.821 12.286L15.027 2.937C14.752 2.675 14.392 2.527 13.989 2.521 13.608 2.527 13.248 2.675 13.001 2.912L2.175 12.29C1.756 12.658 1.629 13.245 1.868 13.759 2.079 14.215 2.567 14.479 3.069 14.479L5 14.479 5 23.729C5 24.695 5.784 25.479 6.75 25.479L11 25.479C11.552 25.479 12 25.031 12 24.479L12 18.309C12 18.126 12.148 17.979 12.33 17.979L15.67 17.979C15.852 17.979 16 18.126 16 18.309L16 24.479C16 25.031 16.448 25.479 17 25.479L21.25 25.479C22.217 25.479 23 24.695 23 23.729L23 14.479 24.931 14.479C25.433 14.479 25.921 14.215 26.132 13.759 26.371 13.245 26.244 12.658 25.825 12.29"></path></svg></span></a>
                     </li>
                     <li class="nav-item">
                       <a id="all_posts"class="nav-link" href="#"><span class="l9j0dhe7"><svg viewBox="0 0 28 28" class="a8c37x1j ms05siws hwsy1cff b7h9ocf4 em6zcovv" height="28" width="28"><path d="M5.75 4A.75.75 0 015 3.25v-1a.75.75 0 011.5 0v1a.75.75 0 01-.75.75zm.75 11.251a.75.75 0 01-1.5 0V8.749a.75.75 0 011.5 0v6.502zM5.75 28a.75.75 0 01-.75-.75v-6.5a.75.75 0 011.5 0v6.5a.75.75 0 01-.75.75zm15.737-16.234L23.214 6.5H9.5v11h13.715l-1.728-5.266a.749.749 0 010-.468zM4.75 5h19.5a.75.75 0 01.713.986l-1.974 6.006 1.974 6.023a.75.75 0 01-.713.985H4.75a.75.75 0 010-1.502L8 17.5v-11H4.75a.749.749 0 110-1.5z"></path></svg><!--$--><!--/$--></span></a>
@@ -50,24 +55,29 @@
                         <a class="nav-link" href="#"><span class="l9j0dhe7"><svg viewBox="0 0 28 28" class="a8c37x1j ms05siws hwsy1cff b7h9ocf4 em6zcovv" height="28" width="28"><path d="M25.5 14C25.5 7.649 20.351 2.5 14 2.5 7.649 2.5 2.5 7.649 2.5 14 2.5 20.351 7.649 25.5 14 25.5 20.351 25.5 25.5 20.351 25.5 14ZM27 14C27 21.18 21.18 27 14 27 6.82 27 1 21.18 1 14 1 6.82 6.82 1 14 1 21.18 1 27 6.82 27 14ZM7.479 14 7.631 14C7.933 14 8.102 14.338 7.934 14.591 7.334 15.491 6.983 16.568 6.983 17.724L6.983 18.221C6.983 18.342 6.99 18.461 7.004 18.578 7.03 18.802 6.862 19 6.637 19L6.123 19C5.228 19 4.5 18.25 4.5 17.327 4.5 15.492 5.727 14 7.479 14ZM20.521 14C22.274 14 23.5 15.492 23.5 17.327 23.5 18.25 22.772 19 21.878 19L21.364 19C21.139 19 20.97 18.802 20.997 18.578 21.01 18.461 21.017 18.342 21.017 18.221L21.017 17.724C21.017 16.568 20.667 15.491 20.067 14.591 19.899 14.338 20.067 14 20.369 14L20.521 14ZM8.25 13C7.147 13 6.25 11.991 6.25 10.75 6.25 9.384 7.035 8.5 8.25 8.5 9.465 8.5 10.25 9.384 10.25 10.75 10.25 11.991 9.353 13 8.25 13ZM19.75 13C18.647 13 17.75 11.991 17.75 10.75 17.75 9.384 18.535 8.5 19.75 8.5 20.965 8.5 21.75 9.384 21.75 10.75 21.75 11.991 20.853 13 19.75 13ZM15.172 13.5C17.558 13.5 19.5 15.395 19.5 17.724L19.5 18.221C19.5 19.202 18.683 20 17.677 20L10.323 20C9.317 20 8.5 19.202 8.5 18.221L8.5 17.724C8.5 15.395 10.441 13.5 12.828 13.5L15.172 13.5ZM16.75 9C16.75 10.655 15.517 12 14 12 12.484 12 11.25 10.655 11.25 9 11.25 7.15 12.304 6 14 6 15.697 6 16.75 7.15 16.75 9Z"></path></svg><!--$--><span class="pmk7jnqg h5g66v2i nezaghv5"><!--$--><!--/$--></span><!--/$--></span></a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto menu-right">
                     <li class="nav-item">
-                        <a href="/profile/{{ profile.id }}">
-                            <img width="40px" src="/../../static/network/img/avatars/{{ user.avatar }}" alt="">
+                        <a href="/profile/{{ user.id }}">
+                            <img id="profile_avatar" src="{% static 'facebook/img/avatars/' %}{{ user.avatar }}" alt="">
                             <strong>{{ user.username }}</strong>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" class="add btn" href="#">Add</a>
+                        <a class="nav-link add btn" href="#"><i class="fas fa-plus"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" class="messanger btn" href="#">Messenger</a>
+                        <a class="nav-link messanger btn" href="#"><i class="fab fa-facebook-messenger"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" class="notifications btn" href="#">Notifications</a>
+                        <a class="nav-link notifications btn" href="#"><i class="fas fa-bell"></i></a>
                     </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" class="account btn" href="#">Account</a>
+                        <button class="nav-link account btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-caret-down"></i></button>
+                        <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{% url 'edit_profile' %}"><i class="btn fas fa-cog"></i>Edit Profile</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}"><i class="btn fas fa-sign-out-alt"></i>  Log Out</a>
+                          </div>
                     </li>
                 </ul>
             </div>
