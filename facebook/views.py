@@ -36,7 +36,7 @@ def index(request):
     page_obj = paginator.get_page(page_number)
 
     
-    return render(request, "network/index.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users, "topuser": topuser})
+    return render(request, "facebook/index.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users, "topuser": topuser})
 
 @csrf_exempt
 @login_required
@@ -72,7 +72,7 @@ def following_posts(request):
     page_obj = paginator.get_page(page_number)
 
     
-    return render(request, "network/following_posts.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users, 'topuser': topuser})
+    return render(request, "facebook/following_posts.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users, 'topuser': topuser})
 
 def login_view(request):
     if request.method == "POST":
@@ -87,11 +87,11 @@ def login_view(request):
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
-            return render(request, "network/login.html", {
+            return render(request, "facebook/login.html", {
                 "message": "Invalid username and/or password."
             })
     else:
-        return render(request, "network/login.html")
+        return render(request, "facebook/login.html")
 
 
 def logout_view(request):
@@ -109,7 +109,7 @@ def register(request):
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
         if password != confirmation:
-            return render(request, "network/register.html", {
+            return render(request, "facebook/register.html", {
                 "message": "Passwords must match."
             })
 
@@ -119,13 +119,13 @@ def register(request):
             user.avatar = avatar_id
             user.save()
         except IntegrityError:
-            return render(request, "network/register.html", {
+            return render(request, "facebook/register.html", {
                 "message": "Username already taken."
             })
         login(request, user)
         return HttpResponseRedirect(reverse("index"))
     else:
-        return render(request, "network/register.html")
+        return render(request, "facebook/register.html")
 
 
 @csrf_exempt
@@ -173,7 +173,7 @@ def profile(request,profile_id):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return  render(request, "network/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users, 'topuser': topuser})
+    return  render(request, "facebook/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users, 'topuser': topuser})
 
 @csrf_exempt
 @login_required
@@ -264,7 +264,7 @@ def unfollow_user(request):
 def edit_profile(request):
 
     if request.method != "POST":
-        return render(request, "network/edit_profile.html")
+        return render(request, "facebook/edit_profile.html")
     try:
         user = User.objects.get(username=request.user)
         avatar_id = request.POST["avatar"]

@@ -52,19 +52,22 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a href="/profile/{{ profile.id }}">
+                            <img width="40px" src="/../../static/network/img/avatars/{{ user.avatar }}" alt="">
+                            <strong>{{ user.username }}</strong>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Add</a>
+                        <a class="nav-link" class="add btn" href="#">Add</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Messenger</a>
+                        <a class="nav-link" class="messanger btn" href="#">Messenger</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Notifications</a>
+                        <a class="nav-link" class="notifications btn" href="#">Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Account</a>
+                        <a class="nav-link" class="account btn" href="#">Account</a>
                     </li>
                 </ul>
             </div>

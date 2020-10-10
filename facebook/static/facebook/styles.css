@@ -1,0 +1,17 @@
+body {
+  background: #F0F2F5;
+}
+
+body nav {
+  background: #FFFFFF;
+}
+
+body nav .btn {
+  background: #F0F2F5;
+  border-radius: 50%;
+}
+
+body nav .btn:hover {
+  background: #D8DADF;
+}
+/*# sourceMappingURL=styles.css.map */

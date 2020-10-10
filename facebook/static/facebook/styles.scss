@@ -1,0 +1,21 @@
+$bg : #F0F2F5;
+$bg-darker : #D8DADF;
+
+body
+{
+    background: $bg;
+    nav
+    {
+        background: #FFFFFF;
+        .btn
+        {
+            background: $bg;
+            border-radius: 50%;
+            &:hover
+            {
+                background: $bg-darker;
+            }
+        }
+
+    }
+}
