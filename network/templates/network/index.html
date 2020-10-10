@@ -1,72 +1,9 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
+{% if user.is_authenticated %}
 <section id="index">
-    {% if user.is_authenticated %}
-    <div class="profile-card profile">
-        <h2>Profile</h2>
-        <img id="profile_avatar" src="../../static/network/img/avatars/{{ user.avatar }}" alt=""> <br>
-        <a href="/profile/{{ user.id }}"> {{ user.username }} </a> <br>
-        <p class="email">{{ user.email }}</p> <br>
-        <p class="count">Followers&nbsp;:&nbsp;{{ user.followers.count }} | Following&nbsp;:&nbsp;{{ user.following.count }} | Likes&nbsp;:&nbsp;{{ user.like_count }}</p><br>
-    </div>
-    {% else %}
-    <div id="login" class="login">
-        <h2>Have an Account? Login!</h2>
-        {% if message %}
-        <div>{{ message }}</div>
-        {% endif %}
-        <form action="{% url 'login' %}" method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <input autofocus class="form-control" type="text" name="username" placeholder="Username">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="password" name="password" placeholder="Password">
-            </div>
-            <input class="btn btn-primary" type="submit" value="Login">
-        </form>
-        Don't have an account? <a href="{% url 'register' %}">Register here.</a>
-    </div>
-    {% endif %}
-    <div class="card-container">
-        {% if user.is_authenticated %}
-        <div class="profile-card">
-            <h2>Profile</h2>
-            <img id="profile_avatar" src="../../static/network/img/avatars/{{ user.avatar }}" alt=""> <br>
-            <a href="/profile/{{ user.id }}"> {{ user.username }} </a> <br>
-            <p class="email">{{ user.email }}</p> <br>
-            <p class="count">Followers&nbsp;:&nbsp;{{ user.followers.count }} | Following&nbsp;:&nbsp;{{ user.following.count }} | Likes&nbsp;:&nbsp;{{ user.like_count }}</p><br>
-        </div>
-        {% else %}
-        <div id="login">
-            <h2>Have an Account? Login!</h2>
-            {% if message %}
-            <div>{{ message }}</div>
-            {% endif %}
-            <form action="{% url 'login' %}" method="post">
-                {% csrf_token %}
-                <div class="form-group">
-                    <input autofocus class="form-control" type="text" name="username" placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="password" name="password" placeholder="Password">
-                </div>
-                <input class="btn btn-primary" type="submit" value="Login">
-            </form>
-            Don't have an account? <a href="{% url 'register' %}">Register here.</a>
-        </div>
-        {% endif %}
-        <div class="profile-card leader2">
-            
-            <h2>THE MOST LIKES 🏆</h2>
-            <img id="profile_avatar" src="/../../static/network/img/avatars/{{ topuser.avatar }}" alt=""> <br>
-            <a href="/profile/{{ topuser.id }}"> {{ topuser.username }} </a> <br>
-            <p class="email">{{ topuser.email }}</p> <br>
-            <p class="count">Followers&nbsp;:&nbsp;{{ topuser.followers.count }} | Following&nbsp;:&nbsp;{{ topuser.following.count }} | Likes&nbsp;:&nbsp;{{ topuser.like_count }}</p><br>
-        </div>
-    </div>
-    
+    <div>Buttons Shortcuts</div>
     <div class="posts_container">
         <div class="posts">
             <h2>All Posts</h2>
@@ -173,13 +110,11 @@
             </nav>
         </div>
     </div>
-    <div class="profile-card leader">
-
-        <h2>THE MOST LIKES 🏆</h2>
-        <img id="profile_avatar" src="../../static/network/img/avatars/{{ topuser.avatar }}" alt=""> <br>
-        <a href="/profile/{{ topuser.id }}"> {{ topuser.username }} </a> <br>
-        <p class="email">{{ topuser.email }}</p> <br>
-        <p class="count">Followers&nbsp;:&nbsp;{{ topuser.followers.count }} | Following&nbsp;:&nbsp;{{ topuser.following.count }} | Likes&nbsp;:&nbsp;{{ topuser.like_count }}</p><br>
-    </div>
+    <div>Pages, Birtdays Contacts(online)</div>
 </section>
-    {% endblock %}
+{% else %}
+<section id="login">
+    Login Page 
+</section>
+{% endif %}
+{% endblock %}
