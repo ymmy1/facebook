@@ -14,7 +14,7 @@
         <div class="profile-card">
             <h2>Profile</h2>
             <img id="profile_avatar" src="../../static/facebook/img/avatars/{{ user.avatar }}" alt="" style="display: none;">
-            <img src="../../static/facebook/img/avatars/{{ profile.avatar }}" alt=""> <br>
+            <img src="{{ profile.avatar }}" alt=""> <br>
             <a href="/profile/{{ profile.id }}"> {{ profile.username }} </a> <br>
             <p class="email">{{ profile.email }}</p> <br>
             <p class="count">Followers&nbsp;:&nbsp;{{ profile.followers.count }} | Following&nbsp;:&nbsp;{{ profile.following.count }} | Likes&nbsp;:&nbsp;{{ profile.like_count }}</p><br>

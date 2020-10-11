@@ -81,4 +81,154 @@ body #index {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
+body footer {
+  background: #ffffff;
+  height: 23vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+body footer #pageFooter {
+  padding: 50px;
+}
+
+body footer #pageFooter hr {
+  width: 44%;
+}
+
+body footer #pageFooter ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+}
+
+body footer #pageFooter ul li {
+  list-style: none;
+  margin-right: 20px;
+}
+
+body footer #pageFooter ul li a {
+  color: #8a8d91;
+  font-size: 0.8em;
+}
+
+body footer #pageFooter ul li:last-child {
+  margin-right: 0px;
+}
+
+body #login {
+  height: 77vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body #login .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 70px;
+}
+
+body #login .main .leftside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 150px;
+  margin-bottom: 80px;
+}
+
+body #login .main .leftside .img {
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+body #login .main .leftside .img img {
+  width: 100%;
+}
+
+body #login .main .leftside .text p {
+  font-size: 28px;
+  line-height: 1em;
+}
+
+body #login .main .rightside {
+  text-align: center;
+}
+
+body #login .main .rightside .form {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+body #login .main .rightside .form .btn {
+  font-weight: bold;
+}
+
+body #login .main .rightside .form form input[type="text"], body #login .main .rightside .form form input[type="password"] {
+  padding: 20px 22px;
+  font-size: 17px;
+}
+
+body #login .main .rightside .form form input[type="Submit"] {
+  display: block;
+  width: 100%;
+  font-size: 1.4em;
+}
+
+body #login .main .rightside .form .forgot_password {
+  margin-top: 15px;
+  display: block;
+  font-size: 0.9em;
+}
+
+body #login .main .rightside .form .btn-success {
+  padding: 10px 20px;
+  background: #42B72A;
+  font-size: 1.1em;
+}
+
+body #login .main .rightside .form .btn-success:hover {
+  background: #36A420;
+}
+
+body #login .main .rightside .Createpage {
+  margin-top: 28px;
+  display: block;
+}
+
+body #login .main .rightside .Createpage a {
+  color: #000000;
+}
 /*# sourceMappingURL=styles.css.map */

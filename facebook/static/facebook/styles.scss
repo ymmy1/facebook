@@ -87,4 +87,135 @@ body
         display: flex;
         justify-content: space-between;
     }
+    footer
+    {
+        background: #ffffff;
+        height: 23vh;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        #pageFooter
+        {
+            padding: 50px;
+            hr
+            {
+                width: 44%;
+            }
+            ul
+            {
+                display: flex;
+                justify-content: center;
+                padding: 0;
+                li
+                {
+                    list-style: none;
+                    margin-right: 20px;
+                    a
+                    {
+                        color: #8a8d91;
+                        font-size: 0.8em;
+                    }
+                    &:last-child
+                    {
+                        margin-right: 0px;
+                    }
+                }
+            }
+        }
+    }
+    #login
+    {
+        height: 77vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .main
+        {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            margin-bottom: 70px;
+            .leftside
+            {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                margin-right: 150px;
+                margin-bottom: 80px;
+                .img
+                {
+                    width: 250px;
+                    margin-bottom: 20px;
+                    img
+                    {
+                        width: 100%;
+                    }
+                }
+                .text
+                {
+                    p
+                    {
+                        font-size: 28px;
+                        line-height: 1em;
+                    }
+                }
+            }
+            .rightside
+            {
+                text-align: center;
+                .form
+                {
+                    background: #ffffff;
+                    border-radius: 10px;
+                    padding: 20px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+                    width: 400px;
+                    .btn
+                    {
+                        font-weight: bold;
+                    }
+                    form
+                    {
+                        input[type="text"], input[type="password"]
+                        {
+                            padding: 20px 22px;
+                            font-size: 17px;
+                        }
+                        input[type="Submit"]
+                        {
+                            display: block;
+                            width: 100%;
+                            font-size: 1.4em;
+                        }
+                    }
+                    .forgot_password
+                    {
+                        margin-top: 15px;
+                        display: block;
+                        font-size: 0.9em;
+                    }
+                    .btn-success
+                    {
+                        padding: 10px 20px;
+                        background: #42B72A;
+                        font-size: 1.1em;
+                        &:hover
+                        {
+                            background: #36A420;
+                        }
+                    }
+                }
+                .Createpage
+                {
+                    margin-top: 28px;
+                    display: block;
+                    a
+                    {
+                        color: #000000;
+                    }
+                }
+            }
+        }
+    }
 }

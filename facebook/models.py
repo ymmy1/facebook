@@ -3,7 +3,7 @@ from django.db import models
 
 
 class User(AbstractUser):
-    avatar = models.TextField(default="avatar_bucket.png")
+    avatar = models.TextField(default="../../static/facebook/img/avatars/default.jpg")
     like_count = models.PositiveSmallIntegerField(default=0, blank=True, null=True)
     followers = models.ManyToManyField("User", related_name="followers_id")
     following = models.ManyToManyField("User", related_name="following_id")

@@ -20,7 +20,7 @@
                         {% for profile in users %}
                             {% if post.username_id == profile.id  %}
                                 <a href="/profile/{{ profile.id }}">
-                                    <img src="/../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
+                                    <img src="{{ profile.avatar }}" alt="">
                                 </a>
                             {% endif %}
                         {% endfor %}
@@ -70,7 +70,7 @@
                             {% for profile in users %}
                                 {% if liked.id == profile.id  %}
                                     <a href="/profile/{{ profile.id }}">
-                                        <img width="20px" src="/../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
+                                        <img width="20px" src="{{ profile.avatar }}" alt="">
                                     </a>
                                 {% endif %}
                             {% endfor %}
@@ -114,7 +114,34 @@
 </section>
 {% else %}
 <section id="login">
-    Login Page 
+    <div class="main">
+        <div class="leftside">
+            <div class="img">
+                <img  src="/../../static/facebook/img/facebook.png" alt="facebook">
+            </div>
+            <div class="text">
+                <p>Connect with friends and the world<br> around you on Facebook.</p>
+            </div>
+        </div>
+        <div class="rightside">
+            <div class="form">
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input autofocus class="form-control" type="text" name="username" placeholder="Email or Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="Password">
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Log In">
+                </form>
+                <a class="forgot_password" href="#">Forgot Password?</a>
+                <hr>
+                <a class="btn btn-success" href="{% url 'register' %}">Create New Account</a>
+            </div>
+            <span class="Createpage"><a href="#"><strong>Create a Page</strong></a>for a celebrity, band or business.</span>
+        </div>
+    </div> 
 </section>
 {% endif %}
 {% endblock %}

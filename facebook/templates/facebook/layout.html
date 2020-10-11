@@ -58,7 +58,7 @@
                 <ul class="navbar-nav ml-auto menu-right">
                     <li class="nav-item">
                         <a href="/profile/{{ user.id }}">
-                            <img id="profile_avatar" src="{% static 'facebook/img/avatars/' %}{{ user.avatar }}" alt="">
+                            <img id="profile_avatar" src="{{ user.avatar }}" alt="">
                             <strong>{{ user.username }}</strong>
                         </a>
                     </li>
@@ -103,6 +103,7 @@
                     <li><a href="#">हिन्दी</a></li>
                     <li><a href="#">日本語</a></li>
                 </ul>
+                <hr>
             </div>
         </footer>
 </html>
