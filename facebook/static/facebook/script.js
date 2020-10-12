@@ -13,9 +13,36 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       document.querySelector('#new_post').addEventListener('click', () => new_post());
     }
+    if (document.querySelector('#register_btn'))
+    {
+      document.querySelector('#register_btn').addEventListener('click', () => register_popup());
+    }
+    
   
   });
   
+function register_popup()
+{
+  var tab = document.querySelector("#registration-tab")
+  tab.style.display = "flex";
+
+  // Registering close button
+  
+  document.querySelector('.close-btn').addEventListener("click", function(){ tab.style.display = "none"; });
+
+  $(document).mouseup(function(e) 
+  {
+    var container = $(".box");
+    
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+      tab.style.display = "none";
+      
+    }
+  });
+}
+
 
 function new_post()
 {

@@ -5,6 +5,7 @@ $active : #1877F2;
 body
 {
     background: $bg;
+    position: relative;
     nav
     {
         background: #FFFFFF;
@@ -130,6 +131,7 @@ body
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 5;
         .main
         {
             display: flex;
@@ -215,6 +217,36 @@ body
                         color: #000000;
                     }
                 }
+            }
+        }
+    }
+    #registration-tab
+    {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(#ffffff, 0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        .box
+        {
+            position: relative;
+            width: 400px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+                    
+            .close-btn
+            {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                cursor: pointer;
+                font-size: 1.5em;
+                color: #606771;
             }
         }
     }
