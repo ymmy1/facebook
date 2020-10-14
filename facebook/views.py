@@ -14,7 +14,6 @@ from .models import User, Post
 def index(request):
     posts = Post.objects.all().order_by("-timestamp").all()
     users = User.objects.all()
-    topuser = User.objects.all().order_by("-like_count").first()
     # liked posts get
     liked = Post.objects.filter(
             liked_user_count=request.user.id
@@ -22,13 +21,6 @@ def index(request):
     liked_posts = []
     for i in range(len(liked)):
         liked_posts.append(liked[i]["id"])
-    # Following users get
-    following = User.objects.filter(
-            followers=request.user.id
-        ).all().values()
-    following_users = []
-    for i in range(len(following)):
-        following_users.append(following[i]["id"])
     # Show 10 posts per page.
     paginator = Paginator(posts, 10) 
 
@@ -36,13 +28,12 @@ def index(request):
     page_obj = paginator.get_page(page_number)
 
     
-    return render(request, "facebook/index.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users, "topuser": topuser})
+    return render(request, "facebook/index.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts})
 
 @csrf_exempt
 @login_required
 def following_posts(request):
     users = User.objects.all()
-    topuser = User.objects.all().order_by("-like_count").first()
     # liked posts get
     liked = Post.objects.filter(
             liked_user_count=request.user.id
@@ -50,21 +41,7 @@ def following_posts(request):
     liked_posts = []
     for i in range(len(liked)):
         liked_posts.append(liked[i]["id"])
-    # Following users get
-    following = User.objects.filter(
-            followers=request.user.id
-        ).all().values()
-    following_users = []
-    for i in range(len(following)):
-        following_users.append(following[i]["id"])
-
-    if following_users:
-
-        posts = Post.objects.all().filter(
-                username_id__in=following_users
-            ).order_by("-timestamp").all()
-    else:
-        posts = []
+    posts = []
     # Show 5 posts per page.
     paginator = Paginator(posts, 5) 
 
@@ -72,7 +49,7 @@ def following_posts(request):
     page_obj = paginator.get_page(page_number)
 
     
-    return render(request, "facebook/following_posts.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users, 'topuser': topuser})
+    return render(request, "facebook/following_posts.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users})
 
 def login_view(request):
     if request.method == "POST":
@@ -140,7 +117,6 @@ def profile(request,profile_id):
             id=profile_id
             )
     users = User.objects.all()
-    topuser = User.objects.all().order_by("-like_count").first()
     # liked posts get
     liked = Post.objects.filter(
             liked_user_count=request.user.id
@@ -148,14 +124,6 @@ def profile(request,profile_id):
     liked_posts = []
     for i in range(len(liked)):
         liked_posts.append(liked[i]["id"])
-    # Following users get
-    following = User.objects.filter(
-            followers=request.user.id
-        ).all().values()
-    following_users = []
-    for i in range(len(following)):
-        following_users.append(following[i]["id"])
-
     posts = Post.objects.all().filter(
             username_id=profile_id
         ).order_by("-timestamp").all()
@@ -165,7 +133,7 @@ def profile(request,profile_id):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return  render(request, "facebook/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users, 'topuser': topuser})
+    return  render(request, "facebook/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users})
 
 @csrf_exempt
 @login_required

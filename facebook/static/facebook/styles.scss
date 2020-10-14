@@ -6,6 +6,7 @@ body
 {
     background: $bg;
     position: relative;
+    padding-bottom: 23vh; /* height of your footer */
     nav
     {
         background: #FFFFFF;
@@ -92,8 +93,7 @@ body
     {
         background: #ffffff;
         height: 23vh;
-        position: fixed;
-        left: 0;
+        position: absolute;
         bottom: 0;
         width: 100%;
         #pageFooter
@@ -222,6 +222,7 @@ body
     }
     #registration-tab
     {
+        z-index: 100;
         position: absolute;
         top: 0;
         width: 100%;
@@ -233,7 +234,7 @@ body
         .box
         {
             position: relative;
-            width: 400px;
+            width: 420px;
             background: #fff;
             padding: 10px;
             border-radius: 10px;
@@ -247,6 +248,92 @@ body
                 cursor: pointer;
                 font-size: 1.5em;
                 color: #606771;
+            }
+            .form
+            {
+                margin-top: 5px;
+                h2
+                {
+                    margin: 0;
+                }
+                form
+                {
+                    font-size: 0.8em;
+                    .bg-grey
+                    {
+                        input
+                        {
+                            background: #F5F6F7;
+                        }
+                    }
+                    .twoinone
+                    {
+                        display: flex;
+                        input:first-child
+                        {
+                            margin-right: 10px;
+                        }
+                    }
+                    .birthday, .gender
+                    {
+                        span
+                        {
+                            display: block;
+                        }
+                        .select-area, .radio-area
+                        {
+                            display: flex;
+                            .selection
+                            {
+                                display: flex;
+                                flex-direction: row-reverse;
+                                align-items: center;
+                                justify-content: space-between;
+                                font-size: 1.2em;
+                                margin-right: 10px;
+                                border: 1px solid #CED4DA;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                width: -webkit-fill-available;
+                                padding: 5px;
+                                label
+                                {
+                                    margin: 0 5px;
+                                }
+                                &:nth-child(5)
+                                {
+                                    margin-right: 0px;
+                                }
+                            }
+                            select
+                            {
+                                font-size: 1.2em;
+                                margin-right: 10px;
+                                border: 1px solid #CED4DA;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                padding: 5px 10px;
+                                width: -webkit-fill-available;
+                                &:last-child
+                                {
+                                    margin-right: 0px;
+                                }
+                            }
+                        }
+                    }
+                    .policies
+                    {
+                        font-size: 0.85em;
+                    }
+                    .btn-success
+                    {
+                        display: block;
+                        font-weight: bold;
+                        margin: auto;
+                        font-size: 1.5em;
+                        padding: 3px 60px;
+                    }
+                }
             }
         }
     }

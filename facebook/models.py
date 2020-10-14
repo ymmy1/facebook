@@ -3,10 +3,23 @@ from django.db import models
 
 
 class User(AbstractUser):
+    Birthdate_Day = models.PositiveSmallIntegerField(default=1,blank=False, null=False)
+    Birthdate_Month = models.PositiveSmallIntegerField(default=1,blank=False, null=False)
+    Birthdate_Year = models.PositiveSmallIntegerField(default=1,blank=False, null=False)
+    Gender = models.TextField(blank=False)
+    
+    
     avatar = models.TextField(default="../../static/facebook/img/avatars/default.jpg")
-    like_count = models.PositiveSmallIntegerField(default=0, blank=True, null=True)
-    followers = models.ManyToManyField("User", related_name="followers_id")
-    following = models.ManyToManyField("User", related_name="following_id")
+    cover = models.TextField(default="../../static/facebook/img/avatars/green-facebook-cover-9.jpg")
+    
+    work = models.TextField(blank=True)
+    school = models.TextField(blank=True)
+    from_location = models.TextField(blank=True)
+    
+    requesting = models.ManyToManyField("User", related_name="requesting_id")
+    friends = models.ManyToManyField("User", related_name="friends_id")
+
+
     pass
 
 
