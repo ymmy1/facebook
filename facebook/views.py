@@ -105,14 +105,6 @@ def register(request):
         email = request.POST["email"]
         avatar_id = request.POST["avatar"]
 
-        # Ensure password matches confirmation
-        password = request.POST["password"]
-        confirmation = request.POST["confirmation"]
-        if password != confirmation:
-            return render(request, "facebook/register.html", {
-                "message": "Passwords must match."
-            })
-
         # Attempt to create new user
         try:
             user = User.objects.create_user(username, email, password)
