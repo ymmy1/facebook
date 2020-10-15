@@ -2,30 +2,149 @@
 
 {% block body %}
 <section id="profile">
-    <div class="profile-card profile">
+    <div class="top">
+        <div class="cover">
+            <img src="{{ profile.cover }}" alt="">
+            {% if profile.id == user.id %}
+            <div class="change_cover">
+                <i class="fas fa-camera"></i> 
+                <span>Edit Cover Photo</span>
+            </div>
+            {% endif %}
+        </div>
+        <div class="avatar">
+            <img src="{{ profile.avatar }}" alt="">
+            {% if profile.id == user.id %}
+            <div class="change_cover">
+                <i class="fas fa-camera"></i> 
+            </div>
+            {% endif %}
+        </div>
+        {% if profile.id == user.id %}
+        <div class="add_bio"></div>
+            <a href="/edit_profile">Add Bio</a>
+        {% endif %}
+        <hr>
+        <div class="middle-nav">
+            <div class="right-side">
+                <ul>
+                    <li>
+                        <a href="#">
+                            Timeline
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Photos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            More <i class="fas fa-caret-down"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="left-side">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-pen"></i> Edit Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="profile-card profile">
         <h2>Profile</h2>
         <img id="profile_avatar" src="../../static/facebook/img/avatars/{{ user.avatar }}" alt="" style="display: none;">
         <img src="../../static/facebook/img/avatars/{{ profile.avatar }}" alt=""> <br>
         <a href="/profile/{{ profile.id }}"> {{ profile.username }} </a> <br>
-        <p class="email">{{ profile.email }}</p> <br>
-        <p class="count">Followers&nbsp;:&nbsp;{{ profile.followers.count }} | Following&nbsp;:&nbsp;{{ profile.following.count }} | Likes&nbsp;:&nbsp;{{ profile.like_count }}</p><br>
+    </div> -->
+    <div class="bottom">
+
     </div>
-    <div class="card-container">
-        <div class="profile-card">
-            <h2>Profile</h2>
-            <img id="profile_avatar" src="../../static/facebook/img/avatars/{{ user.avatar }}" alt="" style="display: none;">
-            <img src="{{ profile.avatar }}" alt=""> <br>
-            <a href="/profile/{{ profile.id }}"> {{ profile.username }} </a> <br>
-            <p class="email">{{ profile.email }}</p> <br>
-            <p class="count">Followers&nbsp;:&nbsp;{{ profile.followers.count }} | Following&nbsp;:&nbsp;{{ profile.following.count }} | Likes&nbsp;:&nbsp;{{ profile.like_count }}</p><br>
+    <div class="info-container">
+        <div class="intro">
+            <h3>Intro</h3>
+            <ul>
+                <li>
+                    <i class="fas fa-briefcase"></i> {{ profile.work }}
+                </li>
+                <li>
+                    <i class="fas fa-graduation-cap"></i> {{ profile.school }}
+                </li>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i> {{ profile.from_location }}
+                </li>
+                <li>
+                    <i class="fas fa-clock"></i> {{ profile.date_joined }}
+                </li>
+                <li>
+                    <i class="fas fa-birthday-cake"></i> {{ profile.Birthdate_Day }}/{{ profile.Birthdate_Month }}/{{ profile.Birthdate_Year }}
+                </li>
+                {% if profile.gender == Male %}
+                <li>
+                    <i class="fas fa-mars"></i> {{ profile.Gender }}
+                </li>
+                {% elif profile.gender == Male %}
+                <li>
+                    <i class="fas fa-venus"></i> {{ profile.Gender }}
+                </li>
+                {% else %}
+                    <li>
+                        <i class="fas fa-venus-mars"></i> {{ profile.Gender }}
+                    </li>
+                {% endif %}
+            </ul>
         </div>
-        <div class="profile-card leader2">
-            
-            <h2>THE MOST LIKES 🏆</h2>
-            <img id="profile_avatar" src="../../static/facebook/img/avatars/{{ topuser.avatar }}" alt=""> <br>
-            <a href="/profile/{{ topuser.id }}"> {{ topuser.username }} </a> <br>
-            <p class="email">{{ topuser.email }}</p> <br>
-            <p class="count">Followers&nbsp;:&nbsp;{{ topuser.followers.count }} | Following&nbsp;:&nbsp;{{ topuser.following.count }} | Likes&nbsp;:&nbsp;{{ topuser.like_count }}</p><br>
+        <div class="friends">
+            <div class="top">
+                <div class="number">
+                    <h3>Friends</h3>
+                </div>
+                <a href="#">See All</a>
+            </div>
+            <div class="profiles">
+                <div class="friend-card">
+                    <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
+                    <span>Yri Morozov</span>
+                </div>
+                <div class="friend-card">
+                    <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
+                    <span>Yri Morozov</span>
+                </div>
+                <div class="friend-card">
+                    <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
+                    <span>Yri Morozov</span>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="posts_container">
@@ -46,11 +165,6 @@
                         {% if user.is_authenticated %}
                             {% if post.username_id == user.id %}
                             {% else %}
-                                {% if post.username_id in following_users %}
-                                    <button class="unfollow_button" data-page = "{{ post.username_id }}"><i class="fas fa-user-check"></i></button>
-                                {% else %}
-                                    <button class="follow_button" data-page = "{{ post.username_id }}"><i class="fas fa-user-plus"></i></button>
-                                {% endif %}
                             {% endif %}
                         {% endif %}
                     </div>
@@ -127,14 +241,6 @@
                 </ul>
             </nav>
         </div>
-    </div>
-    <div class="profile-card leader">
-
-        <h2>THE MOST LIKES 🏆</h2>
-        <img id="profile_avatar" src="../../static/facebook/img/avatars/{{ topuser.avatar }}" alt=""> <br>
-        <a href="/profile/{{ topuser.id }}"> {{ topuser.username }} </a> <br>
-        <p class="email">{{ topuser.email }}</p> <br>
-        <p class="count">Followers : {{ topuser.followers.count }} | Following : {{ topuser.following.count }} | Likes : {{ topuser.like_count }}</p><br>
     </div>
 </section>
 {% endblock %}

@@ -10,6 +10,10 @@ body
     nav
     {
         background: #FFFFFF;
+        a:hover
+        {
+            text-decoration: none;
+        }
         .menu-right
         {
             .nav-item
@@ -70,6 +74,13 @@ body
                         fill: $active;
                     }
                 }
+            }
+        }
+        .menu-right
+        {
+            #profile_avatar
+            {
+                border-radius: 50%;
             }
         }
         .btn

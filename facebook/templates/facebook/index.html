@@ -113,6 +113,11 @@
     <div>Pages, Birtdays Contacts(online)</div>
 </section>
 {% else %}
+{% if message %}
+<div class="alert alert-danger text-center" role="alert">
+    {{ message }}
+  </div>
+{% endif %}
 <section id="login">
     <div class="main">
         <div class="leftside">
@@ -128,7 +133,7 @@
                 <form action="{% url 'login' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <input autofocus class="form-control" type="text" name="username" placeholder="Email or Phone Number">
+                        <input autofocus class="form-control" type="text" name="username" placeholder="Username to Log In">
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="password" name="password" placeholder="Password">
@@ -153,33 +158,33 @@
             <form action="{% url 'register' %}" method="post">
                 {% csrf_token %}
                 <div class="form-group bg-grey twoinone">
-                    <input class="form-control"  type="text" name="firstname" placeholder="First Name" required>
-                    <input class="form-control"  type="text" name="lastname" placeholder="Last Name" required>
+                    <input class="form-control"  type="text" name="first_name" placeholder="First Name" required maxlength="20">
+                    <input class="form-control"  type="text" name="last_name" placeholder="Last Name" required maxlength="20">
                 </div>
                 <div class="form-group bg-grey">
-                    <input class="form-control" type="text" name="email" placeholder="Mobile Number or Email" required>
+                    <input class="form-control" type="text" name="username" placeholder="Username to Log In" required maxlength="20">
                 </div>
                 <div class="form-group bg-grey">
-                    <input class="form-control" type="password" name="password" placeholder="New Password" required>
+                    <input class="form-control" type="password" name="password" placeholder="New Password" required maxlength="30">
                 </div>
                 <div class="form-group birthday">
                     <span>Birthday</span>
                     <div class="select-area">
-                        <select name="Month">
-                            <option value="Jan">Jan</option>
-                            <option value="Feb">Feb</option>
-                            <option value="Mar">Mar</option>
-                            <option value="Apr">Apr</option>
-                            <option value="Jan">May</option>
-                            <option value="Jun">Jun</option>
-                            <option value="Jul">Jul</option>
-                            <option value="Aug">Aug</option>
-                            <option value="Sep">Sep</option>
-                            <option value="Oct">Oct</option>
-                            <option value="Nov">Nov</option>
-                            <option value="Dec">Dec</option>
+                        <select name="Month" required>
+                            <option value="1">Jan</option>
+                            <option value="2">Feb</option>
+                            <option value="3">Mar</option>
+                            <option value="4">Apr</option>
+                            <option value="5">May</option>
+                            <option value="6">Jun</option>
+                            <option value="7">Jul</option>
+                            <option value="8">Aug</option>
+                            <option value="9">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
                         </select>
-                        <select name="Day">
+                        <select name="Day" required>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -212,7 +217,7 @@
                             <option value="30">30</option>
                             <option value="31">31</option>
                         </select>
-                        <select name="Year">
+                        <select name="Year" required>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
@@ -340,15 +345,15 @@
                     <span>Gender</span>
                     <div class="radio-area">
                         <div class="selection">
-                            <input type="radio" id="female" name="gender" value="female">
+                            <input type="radio" id="female" name="gender" value="female" required>
                             <label for="female">Female</label>
                         </div><br>
                         <div class="selection">
-                            <input type="radio" id="male" name="gender" value="male">
+                            <input type="radio" id="male" name="gender" value="male" required>
                             <label for="male">Male</label>
                         </div><br>
                         <div class="selection">
-                            <input type="radio" id="other" name="gender" value="other">
+                            <input type="radio" id="other" name="gender" value="other" required>
                             <label for="other">Other</label>
                         </div><br>
                     </div>

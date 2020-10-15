@@ -79,22 +79,32 @@ def logout_view(request):
 def register(request):
     if request.method == "POST":
         username = request.POST["username"]
-        email = request.POST["email"]
-        avatar_id = request.POST["avatar"]
+        first_name = request.POST["first_name"]
+        last_name = request.POST["last_name"]
 
+        Birthdate_Day = request.POST["Day"]
+        Birthdate_Month = request.POST["Month"]
+        Birthdate_Year = request.POST["Year"]
+        Gender = request.POST['gender']
+
+        password = request.POST["password"]
         # Attempt to create new user
         try:
-            user = User.objects.create_user(username, email, password)
-            user.avatar = avatar_id
+            user = User.objects.create_user(username, password)
+            user.first_name = first_name
+            user.last_name = last_name
+            user.Birthdate_Day = Birthdate_Day
+            user.Birthdate_Month = Birthdate_Month
+            user.Birthdate_Year = Birthdate_Year
+            user.Gender = Gender
             user.save()
         except IntegrityError:
-            return render(request, "facebook/register.html", {
+            print("Username already taken.")
+            return render(request, "facebook/index.html", {
                 "message": "Username already taken."
             })
         login(request, user)
         return HttpResponseRedirect(reverse("index"))
-    else:
-        return render(request, "facebook/register.html")
 
 
 @csrf_exempt
@@ -133,7 +143,7 @@ def profile(request,profile_id):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return  render(request, "facebook/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users})
+    return  render(request, "facebook/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts})
 
 @csrf_exempt
 @login_required

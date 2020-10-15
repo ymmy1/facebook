@@ -9,6 +9,10 @@ body nav {
   background: #FFFFFF;
 }
 
+body nav a:hover {
+  text-decoration: none;
+}
+
 body nav .menu-right .nav-item {
   margin-right: 10px;
 }
@@ -64,6 +68,10 @@ body nav .menu-center li:first-child {
 
 body nav .menu-center li:first-child path {
   fill: #1877F2;
+}
+
+body nav .menu-right #profile_avatar {
+  border-radius: 50%;
 }
 
 body nav .btn {
