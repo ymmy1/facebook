@@ -334,6 +334,8 @@ body #registration-tab .box .form form .birthday .select-area .selection, body #
   border-radius: 5px;
   cursor: pointer;
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
   padding: 5px;
 }
 
@@ -353,6 +355,8 @@ body #registration-tab .box .form form .birthday .select-area select, body #regi
   cursor: pointer;
   padding: 5px 10px;
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
 }
 
 body #registration-tab .box .form form .birthday .select-area select:last-child, body #registration-tab .box .form form .birthday .radio-area select:last-child, body #registration-tab .box .form form .gender .select-area select:last-child, body #registration-tab .box .form form .gender .radio-area select:last-child {
@@ -369,5 +373,161 @@ body #registration-tab .box .form form .btn-success {
   margin: auto;
   font-size: 1.5em;
   padding: 3px 60px;
+}
+
+body #profile .button {
+  background: #CED4DA;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body #profile .top {
+  background: white;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(55%, white), to(black));
+  background: linear-gradient(0deg, white 55%, black 100%);
+}
+
+body #profile .top .cover {
+  width: 950px;
+  margin: auto;
+  position: relative;
+}
+
+body #profile .top .cover img {
+  width: 100%;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+body #profile .top .cover .change_cover {
+  position: absolute;
+  bottom: 15px;
+  right: 30px;
+}
+
+body #profile .top .cover .change_cover:hover {
+  background: #a5a9ae;
+}
+
+body #profile .top .cover .avatar {
+  width: 180px;
+  position: absolute;
+  right: calc(50% - 90px);
+  bottom: -30px;
+  border: 5px solid white;
+  border-radius: 50%;
+  z-index: 100;
+}
+
+body #profile .top .cover .avatar img {
+  border-radius: 50%;
+}
+
+body #profile .top .cover .avatar .change_avatar {
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  background: #CED4DA;
+  padding: 5px 10px;
+  font-size: 1.3em;
+  border-radius: 50% !important;
+  font-weight: bold;
+}
+
+body #profile .top .cover .avatar .change_avatar:hover {
+  background: #a5a9ae;
+}
+
+body #profile .top .name {
+  margin: 30px auto 0;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+body #profile .top .name span {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+body #profile .top .add_bio {
+  margin: auto;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+body #profile .top hr {
+  width: 50%;
+}
+
+body #profile .top .middle-nav {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+body #profile .top .middle-nav .right-side ul, body #profile .top .middle-nav .left-side ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body #profile .top .middle-nav .right-side ul li, body #profile .top .middle-nav .left-side ul li {
+  list-style: none;
+  margin-right: 10px;
+}
+
+body #profile .top .middle-nav .right-side ul li:last-child, body #profile .top .middle-nav .left-side ul li:last-child {
+  margin-right: 0px;
+}
+
+body #profile .top .middle-nav .right-side ul li a:hover, body #profile .top .middle-nav .left-side ul li a:hover {
+  text-decoration: none;
+}
+
+body #profile .top .middle-nav .right-side ul li {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+body #profile .top .middle-nav .right-side ul li:first-child {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom: 3px #1877F2 solid;
+}
+
+body #profile .top .middle-nav .right-side ul li:hover {
+  background: #F2F2F2;
+}
+
+body #profile .top .middle-nav .right-side ul li a {
+  color: #606266;
+}
+
+body #profile .top .middle-nav .left-side {
+  font-size: 1em;
+}
+
+body #profile .top .middle-nav .left-side li a {
+  color: #000;
+}
+
+body #profile .top .middle-nav .left-side li a:hover {
+  text-decoration: none;
+  background: #a5a9ae;
 }
 /*# sourceMappingURL=styles.css.map */

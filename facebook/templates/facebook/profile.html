@@ -6,23 +6,27 @@
         <div class="cover">
             <img src="{{ profile.cover }}" alt="">
             {% if profile.id == user.id %}
-            <div class="change_cover">
+            <div class="change_cover button">
                 <i class="fas fa-camera"></i> 
                 <span>Edit Cover Photo</span>
             </div>
             {% endif %}
-        </div>
-        <div class="avatar">
-            <img src="{{ profile.avatar }}" alt="">
-            {% if profile.id == user.id %}
-            <div class="change_cover">
-                <i class="fas fa-camera"></i> 
+            <div class="avatar">
+                <img src="{{ profile.avatar }}" alt="">
+                {% if profile.id == user.id %}
+                <div class="change_avatar">
+                    <i class="fas fa-camera"></i> 
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
+        </div>
+        <div class="name">
+            <span>{{ profile.first_name }} {{ profile.last_name }}</span>
         </div>
         {% if profile.id == user.id %}
-        <div class="add_bio"></div>
+        <div class="add_bio">
             <a href="/edit_profile">Add Bio</a>
+        </div>
         {% endif %}
         <hr>
         <div class="middle-nav">
@@ -40,6 +44,7 @@
                     </li>
                     <li>
                         <a href="#">
+                            Friends
                         </a>
                     </li>
                     <li>
@@ -57,22 +62,22 @@
             <div class="left-side">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="#" class="button">
                             <i class="fas fa-pen"></i> Edit Profile
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="button">
                             <i class="fas fa-eye"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="button">
                             <i class="fas fa-search"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="button">
                             <i class="fas fa-ellipsis-h"></i>
                         </a>
                     </li>
@@ -80,166 +85,159 @@
             </div>
         </div>
     </div>
-    <!-- <div class="profile-card profile">
-        <h2>Profile</h2>
-        <img id="profile_avatar" src="../../static/facebook/img/avatars/{{ user.avatar }}" alt="" style="display: none;">
-        <img src="../../static/facebook/img/avatars/{{ profile.avatar }}" alt=""> <br>
-        <a href="/profile/{{ profile.id }}"> {{ profile.username }} </a> <br>
-    </div> -->
     <div class="bottom">
-
-    </div>
-    <div class="info-container">
-        <div class="intro">
-            <h3>Intro</h3>
-            <ul>
-                <li>
-                    <i class="fas fa-briefcase"></i> {{ profile.work }}
-                </li>
-                <li>
-                    <i class="fas fa-graduation-cap"></i> {{ profile.school }}
-                </li>
-                <li>
-                    <i class="fas fa-map-marker-alt"></i> {{ profile.from_location }}
-                </li>
-                <li>
-                    <i class="fas fa-clock"></i> {{ profile.date_joined }}
-                </li>
-                <li>
-                    <i class="fas fa-birthday-cake"></i> {{ profile.Birthdate_Day }}/{{ profile.Birthdate_Month }}/{{ profile.Birthdate_Year }}
-                </li>
-                {% if profile.gender == Male %}
-                <li>
-                    <i class="fas fa-mars"></i> {{ profile.Gender }}
-                </li>
-                {% elif profile.gender == Male %}
-                <li>
-                    <i class="fas fa-venus"></i> {{ profile.Gender }}
-                </li>
-                {% else %}
+        <div class="info-container">
+            <div class="intro">
+                <h3>Intro</h3>
+                <ul>
                     <li>
-                        <i class="fas fa-venus-mars"></i> {{ profile.Gender }}
+                        <i class="fas fa-briefcase"></i> {{ profile.work }}
                     </li>
-                {% endif %}
-            </ul>
-        </div>
-        <div class="friends">
-            <div class="top">
-                <div class="number">
-                    <h3>Friends</h3>
-                </div>
-                <a href="#">See All</a>
+                    <li>
+                        <i class="fas fa-graduation-cap"></i> {{ profile.school }}
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i> {{ profile.from_location }}
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i> {{ profile.date_joined }}
+                    </li>
+                    <li>
+                        <i class="fas fa-birthday-cake"></i> {{ profile.Birthdate_Day }}/{{ profile.Birthdate_Month }}/{{ profile.Birthdate_Year }}
+                    </li>
+                    {% if profile.gender == Male %}
+                    <li>
+                        <i class="fas fa-mars"></i> {{ profile.Gender }}
+                    </li>
+                    {% elif profile.gender == Male %}
+                    <li>
+                        <i class="fas fa-venus"></i> {{ profile.Gender }}
+                    </li>
+                    {% else %}
+                        <li>
+                            <i class="fas fa-venus-mars"></i> {{ profile.Gender }}
+                        </li>
+                    {% endif %}
+                </ul>
             </div>
-            <div class="profiles">
-                <div class="friend-card">
-                    <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
-                    <span>Yri Morozov</span>
+            <div class="friends">
+                <div class="top">
+                    <div class="number">
+                        <h3>Friends</h3>
+                    </div>
+                    <a href="#">See All</a>
                 </div>
-                <div class="friend-card">
-                    <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
-                    <span>Yri Morozov</span>
+                <div class="profiles">
+                    <div class="friend-card">
+                        <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
+                        <span>Yri Morozov</span>
+                    </div>
+                    <div class="friend-card">
+                        <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
+                        <span>Yri Morozov</span>
+                    </div>
+                    <div class="friend-card">
+                        <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
+                        <span>Yri Morozov</span>
+                    </div>
                 </div>
-                <div class="friend-card">
-                    <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
-                    <span>Yri Morozov</span>
-                </div>
+    
             </div>
-
         </div>
-    </div>
-    <div class="posts_container">
-        <div class="posts">
-            <h2>User's Posts</h2>
-            {% for post in page_obj %}
-            <div class="post">
-                <div class="top-info">
-                    <div class="poster-info">
-                        {% for profile in users %}
-                            {% if post.username_id == profile.id  %}
-                                <a href="/profile/{{ profile.id }}">
-                                    <img src="../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
-                                </a>
-                            {% endif %}
-                        {% endfor %}
-                        <a class="profile_link" href="/profile/{{ post.username_id }}"> {{ post.username }} </a>
-                        {% if user.is_authenticated %}
-                            {% if post.username_id == user.id %}
-                            {% else %}
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                    <div class="poster-timestamp">
-                        <p>{{ post.timestamp }}</p>
-                        {% if post.username_id == user.id %}
-                        <button class="edit_post_button" data-page = "{{ post.id }}"><i class="fas fa-pen"></i></button>
-                        <button class="delete_post_button" data-page = "{{ post.id }}"><i class="fas fa-trash"></i></button>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="middle-info">
-                    <p class="post_body" style="display: block;">{{ post.body }}</p>
-                    <form style="display: none;">
-                        <input type="text" style="display: none;" name="post_id" value="{{ post.id }}" disabled>
-                        <textarea name="body"></textarea>
-                        <button>Save</button>
-                    </form>
-                </div>
-                <div class="bottom-info">
-                    <div class="like-info">
-                        <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }}</span>
-                        {% if user.is_authenticated %}
-                            {% if post.id in liked_posts %}
-                                <button class="unlike_button" data-page = "{{ post.id }}"><i class="fas fa-heart"></i></button>
-                            {% else %}
-                                <button class="like_button" data-page = "{{ post.id }}"><i class="far fa-heart"></i></button>
-                            {% endif %}
-                        {% else %}
-                        <span>Likes</span>
-                        {% endif %}
-                    </div>
-                    <div id="like_avatars_{{ post.id }}">
-                        {% for liked in post.liked_user_count.all %}
+        <div class="posts_container">
+            <div class="posts">
+                <h2>User's Posts</h2>
+                {% for post in page_obj %}
+                <div class="post">
+                    <div class="top-info">
+                        <div class="poster-info">
                             {% for profile in users %}
-                                {% if liked.id == profile.id  %}
+                                {% if post.username_id == profile.id  %}
                                     <a href="/profile/{{ profile.id }}">
-                                        <img width="20px" src="../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
+                                        <img src="../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
                                     </a>
                                 {% endif %}
                             {% endfor %}
-                        {% endfor %}
+                            <a class="profile_link" href="/profile/{{ post.username_id }}"> {{ post.username }} </a>
+                            {% if user.is_authenticated %}
+                                {% if post.username_id == user.id %}
+                                {% else %}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="poster-timestamp">
+                            <p>{{ post.timestamp }}</p>
+                            {% if post.username_id == user.id %}
+                            <button class="edit_post_button" data-page = "{{ post.id }}"><i class="fas fa-pen"></i></button>
+                            <button class="delete_post_button" data-page = "{{ post.id }}"><i class="fas fa-trash"></i></button>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="middle-info">
+                        <p class="post_body" style="display: block;">{{ post.body }}</p>
+                        <form style="display: none;">
+                            <input type="text" style="display: none;" name="post_id" value="{{ post.id }}" disabled>
+                            <textarea name="body"></textarea>
+                            <button>Save</button>
+                        </form>
+                    </div>
+                    <div class="bottom-info">
+                        <div class="like-info">
+                            <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }}</span>
+                            {% if user.is_authenticated %}
+                                {% if post.id in liked_posts %}
+                                    <button class="unlike_button" data-page = "{{ post.id }}"><i class="fas fa-heart"></i></button>
+                                {% else %}
+                                    <button class="like_button" data-page = "{{ post.id }}"><i class="far fa-heart"></i></button>
+                                {% endif %}
+                            {% else %}
+                            <span>Likes</span>
+                            {% endif %}
+                        </div>
+                        <div id="like_avatars_{{ post.id }}">
+                            {% for liked in post.liked_user_count.all %}
+                                {% for profile in users %}
+                                    {% if liked.id == profile.id  %}
+                                        <a href="/profile/{{ profile.id }}">
+                                            <img width="20px" src="../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
+                {% endfor %}
+                <nav aria-label="Page navigation example">
+                    <ul class="paginator">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link " href="?page={{ page_obj.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        {% endif %}
+                        {% for page in page_obj.paginator.page_range %}
+                        {% if page == page_obj.number %}
+                        <li class="page-item"><a class="page-link active-link" href="?page={{ page }}">{{ page }}</a></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}" tabindex="-1" aria-disabled="true">Next</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
             </div>
-            {% endfor %}
-            <nav aria-label="Page navigation example">
-                <ul class="paginator">
-                    {% if page_obj.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link " href="?page={{ page_obj.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    {% endif %}
-                    {% for page in page_obj.paginator.page_range %}
-                    {% if page == page_obj.number %}
-                    <li class="page-item"><a class="page-link active-link" href="?page={{ page }}">{{ page }}</a></li>
-                    {% else %}
-                        <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
-                    {% endif %}
-                    {% endfor %}
-                    {% if page_obj.has_next %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" tabindex="-1" aria-disabled="true">Next</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
         </div>
     </div>
 </section>
