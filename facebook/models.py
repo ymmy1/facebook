@@ -7,7 +7,8 @@ class User(AbstractUser):
     Birthdate_Month = models.PositiveSmallIntegerField(default=1,blank=False, null=False)
     Birthdate_Year = models.PositiveSmallIntegerField(default=1,blank=False, null=False)
     Gender = models.TextField(blank=False)
-    
+
+    is_online = models.PositiveSmallIntegerField(default=0, blank=False, null=False)
     
     avatar = models.TextField(default="../../static/facebook/img/avatars/default.jpg")
     cover = models.TextField(default="../../static/facebook/img/avatars/green-facebook-cover-9.jpg")

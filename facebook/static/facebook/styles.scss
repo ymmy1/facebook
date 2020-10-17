@@ -367,6 +367,11 @@ body
                 width: 950px;
                 margin: auto;
                 position: relative;
+                .cover-img
+                {
+                    height: 40vh;
+                    object-fit: cover;
+                }
                 img
                 {
                     width: 100%;
@@ -461,7 +466,7 @@ body
                             }
                             a
                             {
-                                &:hover
+                                    &:hover
                                 {
                                     text-decoration: none;
                                 }
@@ -506,6 +511,56 @@ body
                             {
                                 text-decoration: none;
                                 background: #a5a9ae;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .bottom
+        {
+            display: flex;
+            justify-content: center;
+            .box
+            {
+                background: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            }
+            .posts_container
+            {
+                .posts
+                {
+                    .post
+                    {
+                        .top-info
+                        {
+                            .poster-info
+                            {
+                                a
+                                {
+                                    position: relative;
+                                    img
+                                    {
+                                        width: 40px;
+                                        border-radius: 50%;
+                                    }
+                                    .online
+                                    {
+                                        position: absolute;
+                                        bottom: -17px;
+                                        right: 3px;
+                                        i
+                                        {
+                                            font-size: 0.8em;
+                                            border-radius: 50%;
+                                            -webkit-text-stroke-width: 2px;
+                                            -webkit-text-stroke-color: #ffffff;
+                                            color: #31A14B;
+                                            padding: 0;
+                                            margin: 0;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

@@ -62,16 +62,24 @@ def login_view(request):
         # Check if authentication successful
         if user is not None:
             login(request, user)
+            user = User.objects.get(
+                id=request.user.id
+            )
+            user.is_online = 1
+            user.save()
             return HttpResponseRedirect(reverse("index"))
         else:
-            return render(request, "facebook/login.html", {
+            return render(request, "facebook/index.html", {
                 "message": "Invalid username and/or password."
             })
-    else:
-        return render(request, "facebook/login.html")
 
 
 def logout_view(request):
+    user = User.objects.get(
+            id=request.user.id
+            )
+    user.is_online = 0
+    user.save()
     logout(request)
     return HttpResponseRedirect(reverse("index"))
 

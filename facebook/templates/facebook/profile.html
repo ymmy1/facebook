@@ -4,7 +4,7 @@
 <section id="profile">
     <div class="top">
         <div class="cover">
-            <img src="{{ profile.cover }}" alt="">
+            <img class="cover-img" src="{{ profile.cover }}" alt="">
             {% if profile.id == user.id %}
             <div class="change_cover button">
                 <i class="fas fa-camera"></i> 
@@ -59,6 +59,7 @@
                     </li>
                 </ul>
             </div>
+            {% if profile.id == user.id %}
             <div class="left-side">
                 <ul>
                     <li>
@@ -83,11 +84,12 @@
                     </li>
                 </ul>
             </div>
+            {% endif %}
         </div>
     </div>
     <div class="bottom">
         <div class="info-container">
-            <div class="intro">
+            <div class="intro box">
                 <h3>Intro</h3>
                 <ul>
                     <li>
@@ -120,8 +122,8 @@
                     {% endif %}
                 </ul>
             </div>
-            <div class="friends">
-                <div class="top">
+            <div class="friends box">
+                <div class="friends-top">
                     <div class="number">
                         <h3>Friends</h3>
                     </div>
@@ -148,17 +150,22 @@
             <div class="posts">
                 <h2>User's Posts</h2>
                 {% for post in page_obj %}
-                <div class="post">
+                <div class="post box">
                     <div class="top-info">
                         <div class="poster-info">
                             {% for profile in users %}
                                 {% if post.username_id == profile.id  %}
                                     <a href="/profile/{{ profile.id }}">
-                                        <img src="../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
+                                        <img src="{{ profile.avatar }}" alt="">
+                                        {% if profile.is_online %}
+                                        <div class="online">
+                                            <i class="fas fa-circle"></i>
+                                        </div>
+                                        {% endif %}
                                     </a>
                                 {% endif %}
                             {% endfor %}
-                            <a class="profile_link" href="/profile/{{ post.username_id }}"> {{ post.username }} </a>
+                            <a class="profile_link" href="/profile/{{ post.username_id }}"> {{ post }} </a>
                             {% if user.is_authenticated %}
                                 {% if post.username_id == user.id %}
                                 {% else %}
@@ -166,7 +173,33 @@
                             {% endif %}
                         </div>
                         <div class="poster-timestamp">
-                            <p>{{ post.timestamp }}</p>
+                            <p>{% if post.timestamp.month == 1 %}
+                                January
+                                {% elif post.timestamp.month == 2 %}
+                                February
+                                {% elif post.timestamp.month == 3 %}
+                                March
+                                {% elif post.timestamp.month == 4 %}
+                                April
+                                {% elif post.timestamp.month == 5 %}
+                                May
+                                {% elif post.timestamp.month == 6 %}
+                                June
+                                {% elif post.timestamp.month == 7 %}
+                                July
+                                {% elif post.timestamp.month == 8 %}
+                                August
+                                {% elif post.timestamp.month == 9 %}
+                                September
+                                {% elif post.timestamp.month == 10 %}
+                                October
+                                {% elif post.timestamp.month == 11 %}
+                                November
+                                {% else %}
+                                December
+                                {% endif %}
+                                 {{ post.timestamp.day }}
+                            </p>
                             {% if post.username_id == user.id %}
                             <button class="edit_post_button" data-page = "{{ post.id }}"><i class="fas fa-pen"></i></button>
                             <button class="delete_post_button" data-page = "{{ post.id }}"><i class="fas fa-trash"></i></button>
@@ -199,7 +232,7 @@
                                 {% for profile in users %}
                                     {% if liked.id == profile.id  %}
                                         <a href="/profile/{{ profile.id }}">
-                                            <img width="20px" src="../../static/facebook/img/avatars/{{ profile.avatar }}" alt="">
+                                            <img width="20px" src="{{ profile.avatar }}" alt="">
                                         </a>
                                     {% endif %}
                                 {% endfor %}
@@ -221,7 +254,7 @@
                         {% endif %}
                         {% for page in page_obj.paginator.page_range %}
                         {% if page == page_obj.number %}
-                        <li class="page-item"><a class="page-link active-link" href="?page={{ page }}">{{ page }}</a></li>
+                        <li class="page-item"><a class="page-link online-link" href="?page={{ page }}">{{ page }}</a></li>
                         {% else %}
                             <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
                         {% endif %}
