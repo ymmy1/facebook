@@ -550,10 +550,20 @@ body #profile .bottom .box {
   background: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 body #profile .bottom .posts_container {
   width: 500px;
+  margin-left: 20px;
+}
+
+body #profile .bottom .posts_container .posts h2 {
+  text-align: center;
+}
+
+body #profile .bottom .posts_container .posts .post {
+  margin-top: 20px;
 }
 
 body #profile .bottom .posts_container .posts .post .top-info {
@@ -636,5 +646,171 @@ body #profile .bottom .posts_container .posts .post .top-info .poster-info .drop
 
 body #profile .bottom .posts_container .posts .post .top-info .poster-info a.dropdown-toggle::after {
   display: none;
+}
+
+body #profile .bottom .posts_container .posts .post .middle-info {
+  padding: 10px;
+  margin-left: 55px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info {
+  padding-bottom: 10px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info {
+  padding: 0 10px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .numbers .left-side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .numbers .left-side span {
+  margin-right: 5px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .numbers .left-side .like_avatars {
+  width: 100px;
+  overflow: hidden;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .numbers .left-side .like_avatars a img {
+  border-radius: 50%;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info hr {
+  margin: 5px;
+  padding: 0 10px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .like-area, body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .comment-area, body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .share-area {
+  -ms-flex-preferred-size: 33%;
+      flex-basis: 33%;
+  border-radius: 5px;
+  text-align: center;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .like-area button, body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .comment-area button, body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .share-area button {
+  color: #65676B;
+  border: none;
+  background: none;
+  padding: 8px 5px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .like-area .unlike_button, body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .comment-area .unlike_button, body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .share-area .unlike_button {
+  color: #1877F2;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .like-area:hover, body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .comment-area:hover, body #profile .bottom .posts_container .posts .post .bottom-info .like-info .button-area .share-area:hover {
+  background: #F2F2F2;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comments-area {
+  padding: 0 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comments-area .comment-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 10px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comments-area .comment-card img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comments-area .comment-card .middle-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 10px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comment-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 0 10px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comment-form .comment-form_avatar {
+  position: relative;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comment-form .comment-form_avatar img {
+  width: 30px;
+  border-radius: 50%;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comment-form .comment-form_avatar .online {
+  position: absolute;
+  bottom: -5px;
+  right: -3px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comment-form .comment-form_avatar .online i {
+  font-size: 0.8em;
+  border-radius: 50%;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #ffffff;
+  color: #31A14B;
+  padding: 0;
+  margin: 0;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comment-form form {
+  width: 100%;
+  margin-left: 10px;
+}
+
+body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comment-form form input {
+  padding: 5px 10px;
+  width: 100%;
+  background: #F0F2F5;
+  border-radius: 20px;
+  border: none;
+  font-size: 0.9em;
+  outline: none;
 }
 /*# sourceMappingURL=styles.css.map */

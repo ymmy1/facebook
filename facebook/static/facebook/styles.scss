@@ -525,14 +525,21 @@ body
             {
                 background: #fff;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+                border-radius: 10px;
             }
             .posts_container
             {
                 width: 500px;
+                margin-left: 20px;
                 .posts
                 {
+                    h2
+                    {
+                        text-align: center;
+                    }
                     .post
                     {
+                        margin-top: 20px;
                         .top-info
                         {
                             padding: 10px;
@@ -594,6 +601,148 @@ body
                                 a.dropdown-toggle::after
                                 {
                                     display:none;
+                                }
+                            }
+                        }
+                        .middle-info
+                        {
+                            padding: 10px;
+                            margin-left: 55px;
+                        }
+                        .bottom-info
+                        {
+                            padding-bottom: 10px;
+                            .like-info
+                            {
+                                padding: 0 10px;
+                                .numbers
+                                {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .left-side
+                                    {
+                                        display: flex;
+                                        flex-direction: row;
+                                        span
+                                        {
+                                            margin-right: 5px;
+                                        }
+                                        .like_avatars
+                                        {
+                                            width: 100px;
+                                            overflow: hidden;
+                                            a
+                                            {
+                                                img
+                                                {
+                                                    border-radius: 50%;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                }
+                                hr
+                                {
+                                    margin: 5px;
+                                    padding: 0 10px;
+                                }
+                                .button-area
+                                {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .like-area, .comment-area, .share-area
+                                    {
+                                        flex-basis: 33%;
+                                        border-radius: 5px;
+                                        text-align: center;
+                                        button
+                                        {
+                                            color: #65676B;
+                                            border: none;
+                                            background: none;
+                                            padding: 8px 5px;
+                                        }
+                                        .unlike_button
+                                        {
+                                            color: $active;
+                                        }
+                                        &:hover
+                                        {
+                                            background: #F2F2F2;
+                                        }
+                                    }
+                                }
+                                .comments-area
+                                {
+                                    padding: 0 10px;
+                                    max-height: 200px;
+                                    overflow-y: scroll;
+                                    .comment-card
+                                    {
+                                        display: flex;
+                                        flex-direction: row;
+                                        margin-bottom: 10px;
+                                        img
+                                        {
+                                            width: 30px;
+                                            height: 30px;
+                                            border-radius: 50%;
+                                        }
+                                        .middle-card
+                                        {
+                                            display: flex;
+                                            flex-direction: column;
+                                            margin-left: 10px;
+                                        }
+
+                                    }
+                                }
+                                .comment-form
+                                {
+                                    display: flex;
+                                    flex-direction: row;
+                                    padding: 0 10px;
+                                    .comment-form_avatar
+                                    {
+                                        position: relative;
+                                        img
+                                        {
+                                            width: 30px;
+                                            border-radius: 50%;
+                                        }
+                                        .online
+                                        {
+                                            position: absolute;
+                                            bottom:-5px;
+                                            right: -3px;
+                                            i
+                                            {
+                                                font-size: 0.8em;
+                                                border-radius: 50%;
+                                                -webkit-text-stroke-width: 2px;
+                                                -webkit-text-stroke-color: #ffffff;
+                                                color: #31A14B;
+                                                padding: 0;
+                                                margin: 0;
+                                            }
+                                        }
+                                    }
+                                    form
+                                    {
+                                        width: 100%;
+                                        margin-left: 10px;
+                                        input
+                                        {
+                                            padding: 5px 10px;
+                                            width: 100%;
+                                            background: #F0F2F5;
+                                            border-radius: 20px;
+                                            border:none;
+                                            font-size: 0.9em;
+                                            outline: none;
+                                        }
+                                    }
                                 }
                             }
                         }

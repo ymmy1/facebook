@@ -76,13 +76,14 @@ function like_post(link)
 
   img.setAttribute("width", '20px')
   img.setAttribute("src", `${avatar_src}`)
+  img.style.borderRadius = "50%";
   document.getElementById(`like_avatars_${link.dataset.page}`).append(img)
 
   var current_likes = parseInt(document.getElementById(`like_for_${link.dataset.page}`).innerHTML)
   current_likes = current_likes + 1;
   document.getElementById(`like_for_${link.dataset.page}`).innerHTML = current_likes
   link.setAttribute("class", "unlike_button")
-  link.innerHTML = `<i class="fas fa-heart"></i>`
+  link.innerHTML = `<i class="fas fa-thumbs-up"></i> Like`
   document.querySelectorAll('.unlike_button').forEach(link => {link.onclick = () => { unlike_post(link) }});
 }
 
@@ -107,7 +108,7 @@ function unlike_post(link)
   current_likes = current_likes - 1;
   document.getElementById(`like_for_${link.dataset.page}`).innerHTML = current_likes
   link.setAttribute("class", "like_button")
-  link.innerHTML = `<i class="far fa-heart"></i>`
+  link.innerHTML = `<i class="far fa-thumbs-up"></i> Like`
   document.querySelectorAll('.like_button').forEach(link => {link.onclick = () => { like_post(link) }});
 }
 

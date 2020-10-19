@@ -216,27 +216,69 @@
                     </div>
                     <div class="bottom-info">
                         <div class="like-info">
-                            <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }}</span>
+                            <div class="numbers">
+                                <div class="left-side">
+                                    <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }} </span>
+                                    <div class="like_avatars" id="like_avatars_{{ post.id }}">
+                                        {% for liked in post.liked_user_count.all %}
+                                            {% for profile in users %}
+                                                {% if liked.id == profile.id  %}
+                                                    <a href="/profile/{{ profile.id }}">
+                                                        <img width="20px" src="{{ profile.avatar }}" alt="">
+                                                    </a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="right-side">
+                                    <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }} Comments</span>
+                                </div>
+                            </div>
                             {% if user.is_authenticated %}
-                                {% if post.id in liked_posts %}
-                                    <button class="unlike_button" data-page = "{{ post.id }}"><i class="fas fa-heart"></i></button>
-                                {% else %}
-                                    <button class="like_button" data-page = "{{ post.id }}"><i class="far fa-heart"></i></button>
-                                {% endif %}
-                            {% else %}
-                            <span>Likes</span>
-                            {% endif %}
-                        </div>
-                        <div id="like_avatars_{{ post.id }}">
-                            {% for liked in post.liked_user_count.all %}
-                                {% for profile in users %}
-                                    {% if liked.id == profile.id  %}
-                                        <a href="/profile/{{ profile.id }}">
-                                            <img width="20px" src="{{ profile.avatar }}" alt="">
-                                        </a>
+                            <hr>
+                            <div class="button-area">
+                                <div class="like-area">
+                                    {% if post.id in liked_posts %}
+                                        <button class="unlike_button" data-page = "{{ post.id }}"><i class="fas fa-thumbs-up"></i> Like</button>
+                                    {% else %}
+                                        <button class="like_button" data-page = "{{ post.id }}"><i class="far fa-thumbs-up"></i> Like</button>
+                                        {% endif %}
+                                </div>
+                                <div class="comment-area">
+                                    <button class="comment_button" data-page = "{{ post.id }}"><i class="far fa-comment-alt"></i></i> Comment</button>
+                                </div>
+                                <div class="share-area">
+                                    <button class="share_button" data-page = "{{ post.id }}"><i class="fas fa-share"></i> Share</button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="comments-area">
+                                <div class="comment-card">
+                                    <img src="{{ profile.avatar }}" alt="">
+                                    <div class="middle-card">
+                                        <span>{{ profile.first_name }} {{ profile.last_name }}</span>
+                                        <p class="content">great post</p>
+                                        <span class="time"> 5 min ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-form">
+                                <div class="comment-form_avatar">
+                                    <img src="{{ profile.avatar }}" alt="">
+                                    {% if profile.is_online %}
+                                    <div class="online">
+                                        <i class="fas fa-circle"></i>
+                                    </div>
                                     {% endif %}
-                                {% endfor %}
-                            {% endfor %}
+                                </div>
+                                <form>
+                                    <input type="text" placeholder="Write a comment..">
+                                </form>
+                            </div>
+                            {% else %}
+                            <span></span>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
