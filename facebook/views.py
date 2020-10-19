@@ -130,7 +130,7 @@ def new_post(request):
     post.save()  
     return JsonResponse({"message": "Post was saved successfully."}, status=201)    
 
-def profile(request,profile_id):
+def profile(request, profile_id):
     profile = User.objects.get(
             id=profile_id
             )

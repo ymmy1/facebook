@@ -153,56 +153,56 @@
                 <div class="post box">
                     <div class="top-info">
                         <div class="poster-info">
-                            {% for profile in users %}
-                                {% if post.username_id == profile.id  %}
-                                    <a href="/profile/{{ profile.id }}">
-                                        <img src="{{ profile.avatar }}" alt="">
-                                        {% if profile.is_online %}
-                                        <div class="online">
-                                            <i class="fas fa-circle"></i>
-                                        </div>
+                            <div class="flex">
+                                {% for profile in users %}
+                                    {% if post.username_id == profile.id  %}
+                                        <a href="/profile/{{ profile.id }}" class="post_avatar">
+                                            <img src="{{ profile.avatar }}" alt="">
+                                            {% if profile.is_online %}
+                                            <div class="online">
+                                                <i class="fas fa-circle"></i>
+                                            </div>
+                                            {% endif %}
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                                <div class="name_and_date">
+                                    <a class="profile_link" href="/profile/{{ post.username_id }}"> {{ post.username.first_name }} {{ post.username.last_name }} </a>
+                                    <p class="poster-timestamp">{% if post.timestamp.month == 1 %}
+                                        January
+                                        {% elif post.timestamp.month == 2 %}
+                                        February
+                                        {% elif post.timestamp.month == 3 %}
+                                        March
+                                        {% elif post.timestamp.month == 4 %}
+                                        April
+                                        {% elif post.timestamp.month == 5 %}
+                                        May
+                                        {% elif post.timestamp.month == 6 %}
+                                        June
+                                        {% elif post.timestamp.month == 7 %}
+                                        July
+                                        {% elif post.timestamp.month == 8 %}
+                                        August
+                                        {% elif post.timestamp.month == 9 %}
+                                        September
+                                        {% elif post.timestamp.month == 10 %}
+                                        October
+                                        {% elif post.timestamp.month == 11 %}
+                                        November
+                                        {% else %}
+                                        December
                                         {% endif %}
-                                    </a>
-                                {% endif %}
-                            {% endfor %}
-                            <a class="profile_link" href="/profile/{{ post.username_id }}"> {{ post }} </a>
-                            {% if user.is_authenticated %}
-                                {% if post.username_id == user.id %}
-                                {% else %}
-                                {% endif %}
-                            {% endif %}
-                        </div>
-                        <div class="poster-timestamp">
-                            <p>{% if post.timestamp.month == 1 %}
-                                January
-                                {% elif post.timestamp.month == 2 %}
-                                February
-                                {% elif post.timestamp.month == 3 %}
-                                March
-                                {% elif post.timestamp.month == 4 %}
-                                April
-                                {% elif post.timestamp.month == 5 %}
-                                May
-                                {% elif post.timestamp.month == 6 %}
-                                June
-                                {% elif post.timestamp.month == 7 %}
-                                July
-                                {% elif post.timestamp.month == 8 %}
-                                August
-                                {% elif post.timestamp.month == 9 %}
-                                September
-                                {% elif post.timestamp.month == 10 %}
-                                October
-                                {% elif post.timestamp.month == 11 %}
-                                November
-                                {% else %}
-                                December
-                                {% endif %}
-                                 {{ post.timestamp.day }}
-                            </p>
+                                            {{ post.timestamp.day }}
+                                    </p>
+                                </div>
+                            </div>
                             {% if post.username_id == user.id %}
-                            <button class="edit_post_button" data-page = "{{ post.id }}"><i class="fas fa-pen"></i></button>
-                            <button class="delete_post_button" data-page = "{{ post.id }}"><i class="fas fa-trash"></i></button>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
+                            <div class="dropdown-menu">
+                                <button class="edit_post_button dropdown-item" data-page = "{{ post.id }}"><i class="fas fa-pen"></i> Edit</button>
+                                <button class="delete_post_button dropdown-item" data-page = "{{ post.id }}"><i class="fas fa-trash"></i> Delete</button>
+                            </div>
                             {% endif %}
                         </div>
                     </div>

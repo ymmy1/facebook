@@ -552,22 +552,53 @@ body #profile .bottom .box {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-body #profile .bottom .posts_container .posts .post .top-info .poster-info a {
+body #profile .bottom .posts_container {
+  width: 500px;
+}
+
+body #profile .bottom .posts_container .posts .post .top-info {
+  padding: 10px;
+}
+
+body #profile .bottom .posts_container .posts .post .top-info .poster-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex .post_avatar {
   position: relative;
 }
 
-body #profile .bottom .posts_container .posts .post .top-info .poster-info a img {
-  width: 40px;
+body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex .post_avatar img {
+  width: 50px;
   border-radius: 50%;
 }
 
-body #profile .bottom .posts_container .posts .post .top-info .poster-info a .online {
+body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex .post_avatar .online {
   position: absolute;
-  bottom: -17px;
-  right: 3px;
+  bottom: 5px;
+  right: 0px;
 }
 
-body #profile .bottom .posts_container .posts .post .top-info .poster-info a .online i {
+body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex .post_avatar .online i {
   font-size: 0.8em;
   border-radius: 50%;
   -webkit-text-stroke-width: 2px;
@@ -575,5 +606,35 @@ body #profile .bottom .posts_container .posts .post .top-info .poster-info a .on
   color: #31A14B;
   padding: 0;
   margin: 0;
+}
+
+body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex .name_and_date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 5px;
+}
+
+body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex .name_and_date a {
+  color: #000;
+}
+
+body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex .name_and_date .poster-timestamp {
+  font-size: 0.8em;
+  color: #65676B;
+}
+
+body #profile .bottom .posts_container .posts .post .top-info .poster-info .dropdown-toggle {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+body #profile .bottom .posts_container .posts .post .top-info .poster-info a.dropdown-toggle::after {
+  display: none;
 }
 /*# sourceMappingURL=styles.css.map */
