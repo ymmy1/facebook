@@ -17,5 +17,8 @@ urlpatterns = [
     path("following_posts", views.following_posts, name="following_posts"),
     path("login", views.login_view, name="login"),
     path("logout", views.logout_view, name="logout"),
-    path("register", views.register, name="register")
+    path("register", views.register, name="register"),
+    path("send_request", views.send_request, name="send_request"),
+    path("delete_friend", views.delete_friend, name="delete_friend"),
+    path("unsend_request", views.unsend_request, name="unsend_request")
 ]

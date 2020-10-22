@@ -22,6 +22,24 @@
         </div>
         <div class="name">
             <span>{{ profile.first_name }} {{ profile.last_name }}</span>
+            {% if profile.id != user.id %}
+                {% if friends %}
+                <button class="friend_icon"  data-page="delete_friend" data-id="{{ profile.id }}">
+                    <i class="fas fa-user-check"></i>
+
+                </button>
+                {% elif requested %}
+                <button class="friend_icon"s ata-page="unsend_request" data-id="{{ profile.id }}">
+                    <i class="fas fa-user-astronaut"></i>
+
+                </button>
+                {% else %}
+                <button class="friend_icon"   data-page="send_request" data-id="{{ profile.id }}">
+                    <i class="fas fa-user-plus"></i>
+
+                </button>
+                {% endif %}
+            {% endif %}
         </div>
         {% if profile.id == user.id %}
         <div class="add_bio">
@@ -44,7 +62,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            Friends (3)
+                            Friends ({{ profile.friends.count }})
                         </a>
                     </li>
                     <li>
@@ -125,23 +143,19 @@
             <div class="friends box">
                 <div class="friends-top">
                     <div class="number">
-                        <h3>Friends (3)</h3>
+                        <h3>Friends ({{ profile.friends.count }})</h3>
                     </div>
                     <a href="#">See All</a>
                 </div>
                 <div class="profiles">
+                    {% for friend in profile.friends.all %}
                     <div class="friend-card">
-                        <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
-                        <span>Yri Morozov</span>
+                        <a href="/profile/{{ friend.id }}">
+                            <img src="{{ friend.avatar }}" alt="">
+                            <span>{{ friend.first_name }} {{ friend.last_name }}</span>
+                        </a>
                     </div>
-                    <div class="friend-card">
-                        <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
-                        <span>Yri Morozov</span>
-                    </div>
-                    <div class="friend-card">
-                        <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/p160x160/261963_1071868579530789_6185908592993380058_n.jpg?_nc_cat=100&_nc_sid=aa3c98&_nc_ohc=jDW92YwmiVYAX9WFJq9&_nc_ht=scontent-sea1-1.xx&tp=6&oh=743d0438422bc4e39f4c100d1e7516e4&oe=5FADC425" alt="">
-                        <span>Yri Morozov</span>
-                    </div>
+                    {% endfor %}
                 </div>
     
             </div>
@@ -296,7 +310,7 @@
                         {% endif %}
                         {% for page in page_obj.paginator.page_range %}
                         {% if page == page_obj.number %}
-                        <li class="page-item"><a class="page-link online-link" href="?page={{ page }}">{{ page }}</a></li>
+                        <li class="page-item"><a class="page-link active-link" href="?page={{ page }}">{{ page }}</a></li>
                         {% else %}
                             <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
                         {% endif %}

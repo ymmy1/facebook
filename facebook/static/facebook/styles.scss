@@ -99,6 +99,358 @@ body
     {
         display: flex;
         justify-content: space-between;
+        .box
+        {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            border-radius: 10px;
+        }
+        .shortcuts
+        {
+            padding: 20px 10px;
+            width: 350px;
+            ul
+            {
+                margin: 0;
+                padding: 0;
+                li
+                {
+                    list-style: none;
+                    padding: 10px 0;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    &:hover
+                    {
+                        background: #E4E6E9;
+                    }
+                    img
+                    {
+                        width: 35px;
+                        border-radius: 50%;
+                    }
+                    a
+                    {
+                        color: #000;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        .birthday_contacts
+        {
+            .birthday-section, .contacts-section
+            {
+                border-top: 1px #CED0D4 solid;
+                padding: 15px 0;
+                margin-top: 20px;
+            }
+            h3
+            {
+                font-size: 1.2em;
+                margin-bottom: 15px;
+            }
+            .contact-card
+            {
+                .contact_avatar
+                {
+                    position: relative;
+                    img
+                    {
+                        width: 35px;
+                        border-radius: 50%;
+                    }
+                    .online
+                    {
+                        position: absolute;
+                        bottom: -13px;
+                        right: 0px;
+                        i
+                        {
+                            font-size: 0.8em;
+                            border-radius: 50%;
+                            -webkit-text-stroke-width: 2px;
+                            -webkit-text-stroke-color: #ffffff;
+                            color: #31A14B;
+                            padding: 0;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .posts_container
+            {
+                margin-top: 20px;
+                width: 500px;
+                margin-left: 20px;
+                .posts
+                {
+                    h2
+                    {
+                        text-align: center;
+                        padding: 5px 0;
+                    }
+                    .post
+                    {
+                        margin-top: 20px;
+                        .top-info
+                        {
+                            padding: 10px;
+                            .poster-info
+                            {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                .flex
+                                {
+                                    display: flex;
+                                    flex-direction: row;
+                                    .post_avatar
+                                    {
+                                        position: relative;
+                                        img
+                                        {
+                                            width: 50px;
+                                            border-radius: 50%;
+                                        }
+                                        .online
+                                        {
+                                            position: absolute;
+                                            bottom: 5px;
+                                            right: 0px;
+                                            i
+                                            {
+                                                font-size: 0.8em;
+                                                border-radius: 50%;
+                                                -webkit-text-stroke-width: 2px;
+                                                -webkit-text-stroke-color: #ffffff;
+                                                color: #31A14B;
+                                                padding: 0;
+                                                margin: 0;
+                                            }
+                                        }
+                                    }
+                                    .name_and_date
+                                    {
+                                        display: flex;
+                                        flex-direction: column;
+                                        margin-left: 5px;
+                                        a
+                                        {
+                                            color: #000;
+                                        }
+                                        .poster-timestamp
+                                        {
+                                            font-size: 0.8em;
+                                            color: #65676B;
+                                        }
+
+                                    }
+                                }
+                                .dropdown-toggle
+                                {
+                                    height: fit-content;
+                                }
+                                a.dropdown-toggle::after
+                                {
+                                    display:none;
+                                }
+                            }
+                        }
+                        .middle-info
+                        {
+                            padding: 10px;
+                            margin-left: 55px;
+                        }
+                        .bottom-info
+                        {
+                            padding-bottom: 10px;
+                            .like-info
+                            {
+                                padding: 0 10px;
+                                .numbers
+                                {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .left-side
+                                    {
+                                        display: flex;
+                                        flex-direction: row;
+                                        span
+                                        {
+                                            margin-right: 5px;
+                                        }
+                                        .like_avatars
+                                        {
+                                            width: 100px;
+                                            overflow: hidden;
+                                            a
+                                            {
+                                                img
+                                                {
+                                                    border-radius: 50%;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                }
+                                hr
+                                {
+                                    margin: 5px;
+                                    padding: 0 10px;
+                                }
+                                .button-area
+                                {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    .like-area, .comment-area, .share-area
+                                    {
+                                        flex-basis: 33%;
+                                        border-radius: 5px;
+                                        text-align: center;
+                                        button
+                                        {
+                                            color: #65676B;
+                                            border: none;
+                                            background: none;
+                                            padding: 8px 5px;
+                                        }
+                                        .unlike_button
+                                        {
+                                            color: $active;
+                                        }
+                                        &:hover
+                                        {
+                                            background: #F2F2F2;
+                                        }
+                                    }
+                                }
+                                .comments-area
+                                {
+                                    padding: 0 10px;
+                                    max-height: 200px;
+                                    overflow-y: scroll;
+                                    .comment-card
+                                    {
+                                        display: flex;
+                                        flex-direction: row;
+                                        margin-bottom: 10px;
+                                        img
+                                        {
+                                            width: 30px;
+                                            height: 30px;
+                                            border-radius: 50%;
+                                        }
+                                        .middle-card
+                                        {
+                                            display: flex;
+                                            flex-direction: column;
+                                            margin-left: 10px;
+                                        }
+
+                                    }
+                                }
+                                .comment-form
+                                {
+                                    display: flex;
+                                    flex-direction: row;
+                                    padding: 0 10px;
+                                    .comment-form_avatar
+                                    {
+                                        position: relative;
+                                        img
+                                        {
+                                            width: 30px;
+                                            border-radius: 50%;
+                                        }
+                                        .online
+                                        {
+                                            position: absolute;
+                                            bottom:-5px;
+                                            right: -3px;
+                                            i
+                                            {
+                                                font-size: 0.8em;
+                                                border-radius: 50%;
+                                                -webkit-text-stroke-width: 2px;
+                                                -webkit-text-stroke-color: #ffffff;
+                                                color: #31A14B;
+                                                padding: 0;
+                                                margin: 0;
+                                            }
+                                        }
+                                    }
+                                    form
+                                    {
+                                        width: 100%;
+                                        margin-left: 10px;
+                                        input
+                                        {
+                                            padding: 5px 10px;
+                                            width: 100%;
+                                            background: #F0F2F5;
+                                            border-radius: 20px;
+                                            border:none;
+                                            font-size: 0.9em;
+                                            outline: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    nav
+                    {
+                        background: none;
+                        .paginator
+                        {
+                            margin: 0;
+                            margin-top: 50px;
+                            padding: 0;
+                            list-style: none;
+                            display: flex;
+                            justify-content: center;
+                            li
+                            {
+                                background: none;
+                                a
+                                {
+                                    background: none;
+                                    border: 1px solid $active;
+                                    color: rgba(#000, 0.3);
+                                    font-weight: bold;
+                                    font-size: 1.2em;
+                                    &:hover
+                                    {
+                                        background: rgba($active, 0.1);
+                                        
+                                    }
+                                    
+                                }
+                                .active-link
+                                {
+                                    background: $active;
+                                    color: #fff;
+
+                                }
+                            }
+                            .disabled
+                            {
+                                cursor: pointer;
+                                a
+                                {
+                                    color: #cacaca;
+                                    &:hover
+                                    {
+                                        background: rgba($active, 0.1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
     }
     footer
     {
@@ -813,6 +1165,55 @@ body
                                             font-size: 0.9em;
                                             outline: none;
                                         }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    nav
+                    {
+                        background: none;
+                        .paginator
+                        {
+                            margin: 0;
+                            margin-top: 50px;
+                            padding: 0;
+                            list-style: none;
+                            display: flex;
+                            justify-content: center;
+                            li
+                            {
+                                background: none;
+                                a
+                                {
+                                    background: none;
+                                    border: 1px solid $active;
+                                    color: rgba(#000, 0.3);
+                                    font-weight: bold;
+                                    font-size: 1.2em;
+                                    &:hover
+                                    {
+                                        background: rgba($active, 0.1);
+                                        
+                                    }
+                                    
+                                }
+                                .active-link
+                                {
+                                    background: $active;
+                                    color: #fff;
+
+                                }
+                            }
+                            .disabled
+                            {
+                                cursor: pointer;
+                                a
+                                {
+                                    color: #cacaca;
+                                    &:hover
+                                    {
+                                        background: rgba($active, 0.1);
                                     }
                                 }
                             }

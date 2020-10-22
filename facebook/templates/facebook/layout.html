@@ -71,7 +71,24 @@
                         <a class="nav-link messanger btn" href="#"><i class="fab fa-facebook-messenger"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link notifications btn" href="#"><i class="fas fa-bell"></i></a>
+                        <button class="nav-link notifications btn" type="button" id="dropdownMenuNotifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></button>
+                        <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownMenuNotifications">
+                            <h5>Notifications</h5>
+                            {% if requested %}
+                            <span>Friend Request from:</span>
+                                {% for request in requested %}
+                                <div class="request-card">
+                                    <img src="{{ request.avatar }}" alt="">
+                                    <strong>{{ request.first_name }} {{ request.last_name }}</strong>
+                                    <button>Accept</button>
+                                    <button>Deny</button>
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                            <span>No request/notifications</span>
+                            {{ user.requesting }}
+                            {% endif %}
+                        </div>
                     </li>
                     
                     <li class="nav-item">

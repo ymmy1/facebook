@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.edit_post_button').forEach(link => {link.onclick = () => { edit_post(link) }});
     document.querySelectorAll('.delete_post_button').forEach(link => {link.onclick = () => { delete_post(link) }});
     document.querySelectorAll('label').forEach(link => {link.onclick = () => { select_avatar(link) }});
+    if (document.querySelector('.friend_icon'))
+    {
+      document.querySelectorAll('.friend_icon').forEach(link => {link.onclick = () => { friend_icon(link) }});
+    }
     if (document.querySelector('#new_post'))
     {
       document.querySelector('#new_post').addEventListener('click', () => new_post());
@@ -237,4 +241,35 @@ function select_avatar(link)
     link.querySelector('img').classList.add("active")
     checked.checked = true
   }
+}
+
+function friend_icon(link)
+{
+  url = link.dataset.page
+  if(url == "delete_friend")
+  {
+    alert("Friend Deleted")
+    link.innerHTML = `<i class="fas fa-user-plus"></i>`
+    link.setAttribute("data-page", "send_request")
+  }
+  if(url == "unsend_request")
+  {
+    alert("Request Unsent")
+    link.innerHTML = `<i class="fas fa-user-plus"></i>`
+    link.setAttribute("data-page", "send_request")
+  }
+  if(url == "send_request")
+  {
+    alert("Request Sent!")
+    link.innerHTML = `<i class="fas fa-user-astronaut"></i>`
+    link.setAttribute("data-page", "unsend_request")
+  }
+
+  fetch(`/${url}`, {
+    method: 'POST',
+    body: JSON.stringify({
+      profile : link.dataset.id
+    })
+  })
+
 }

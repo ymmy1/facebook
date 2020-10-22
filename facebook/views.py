@@ -18,6 +18,11 @@ def index(request):
     liked = Post.objects.filter(
             liked_user_count=request.user.id
         ).all().values()
+
+    requested_list = User.objects.filter(
+            requesting=request.user.id
+        ).all().values()
+    print(requested_list)
     liked_posts = []
     for i in range(len(liked)):
         liked_posts.append(liked[i]["id"])
@@ -28,7 +33,7 @@ def index(request):
     page_obj = paginator.get_page(page_number)
 
     
-    return render(request, "facebook/index.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts})
+    return render(request, "facebook/index.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'requested' : requested_list})
 
 @csrf_exempt
 @login_required
@@ -134,6 +139,15 @@ def profile(request, profile_id):
     profile = User.objects.get(
             id=profile_id
             )
+    friend_list = User.objects.filter(
+            friends=request.user.id
+        ).all().values()
+    for friend in friend_list:
+        if friend["id"] == profile_id:
+            friends = True
+        else:
+            friends = False
+
     users = User.objects.all()
     # liked posts get
     liked = Post.objects.filter(
@@ -151,7 +165,7 @@ def profile(request, profile_id):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return  render(request, "facebook/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts})
+    return  render(request, "facebook/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'friends': friends})
 
 @csrf_exempt
 @login_required
@@ -300,3 +314,21 @@ def delete_post(request):
         return HttpResponse(status=204)
     else:
         return JsonResponse({"error": "ID's not matching"}, status=400)
+
+@csrf_exempt
+@login_required
+def send_request(request):
+    print(request)
+    return HttpResponse(status=204)
+
+@csrf_exempt
+@login_required
+def unsend_request(request):
+    print(request)
+    return HttpResponse(status=204)
+
+@csrf_exempt
+@login_required
+def delete_friend(request):
+    print(request)
+    return HttpResponse(status=204)

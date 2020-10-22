@@ -3,44 +3,103 @@
 {% block body %}
 {% if user.is_authenticated %}
 <section id="index">
-    <div>Buttons Shortcuts</div>
+    <div class="shortcuts">
+        <ul>
+            <li>
+                <img src="{{ user.avatar }}" alt="">
+                <a href="#">{{ user.first_name }} {{ user.last_name }}</a>
+            </li>
+            <li>
+                <img src="/../../static/facebook/img/icons/pages.png" alt="">
+                <a href="#">Pages</a>
+            </li>
+            <li>
+                <img src="/../../static/facebook/img/icons/friends.png" alt="">
+                <a href="#">Friends</a>
+            </li>
+            <li>
+                <img src="/../../static/facebook/img/icons/groups.png" alt="">
+                <a href="#">Groups</a>
+            </li>
+            <li>
+                <img src="/../../static/facebook/img/icons/market.png" alt="">
+                <a href="#">Marketplace</a>
+            </li>
+            <li>
+                <img src="/../../static/facebook/img/icons/watch.png" alt="">
+                <a href="#">Watch</a>
+            </li>
+            <li>
+                <img src="/../../static/facebook/img/icons/events.png" alt="">
+                <a href="#">Events</a>
+            </li>
+            <li>
+                <img src="/../../static/facebook/img/icons/memories.png" alt="">
+                <a href="#">Memories</a>
+            </li>
+            <li>
+                <img src="/../../static/facebook/img/icons/pages.png" alt="">
+                <a href="#">See More</a>
+            </li>
+        </ul>
+    </div>
     <div class="posts_container">
         <div class="posts">
-            <h2>All Posts</h2>
-            {% if user.is_authenticated %}
-            <form>
-                <textarea id="textarea" placeholder="Say something.." required></textarea>
-                <button id="new_post" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-            </form>
-            {% endif %}
+            <h2 class="box">User's Posts</h2>
             {% for post in page_obj %}
-            <div class="post">
+            <div class="post box">
                 <div class="top-info">
                     <div class="poster-info">
-                        {% for profile in users %}
-                            {% if post.username_id == profile.id  %}
-                                <a href="/profile/{{ profile.id }}">
-                                    <img src="{{ profile.avatar }}" alt="">
-                                </a>
-                            {% endif %}
-                        {% endfor %}
-                        <a class="profile_link" href="/profile/{{ post.username_id }}"> {{ post.username }} </a>
-                        {% if user.is_authenticated %}
-                            {% if post.username_id == user.id %}
-                            {% else %}
-                                {% if post.username_id in following_users %}
-                                    <button class="unfollow_button" data-page = "{{ post.username_id }}"><i class="fas fa-user-check"></i></button>
-                                {% else %}
-                                    <button class="follow_button" data-page = "{{ post.username_id }}"><i class="fas fa-user-plus"></i></button>
+                        <div class="flex">
+                            {% for profile in users %}
+                                {% if post.username_id == profile.id  %}
+                                    <a href="/profile/{{ profile.id }}" class="post_avatar">
+                                        <img src="{{ profile.avatar }}" alt="">
+                                        {% if profile.is_online %}
+                                        <div class="online">
+                                            <i class="fas fa-circle"></i>
+                                        </div>
+                                        {% endif %}
+                                    </a>
                                 {% endif %}
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                    <div class="poster-timestamp">
-                        <p>{{ post.timestamp }}</p>
+                            {% endfor %}
+                            <div class="name_and_date">
+                                <a class="profile_link" href="/profile/{{ post.username_id }}"> {{ post.username.first_name }} {{ post.username.last_name }} </a>
+                                <p class="poster-timestamp">{% if post.timestamp.month == 1 %}
+                                    January
+                                    {% elif post.timestamp.month == 2 %}
+                                    February
+                                    {% elif post.timestamp.month == 3 %}
+                                    March
+                                    {% elif post.timestamp.month == 4 %}
+                                    April
+                                    {% elif post.timestamp.month == 5 %}
+                                    May
+                                    {% elif post.timestamp.month == 6 %}
+                                    June
+                                    {% elif post.timestamp.month == 7 %}
+                                    July
+                                    {% elif post.timestamp.month == 8 %}
+                                    August
+                                    {% elif post.timestamp.month == 9 %}
+                                    September
+                                    {% elif post.timestamp.month == 10 %}
+                                    October
+                                    {% elif post.timestamp.month == 11 %}
+                                    November
+                                    {% else %}
+                                    December
+                                    {% endif %}
+                                        {{ post.timestamp.day }}
+                                </p>
+                            </div>
+                        </div>
                         {% if post.username_id == user.id %}
-                        <button class="edit_post_button" data-page = "{{ post.id }}"><i class="fas fa-pen"></i></button>
-                        <button class="delete_post_button" data-page = "{{ post.id }}"><i class="fas fa-trash"></i></button>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
+                        <div class="dropdown-menu">
+                            <button class="edit_post_button dropdown-item" data-page = "{{ post.id }}"><i class="fas fa-pen"></i> Edit</button>
+                            <button class="delete_post_button dropdown-item" data-page = "{{ post.id }}"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
                         {% endif %}
                     </div>
                 </div>
@@ -54,27 +113,69 @@
                 </div>
                 <div class="bottom-info">
                     <div class="like-info">
-                        <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }}</span>
+                        <div class="numbers">
+                            <div class="left-side">
+                                <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }} </span>
+                                <div class="like_avatars" id="like_avatars_{{ post.id }}">
+                                    {% for liked in post.liked_user_count.all %}
+                                        {% for profile in users %}
+                                            {% if liked.id == profile.id  %}
+                                                <a href="/profile/{{ profile.id }}">
+                                                    <img width="20px" src="{{ profile.avatar }}" alt="">
+                                                </a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="right-side">
+                                <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }} Comments</span>
+                            </div>
+                        </div>
                         {% if user.is_authenticated %}
-                            {% if post.id in liked_posts %}
-                                <button class="unlike_button" data-page = "{{ post.id }}"><i class="fas fa-heart"></i></button>
-                            {% else %}
-                                <button class="like_button" data-page = "{{ post.id }}"><i class="far fa-heart"></i></button>
-                            {% endif %}
-                        {% else %}
-                        <span>Likes</span>
-                        {% endif %}
-                    </div>
-                    <div id="like_avatars_{{ post.id }}">
-                        {% for liked in post.liked_user_count.all %}
-                            {% for profile in users %}
-                                {% if liked.id == profile.id  %}
-                                    <a href="/profile/{{ profile.id }}">
-                                        <img width="20px" src="{{ profile.avatar }}" alt="">
-                                    </a>
+                        <hr>
+                        <div class="button-area">
+                            <div class="like-area">
+                                {% if post.id in liked_posts %}
+                                    <button class="unlike_button" data-page = "{{ post.id }}"><i class="fas fa-thumbs-up"></i> Like</button>
+                                {% else %}
+                                    <button class="like_button" data-page = "{{ post.id }}"><i class="far fa-thumbs-up"></i> Like</button>
+                                    {% endif %}
+                            </div>
+                            <div class="comment-area">
+                                <button class="comment_button" data-page = "{{ post.id }}"><i class="far fa-comment-alt"></i></i> Comment</button>
+                            </div>
+                            <div class="share-area">
+                                <button class="share_button" data-page = "{{ post.id }}"><i class="fas fa-share"></i> Share</button>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="comments-area">
+                            <div class="comment-card">
+                                <img src="{{ user.avatar }}" alt="">
+                                <div class="middle-card">
+                                    <span>{{ user.first_name }} {{ user.last_name }}</span>
+                                    <p class="content">great post</p>
+                                    <span class="time"> 5 min ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-form">
+                            <div class="comment-form_avatar">
+                                <img src="{{ user.avatar }}" alt="">
+                                {% if user.is_online %}
+                                <div class="online">
+                                    <i class="fas fa-circle"></i>
+                                </div>
                                 {% endif %}
-                            {% endfor %}
-                        {% endfor %}
+                            </div>
+                            <form>
+                                <input type="text" placeholder="Write a comment..">
+                            </form>
+                        </div>
+                        {% else %}
+                        <span></span>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -92,7 +193,7 @@
                     {% endif %}
                     {% for page in page_obj.paginator.page_range %}
                     {% if page == page_obj.number %}
-                        <li class="page-item"><a class="page-link active-link" href="?page={{ page }}">{{ page }}</a></li>
+                    <li class="page-item"><a class="page-link active-link" href="?page={{ page }}">{{ page }}</a></li>
                     {% else %}
                         <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
                     {% endif %}
@@ -110,14 +211,36 @@
             </nav>
         </div>
     </div>
-    <div>Pages, Birtdays Contacts(online)</div>
+    <div class="birthday_contacts">
+        <div class="birthday-section">
+            <h3>Birthdays</h3>
+            <div class="birthday-card">
+                <img src="../../static/facebook/img/icons/birthday.png" alt="">
+                <span><strong>{{user.first_name }} {{ user.last_name }}</strong> have birthdady today!</span>
+            </div>
+        </div>
+        <div class="contacts-section">
+            <h3>Contacts</h3>
+            <div class="contact-card">
+                <a href="/profile/{{ user.id }}" class="contact_avatar">
+                    <img src="{{ user.avatar }}" alt="">
+                    {% if user.is_online %}
+                    <div class="online">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    {% endif %}
+                </a>
+                <span> {{ user.first_name }} {{ user.last_name }}</span>
+            </div>
+        </div>
+    </div>
 </section>
 {% else %}
-{% if message %}
-<div class="alert alert-danger text-center" role="alert">
-    {{ message }}
-  </div>
-{% endif %}
+    {% if message %}
+    <div class="alert alert-danger text-center" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
 <section id="login">
     <div class="main">
         <div class="leftside">
