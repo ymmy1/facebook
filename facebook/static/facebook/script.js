@@ -248,7 +248,7 @@ function friend_icon(link)
   url = link.dataset.page
   if(url == "delete_friend")
   {
-    alert("Friend Deleted")
+    alert(`Friend Deleted ${link.dataset.id}`)
     link.innerHTML = `<i class="fas fa-user-plus"></i>`
     link.setAttribute("data-page", "send_request")
   }
@@ -268,7 +268,7 @@ function friend_icon(link)
   fetch(`/${url}`, {
     method: 'POST',
     body: JSON.stringify({
-      profile : link.dataset.id
+      profile_id : link.dataset.id
     })
   })
 

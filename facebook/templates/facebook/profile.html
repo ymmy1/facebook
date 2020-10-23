@@ -26,18 +26,26 @@
                 {% if friends %}
                 <button class="friend_icon"  data-page="delete_friend" data-id="{{ profile.id }}">
                     <i class="fas fa-user-check"></i>
-
-                </button>
-                {% elif requested %}
-                <button class="friend_icon"s ata-page="unsend_request" data-id="{{ profile.id }}">
-                    <i class="fas fa-user-astronaut"></i>
-
                 </button>
                 {% else %}
-                <button class="friend_icon"   data-page="send_request" data-id="{{ profile.id }}">
-                    <i class="fas fa-user-plus"></i>
-
-                </button>
+                    {% if profile.requesting.all %}
+                    44444
+                        {% if user in profile.requesting.all %}
+                            <button class="friend_icon" data-page="unsend_request" data-id="{{ profile.id }}">
+                                <i class="fas fa-user-astronaut"></i>
+                            </button>
+                        {% else %}
+                            999999
+                            <button class="friend_icon" data-page="send_request" data-id="{{ profile.id }}">
+                                <i class="fas fa-user-plus"></i>
+                            </button>
+                        {% endif %}
+                    {% else %}
+                    77777
+                        <button class="friend_icon" data-page="send_request" data-id="{{ profile.id }}">
+                            <i class="fas fa-user-plus"></i>
+                        </button>
+                    {% endif %}
                 {% endif %}
             {% endif %}
         </div>

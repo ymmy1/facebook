@@ -19,10 +19,12 @@ def index(request):
             liked_user_count=request.user.id
         ).all().values()
 
-    requested_list = User.objects.filter(
-            requesting=request.user.id
-        ).all().values()
-    print(requested_list)
+    if request.user.id:
+        user = User.objects.get(id=request.user.id)
+        requested_list = user.requesting.all().values()
+    else:
+        requested_list = []
+
     liked_posts = []
     for i in range(len(liked)):
         liked_posts.append(liked[i]["id"])
@@ -142,11 +144,14 @@ def profile(request, profile_id):
     friend_list = User.objects.filter(
             friends=request.user.id
         ).all().values()
-    for friend in friend_list:
-        if friend["id"] == profile_id:
-            friends = True
-        else:
-            friends = False
+    if friend_list:
+        for friend in friend_list:
+            if friend["id"] == profile_id:
+                friends = True
+            else:
+                friends = False
+    else:
+        friends = False
 
     users = User.objects.all()
     # liked posts get
@@ -261,7 +266,7 @@ def edit_profile(request):
         user = User.objects.get(username=request.user)
         avatar_id = request.POST["avatar"]
     except Post.DoesNotExist:
-        return JsonResponse({"error": "Email not found."}, status=404)
+        return JsonResponse({"error": "Email      not found."}, status=404)
     
     user.avatar = avatar_id
     user.save()
@@ -277,13 +282,10 @@ def edit_post(request):
     # Query for requested email
     try:
         post = Post.objects.get(id=data["post_id"])
-        print(data["post_id"])
     except Post.DoesNotExist:
         return JsonResponse({"error": "Post not found."}, status=404)
 
-    print(post.body)
     post.body = data["body"]
-    print(post.body)
     post.save()
     return HttpResponse(status=204)
 
@@ -305,7 +307,6 @@ def delete_post(request):
         likes = post.liked_user_count.filter(
             liked_id=data["post_id"]
         ).all()
-        print()
         for like in likes:
             post.liked_user_count.remove(like)
             profile.like_count = profile.like_count - 1
@@ -318,17 +319,41 @@ def delete_post(request):
 @csrf_exempt
 @login_required
 def send_request(request):
-    print(request)
-    return HttpResponse(status=204)
+    if request.method == "POST":
+        data = json.loads(request.body)
+        
+        requested_user = User.objects.get(id=data["profile_id"])
+        print(requested_user)
+        requested_user.requesting.add(request.user.id)
+        requested_user.save()
+        return HttpResponse(status=204)
+    else:
+        return HttpResponse(status=404)
+
 
 @csrf_exempt
 @login_required
 def unsend_request(request):
-    print(request)
-    return HttpResponse(status=204)
+    if request.method == "POST":
+        data = json.loads(request.body)  
+        requested_user = User.objects.get(id=data["profile_id"])
+        requested_user.requesting.remove(request.user.id)
+        requested_user.save()
+        return HttpResponse(status=204)
+    else:
+        return HttpResponse(status=404)
 
 @csrf_exempt
 @login_required
 def delete_friend(request):
-    print(request)
-    return HttpResponse(status=204)
+    if request.method == "POST":
+        data = json.loads(request.body)  
+        requested_user = User.objects.get(id=data["profile_id"])
+        requested_user_2 = User.objects.get(id=request.user.id)
+        requested_user.friends.remove(request.user.id)
+        requested_user_2.friends.remove(data["profile_id"])
+        requested_user.save()
+        requested_user_2.save()
+        return HttpResponse(status=204)
+    else:
+        return HttpResponse(status=404)

@@ -77,16 +77,15 @@
                             {% if requested %}
                             <span>Friend Request from:</span>
                                 {% for request in requested %}
-                                <div class="request-card">
-                                    <img src="{{ request.avatar }}" alt="">
-                                    <strong>{{ request.first_name }} {{ request.last_name }}</strong>
-                                    <button>Accept</button>
-                                    <button>Deny</button>
-                                </div>
+                                    <div class="request-card">
+                                        <img src="{{ request.avatar }}" alt="">
+                                        <strong>{{ request.first_name }} {{ request.last_name }}</strong>
+                                        <button>Accept</button>
+                                        <button>Deny</button>
+                                    </div>
                                 {% endfor %}
                             {% else %}
                             <span>No request/notifications</span>
-                            {{ user.requesting }}
                             {% endif %}
                         </div>
                     </li>
