@@ -21,6 +21,10 @@ body nav .menu-right .nav-item img {
   width: 35px;
 }
 
+body nav .navbar-brand img {
+  width: 45px;
+}
+
 body nav .form {
   display: inline-block;
 }
@@ -71,6 +75,50 @@ body nav .menu-center li:first-child path {
 }
 
 body nav .menu-right #profile_avatar {
+  border-radius: 50%;
+}
+
+body nav .menu-right .notifications {
+  position: relative;
+}
+
+body nav .menu-right .notifications .red {
+  position: absolute;
+  border-radius: 50%;
+  font-size: 0.7em;
+  background: #F02849;
+  color: #ffffff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 18px;
+  padding: 1px 2px;
+  text-align: center;
+  top: -5px;
+  right: -3px;
+}
+
+body nav .menu-right .notifications .notification-dropdown {
+  padding: 10px;
+  width: 300px;
+}
+
+body nav .menu-right .notifications .notification-dropdown .request-card {
+  padding: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: auto;
+}
+
+body nav .menu-right .notifications .notification-dropdown .request-card .request_avatar {
+  color: #000000;
+}
+
+body nav .menu-right .notifications .notification-dropdown .request-card .request_avatar img {
   border-radius: 50%;
 }
 
@@ -135,6 +183,10 @@ body #index .birthday_contacts .birthday-section, body #index .birthday_contacts
   border-top: 1px #CED0D4 solid;
   padding: 15px 0;
   margin-top: 20px;
+}
+
+body #index .birthday_contacts .birthday-section .birthday-card a, body #index .birthday_contacts .contacts-section .birthday-card a {
+  color: #000000;
 }
 
 body #index .birthday_contacts h3 {

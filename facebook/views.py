@@ -35,7 +35,7 @@ def index(request):
     page_obj = paginator.get_page(page_number)
 
     
-    return render(request, "facebook/index.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'requested' : requested_list})
+    return render(request, "facebook/index.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'requested' : requested_list })
 
 @csrf_exempt
 @login_required
@@ -144,6 +144,12 @@ def profile(request, profile_id):
     friend_list = User.objects.filter(
             friends=request.user.id
         ).all().values()
+
+    if request.user.id:
+        user = User.objects.get(id=request.user.id)
+        requested_list = user.requesting.all().values()
+    else:
+        requested_list = []
     if friend_list:
         for friend in friend_list:
             if friend["id"] == profile_id:
@@ -170,7 +176,7 @@ def profile(request, profile_id):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return  render(request, "facebook/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'friends': friends})
+    return  render(request, "facebook/profile.html", {'profile': profile,'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'friends': friends, 'requested' : requested_list })
 
 @csrf_exempt
 @login_required
@@ -335,7 +341,7 @@ def send_request(request):
 @login_required
 def unsend_request(request):
     if request.method == "POST":
-        data = json.loads(request.body)  
+        data = json.loads(request.body)
         requested_user = User.objects.get(id=data["profile_id"])
         requested_user.requesting.remove(request.user.id)
         requested_user.save()
@@ -354,6 +360,34 @@ def delete_friend(request):
         requested_user_2.friends.remove(data["profile_id"])
         requested_user.save()
         requested_user_2.save()
+        return HttpResponse(status=204)
+    else:
+        return HttpResponse(status=404)
+
+@csrf_exempt
+@login_required
+def accept(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        requested_user = User.objects.get(id=request.user.id)
+        requested_user_2 = User.objects.get(id=data["profile_id"])
+        requested_user.requesting.remove(data["profile_id"])
+        requested_user.friends.add(data["profile_id"])
+        requested_user_2.friends.add(request.user.id)
+        requested_user.save()
+        requested_user_2.save()
+        return HttpResponse(status=204)
+    else:
+        return HttpResponse(status=404)
+
+@csrf_exempt
+@login_required
+def deny(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        requested_user = User.objects.get(id=request.user.id)
+        requested_user.requesting.remove(data["profile_id"])
+        requested_user.save()
         return HttpResponse(status=204)
     else:
         return HttpResponse(status=404)

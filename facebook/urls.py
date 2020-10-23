@@ -20,5 +20,7 @@ urlpatterns = [
     path("register", views.register, name="register"),
     path("send_request", views.send_request, name="send_request"),
     path("delete_friend", views.delete_friend, name="delete_friend"),
-    path("unsend_request", views.unsend_request, name="unsend_request")
+    path("unsend_request", views.unsend_request, name="unsend_request"),
+    path("accept", views.accept, name="accept"),
+    path("deny", views.deny, name="deny")
 ]

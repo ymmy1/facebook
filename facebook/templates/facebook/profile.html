@@ -29,19 +29,16 @@
                 </button>
                 {% else %}
                     {% if profile.requesting.all %}
-                    44444
                         {% if user in profile.requesting.all %}
                             <button class="friend_icon" data-page="unsend_request" data-id="{{ profile.id }}">
                                 <i class="fas fa-user-astronaut"></i>
                             </button>
                         {% else %}
-                            999999
                             <button class="friend_icon" data-page="send_request" data-id="{{ profile.id }}">
                                 <i class="fas fa-user-plus"></i>
                             </button>
                         {% endif %}
                     {% else %}
-                    77777
                         <button class="friend_icon" data-page="send_request" data-id="{{ profile.id }}">
                             <i class="fas fa-user-plus"></i>
                         </button>
@@ -131,7 +128,12 @@
                         <i class="fas fa-clock"></i> {{ profile.date_joined }}
                     </li>
                     <li>
-                        <i class="fas fa-birthday-cake"></i> {{ profile.Birthdate_Day }}/{{ profile.Birthdate_Month }}/{{ profile.Birthdate_Year }}
+                        <i class="fas fa-birthday-cake"></i> 
+                        {% if profile.id == 2 %}
+                        <strong>Today!</strong>
+                        {% else %}
+                        {{ profile.Birthdate_Day }}/{{ profile.Birthdate_Month }}/{{ profile.Birthdate_Year }}
+                        {% endif %}
                     </li>
                     {% if profile.gender == Male %}
                     <li>

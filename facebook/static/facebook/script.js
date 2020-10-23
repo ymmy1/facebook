@@ -246,9 +246,10 @@ function select_avatar(link)
 function friend_icon(link)
 {
   url = link.dataset.page
+  profile_id = link.dataset.id
   if(url == "delete_friend")
   {
-    alert(`Friend Deleted ${link.dataset.id}`)
+    alert(`Friend Deleted`)
     link.innerHTML = `<i class="fas fa-user-plus"></i>`
     link.setAttribute("data-page", "send_request")
   }
@@ -257,6 +258,22 @@ function friend_icon(link)
     alert("Request Unsent")
     link.innerHTML = `<i class="fas fa-user-plus"></i>`
     link.setAttribute("data-page", "send_request")
+  }
+  if(url == "accept")
+  {
+    alert("accepted a new friend!")
+    link.innerHTML = `Accepted!✔`
+    link.removeAttribute("data-page")
+    link.removeAttribute("data-id")
+    link.parentElement.querySelector('.btn-danger').style.display= "none"
+  }
+  if(url == "deny")
+  {
+    alert(`Denied! ${link.dataset.id}`)
+    link.innerHTML = `Denied!'❌`
+    link.removeAttribute("data-page")
+    link.removeAttribute("data-id")
+    link.parentElement.querySelector('.btn-success').style.display= "none"
   }
   if(url == "send_request")
   {
@@ -268,7 +285,7 @@ function friend_icon(link)
   fetch(`/${url}`, {
     method: 'POST',
     body: JSON.stringify({
-      profile_id : link.dataset.id
+      profile_id : profile_id
     })
   })
 

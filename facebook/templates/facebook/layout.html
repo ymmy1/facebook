@@ -70,18 +70,25 @@
                     <li class="nav-item">
                         <a class="nav-link messanger btn" href="#"><i class="fab fa-facebook-messenger"></i></a>
                     </li>
-                    <li class="nav-item">
-                        <button class="nav-link notifications btn" type="button" id="dropdownMenuNotifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></button>
-                        <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownMenuNotifications">
+                    <li class="nav-item notifications">
+                        <button class="nav-link btn" type="button" id="dropdownMenuNotifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></button>
+                        {% if requested %}
+                        <div class="red">{{ requested.count }}</div>
+                        {% endif %}
+                        <div class="dropdown-menu notification-dropdown  dropdown-menu-right" aria-labelledby="dropdownMenuNotifications">
                             <h5>Notifications</h5>
                             {% if requested %}
                             <span>Friend Request from:</span>
                                 {% for request in requested %}
                                     <div class="request-card">
-                                        <img src="{{ request.avatar }}" alt="">
-                                        <strong>{{ request.first_name }} {{ request.last_name }}</strong>
-                                        <button>Accept</button>
-                                        <button>Deny</button>
+                                        <a href="/profile/{{ request.id }}" class="request_avatar">
+                                            <img src="{{ request.avatar }}" alt="">
+                                            <strong>{{ request.first_name }} {{ request.last_name }}</strong>
+                                        </a>
+                                        <div class="buttons">
+                                            <button data-page="accept" data-id="{{ request.id }}" class="btn-success friend_icon">Accept</button>
+                                            <button data-page="deny" data-id="{{ request.id }}" class="btn-danger friend_icon">Deny</button>
+                                        </div>
                                     </div>
                                 {% endfor %}
                             {% else %}

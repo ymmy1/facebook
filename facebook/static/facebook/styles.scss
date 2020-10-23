@@ -25,6 +25,13 @@ body
                 }
             }
         }
+        .navbar-brand
+        {
+            img
+            {
+                width: 45px;
+            }
+        }
         .form
         {
             display: inline-block;
@@ -81,6 +88,44 @@ body
             #profile_avatar
             {
                 border-radius: 50%;
+            }
+            .notifications
+            {
+                position: relative;
+                .red
+                {
+                    position: absolute;
+                    border-radius: 50%;
+                    font-size: 0.7em;
+                    background: #F02849;
+                    color: #ffffff;
+                    width: fit-content;
+                    min-width: 18px;
+                    padding: 1px 2px;
+                    text-align: center;
+                    top: -5px;
+                    right: -3px;
+                }
+                .notification-dropdown
+                {
+                    padding: 10px;
+                    width: 300px;
+                    .request-card
+                    {
+                        padding: 10px 0;
+                        display: flex;
+                        justify-content: space-between;
+                        width: auto;
+                        .request_avatar
+                        {
+                            color: #000000;
+                            img
+                            {
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                }
             }
         }
         .btn
@@ -143,6 +188,13 @@ body
                 border-top: 1px #CED0D4 solid;
                 padding: 15px 0;
                 margin-top: 20px;
+                .birthday-card
+                {
+                    a
+                    {
+                        color: #000000;
+                    }
+                }
             }
             h3
             {
