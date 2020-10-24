@@ -280,19 +280,35 @@ def unfollow_user(request):
 
 @csrf_exempt
 @login_required
-def edit_profile(request):
+def edit(request):
 
     if request.method != "POST":
-        return render(request, "facebook/edit_profile.html")
+        return HttpResponse(status=404)
     try:
-        user = User.objects.get(username=request.user)
-        avatar_id = request.POST["avatar"]
+        user = User.objects.get(id=request.user.id)
+        print(user)
+        data = request.POST["data"]
     except Post.DoesNotExist:
         return JsonResponse({"error": "Email      not found."}, status=404)
     
-    user.avatar = avatar_id
+    if data == 'change_avatar':
+        user.avatar = request.POST["url"]
+
+    if data == 'change_cover':
+        user.cover = request.POST["url"]
+
+    if data == 'change_info':
+        user.work = request.POST['work']
+        user.school = request.POST['school']
+        user.from_location = request.POST['city']
+        user.Birthdate_Day = request.POST['day']
+        user.Birthdate_Month = request.POST['month']
+        user.Birthdate_Year = request.POST['year']
+        user.Gender = request.POST['gender']
+
     user.save()
-    return HttpResponseRedirect(reverse("index"))
+    page = reverse('profile', kwargs={'profile_id': request.user.id})
+    return HttpResponseRedirect(page)
 
 @csrf_exempt
 @login_required

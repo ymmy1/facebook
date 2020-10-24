@@ -135,11 +135,11 @@
                         {{ profile.Birthdate_Day }}/{{ profile.Birthdate_Month }}/{{ profile.Birthdate_Year }}
                         {% endif %}
                     </li>
-                    {% if profile.gender == Male %}
+                    {% if profile.Gender == Male %}
                     <li>
                         <i class="fas fa-mars"></i> {{ profile.Gender }}
                     </li>
-                    {% elif profile.gender == Female %}
+                    {% elif profile.Gender == Female %}
                     <li>
                         <i class="fas fa-venus"></i> {{ profile.Gender }}
                     </li>
@@ -349,11 +349,14 @@
             <div class="current-img">
                 <img class="cover-img" src="{{ user.cover }}" alt="">
             </div>
-            <form action="{% url 'register' %}" method="post">
+            <form action="/edit" method="POST" data-page="change_cover" class="change_form">
                 {% csrf_token %}
                 <div class="form-group">
+                    <input type="hidden" name="data" value="change_cover">
+                </div>
+                <div class="form-group">
                     <span>Change image url below</span>
-                    <input class="form-control"  type="text" name="url" placeholder="URL ://">
+                    <input id="cover_new_url" class="form-control"  type="text" name="url" placeholder="URL ://">
                 </div>
                 <input class="btn btn-success" type="submit" value="Save">
             </form>
@@ -369,11 +372,14 @@
             <div class="current-img">
                 <img class="avatar-img" src="{{ user.avatar }}" alt="">
             </div>
-            <form action="{% url 'register' %}" method="post">
+            <form action="/edit" method="POST" data-page="change_avatar" class="change_form">
                 {% csrf_token %}
                 <div class="form-group">
+                    <input type="hidden" name="data" value="change_avatar">
+                </div>
+                <div class="form-group">
                     <span>Change image url below</span>
-                    <input class="form-control"  type="text" name="url" placeholder="URL ://">
+                    <input id="avatar_new_url" class="form-control"  type="text" name="url" placeholder="URL ://">
                 </div>
                 <input class="btn btn-success" type="submit" value="Save">
             </form>
@@ -386,7 +392,11 @@
         <div class="form">
             <h2>Change Info</h2>
             <hr>
-            <form action="">
+            <form action="/edit" method="POST" data-page="change_info" class="change_form">
+                {% csrf_token %}
+                <div class="form-group bg-grey">
+                    <input type="hidden" name="data" value="change_info">
+                </div>
                 <div class="form-group bg-grey">
                     <span>Work</span>
                     <input class="form-control" type="text" name="work" value="{{ user.work }}">
@@ -397,12 +407,12 @@
                 </div>
                 <div class="form-group bg-grey">
                     <span>City</span>
-                    <input class="form-control" type="text" name="from_location" value="{{ user.from_location }}" vla>
+                    <input class="form-control" type="text" name="city" value="{{ user.from_location }}" vla>
                 </div>
                 <div class="form-group birthday">
                     <span>Birthday {{ user.Birthdate_Day }}/{{ profile.Birthdate_Month }}/{{ user.Birthdate_Year }}</span>
                     <div class="select-area">
-                        <select name="Day" >
+                        <select name="day" >
                             {% for day in day_list %}
                             {% if forloop.counter == user.Birthdate_Day %}
                                 <option value="{{ forloop.counter }}" selected>{{ day }}</option>
@@ -411,7 +421,7 @@
                             {% endif %}
                             {% endfor %}
                         </select>
-                        <select name="Month">
+                        <select name="month">
                             {% for month in month_list %}
                             {% if forloop.counter == user.Birthdate_Month %}
                                 <option value="{{ forloop.counter }}" selected>{{ month }}</option>
@@ -420,7 +430,7 @@
                             {% endif %}
                             {% endfor %}
                         </select>
-                        <select name="Year" >
+                        <select name="year" >
                             {% for year in year_list %}
                             {% if year == user.Birthdate_Year %}
                                 <option value="{{ year }}" selected>{{ year }}</option>

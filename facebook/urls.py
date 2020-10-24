@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
     path("profile/<int:profile_id>", views.profile, name="profile"),
-    path("edit_profile", views.edit_profile, name="edit_profile"),
+    path("edit", views.edit, name="edit"),
     path("unlike_post", views.unlike_post, name="unlike_post"),
     path("follow_user", views.follow_user, name="follow_user"),
     path("unfollow_user", views.unfollow_user, name="unfollow_user"),
