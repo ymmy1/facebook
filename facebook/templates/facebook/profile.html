@@ -6,7 +6,7 @@
         <div class="cover">
             <img class="cover-img" src="{{ profile.cover }}" alt="">
             {% if profile.id == user.id %}
-            <div class="change_cover button">
+            <div data-page="change_cover" class="change_cover button">
                 <i class="fas fa-camera"></i> 
                 <span>Edit Cover Photo</span>
             </div>
@@ -14,7 +14,7 @@
             <div class="avatar">
                 <img src="{{ profile.avatar }}" alt="">
                 {% if profile.id == user.id %}
-                <div class="change_avatar">
+                <div data-page="change_avatar" class="change_avatar">
                     <i class="fas fa-camera"></i> 
                 </div>
                 {% endif %}
@@ -86,24 +86,24 @@
             <div class="left-side">
                 <ul>
                     <li>
-                        <a href="#" class="button">
+                        <button data-page="change_info" class="change_info button">
                             <i class="fas fa-pen"></i> Edit Profile
-                        </a>
+                        </button>
                     </li>
                     <li>
-                        <a href="#" class="button">
+                        <button class="button">
                             <i class="fas fa-eye"></i>
-                        </a>
+                        </button>
                     </li>
                     <li>
-                        <a href="#" class="button">
+                        <button class="button">
                             <i class="fas fa-search"></i>
-                        </a>
+                        </button>
                     </li>
                     <li>
-                        <a href="#" class="button">
+                        <button class="button">
                             <i class="fas fa-ellipsis-h"></i>
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -248,7 +248,7 @@
                                             {% for profile in users %}
                                                 {% if liked.id == profile.id  %}
                                                     <a href="/profile/{{ profile.id }}">
-                                                        <img width="20px" src="{{ profile.avatar }}" alt="">
+                                                        <img width="20px" height="20px" src="{{ profile.avatar }}" alt="">
                                                     </a>
                                                 {% endif %}
                                             {% endfor %}
@@ -340,4 +340,146 @@
         </div>
     </div>
 </section>
+<div id="change_cover-tab">
+    <div class="box">
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+        <div class="form">
+            <h2>Change Cover</h2>
+            <hr>
+            <div class="current-img">
+                <img class="cover-img" src="{{ user.cover }}" alt="">
+            </div>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <span>Change image url below</span>
+                    <input class="form-control"  type="text" name="url" placeholder="URL ://">
+                </div>
+                <input class="btn btn-success" type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</div>
+<div id="change_avatar-tab">
+    <div class="box">
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+        <div class="form">
+            <h2>Change Avatar</h2>
+            <hr>
+            <div class="current-img">
+                <img class="avatar-img" src="{{ user.avatar }}" alt="">
+            </div>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <span>Change image url below</span>
+                    <input class="form-control"  type="text" name="url" placeholder="URL ://">
+                </div>
+                <input class="btn btn-success" type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</div>
+<div id="change_info-tab">
+    <div class="box">
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+        <div class="form">
+            <h2>Change Info</h2>
+            <hr>
+            <form action="">
+                <div class="form-group bg-grey">
+                    <span>Work</span>
+                    <input class="form-control" type="text" name="work" value="{{ user.work }}">
+                </div>
+                <div class="form-group bg-grey">
+                    <span>School</span>
+                    <input class="form-control" type="text" name="school" value="{{ user.school }}">
+                </div>
+                <div class="form-group bg-grey">
+                    <span>City</span>
+                    <input class="form-control" type="text" name="from_location" value="{{ user.from_location }}" vla>
+                </div>
+                <div class="form-group birthday">
+                    <span>Birthday {{ user.Birthdate_Day }}/{{ profile.Birthdate_Month }}/{{ user.Birthdate_Year }}</span>
+                    <div class="select-area">
+                        <select name="Day" >
+                            {% for day in day_list %}
+                            {% if forloop.counter == user.Birthdate_Day %}
+                                <option value="{{ forloop.counter }}" selected>{{ day }}</option>
+                            {% else %}
+                                <option value="{{ forloop.counter }}">{{ day }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                        <select name="Month">
+                            {% for month in month_list %}
+                            {% if forloop.counter == user.Birthdate_Month %}
+                                <option value="{{ forloop.counter }}" selected>{{ month }}</option>
+                            {% else %}
+                                <option value="{{ forloop.counter }}">{{ month }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                        <select name="Year" >
+                            {% for year in year_list %}
+                            {% if year == user.Birthdate_Year %}
+                                <option value="{{ year }}" selected>{{ year }}</option>
+                            {% else %}
+                                <option value="{{ year }}">{{ year }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group gender">
+                    <span>Gender</span>
+                    <div class="radio-area">
+                        {% if user.Gender == "Female" %}
+                            <div class="selection">
+                                <input type="radio" id="female" name="gender" value="Female" checked="checked">
+                                <label for="female">Female</label>
+                            </div><br>
+                            <div class="selection">
+                                <input type="radio" id="male" name="gender" value="Male" >
+                                <label for="male">Male</label>
+                            </div><br>
+                            <div class="selection">
+                                <input type="radio" id="other" name="gender" value="Other" >
+                                <label for="other">Other</label>
+                            </div>
+                        {% elif user.Gender == "Male" %}
+                            <div class="selection">
+                                <input type="radio" id="female" name="gender" value="Female">
+                                <label for="female">Female</label>
+                            </div><br>
+                            <div class="selection">
+                                <input type="radio" id="male" name="gender" value="Male" checked="checked">
+                                <label for="male">Male</label>
+                            </div><br>
+                            <div class="selection">
+                                <input type="radio" id="other" name="gender" value="Other" >
+                                <label for="other">Other</label>
+                            </div>
+                        {% else %}
+                            <div class="selection">
+                                <input type="radio" id="female" name="gender" value="Female" >
+                                <label for="female">Female</label>
+                            </div><br>
+                            <div class="selection">
+                                <input type="radio" id="male" name="gender" value="Male" >
+                                <label for="male">Male</label>
+                            </div><br>
+                            <div class="selection">
+                                <input type="radio" id="other" name="gender" value="Other" checked="checked">
+                                <label for="other">Other</label>
+                            </div>
+                        {% endif %}
+                        <br>
+                    </div>
+                </div>
+                <input class="btn btn-success" type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

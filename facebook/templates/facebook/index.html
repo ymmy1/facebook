@@ -7,7 +7,7 @@
         <ul>
             <li>
                 <img src="{{ user.avatar }}" alt="">
-                <a href="#">{{ user.first_name }} {{ user.last_name }}</a>
+                <a href="/profile/{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</a>
             </li>
             <li>
                 <img src="/../../static/facebook/img/icons/pages.png" alt="">
@@ -121,7 +121,7 @@
                                         {% for profile in users %}
                                             {% if liked.id == profile.id  %}
                                                 <a href="/profile/{{ profile.id }}">
-                                                    <img width="20px" src="{{ profile.avatar }}" alt="">
+                                                    <img width="20px" height="20px" src="{{ profile.avatar }}" alt="">
                                                 </a>
                                             {% endif %}
                                         {% endfor %}
@@ -232,6 +232,19 @@
                 </a>
                 <span> {{ user.first_name }} {{ user.last_name }}</span>
             </div>
+            {% for friend in user.friends.all %}
+            {% if friend.is_online %}
+            <div class="contact-card">
+                <a href="/profile/{{ friend.id }}" class="contact_avatar">
+                    <img src="{{ friend.avatar }}" alt="">
+                    <div class="online">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                </a>
+                <span> {{ friend.first_name }} {{ friend.last_name }}</span>
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </section>

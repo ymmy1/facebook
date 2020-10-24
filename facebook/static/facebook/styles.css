@@ -19,6 +19,7 @@ body nav .menu-right .nav-item {
 
 body nav .menu-right .nav-item img {
   width: 35px;
+  height: 35px;
 }
 
 body nav .navbar-brand img {
@@ -171,6 +172,7 @@ body #index .shortcuts ul li:hover {
 
 body #index .shortcuts ul li img {
   width: 35px;
+  height: 35px;
   border-radius: 50%;
 }
 
@@ -194,12 +196,17 @@ body #index .birthday_contacts h3 {
   margin-bottom: 15px;
 }
 
+body #index .birthday_contacts .contact-card {
+  margin: 10px 0;
+}
+
 body #index .birthday_contacts .contact-card .contact_avatar {
   position: relative;
 }
 
 body #index .birthday_contacts .contact-card .contact_avatar img {
   width: 35px;
+  height: 35px;
   border-radius: 50%;
 }
 
@@ -448,6 +455,7 @@ body #index .posts_container .posts .post .bottom-info .like-info .comment-form 
 
 body #index .posts_container .posts .post .bottom-info .like-info .comment-form .comment-form_avatar img {
   width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 
@@ -682,7 +690,7 @@ body #login .main .rightside .Createpage a {
   color: #000000;
 }
 
-body #registration-tab {
+body #registration-tab, body #change_cover-tab, body #change_avatar-tab, body #change_info-tab {
   z-index: 100;
   position: absolute;
   top: 0;
@@ -698,7 +706,7 @@ body #registration-tab {
           align-items: center;
 }
 
-body #registration-tab .box {
+body #registration-tab .box, body #change_cover-tab .box, body #change_avatar-tab .box, body #change_info-tab .box {
   position: relative;
   width: 420px;
   background: #fff;
@@ -708,7 +716,7 @@ body #registration-tab .box {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-body #registration-tab .box .close-btn {
+body #registration-tab .box .close-btn, body #change_cover-tab .box .close-btn, body #change_avatar-tab .box .close-btn, body #change_info-tab .box .close-btn {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -717,43 +725,51 @@ body #registration-tab .box .close-btn {
   color: #606771;
 }
 
-body #registration-tab .box .form {
+body #registration-tab .box .form, body #change_cover-tab .box .form, body #change_avatar-tab .box .form, body #change_info-tab .box .form {
   margin-top: 5px;
 }
 
-body #registration-tab .box .form h2 {
+body #registration-tab .box .form h2, body #change_cover-tab .box .form h2, body #change_avatar-tab .box .form h2, body #change_info-tab .box .form h2 {
   margin: 0;
 }
 
-body #registration-tab .box .form form {
+body #registration-tab .box .form .current-img, body #change_cover-tab .box .form .current-img, body #change_avatar-tab .box .form .current-img, body #change_info-tab .box .form .current-img {
+  width: inherit;
+}
+
+body #registration-tab .box .form .current-img img, body #change_cover-tab .box .form .current-img img, body #change_avatar-tab .box .form .current-img img, body #change_info-tab .box .form .current-img img {
+  width: 100%;
+}
+
+body #registration-tab .box .form form, body #change_cover-tab .box .form form, body #change_avatar-tab .box .form form, body #change_info-tab .box .form form {
   font-size: 0.8em;
 }
 
-body #registration-tab .box .form form .bg-grey input {
+body #registration-tab .box .form form .bg-grey input, body #change_cover-tab .box .form form .bg-grey input, body #change_avatar-tab .box .form form .bg-grey input, body #change_info-tab .box .form form .bg-grey input {
   background: #F5F6F7;
 }
 
-body #registration-tab .box .form form .twoinone {
+body #registration-tab .box .form form .twoinone, body #change_cover-tab .box .form form .twoinone, body #change_avatar-tab .box .form form .twoinone, body #change_info-tab .box .form form .twoinone {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body #registration-tab .box .form form .twoinone input:first-child {
+body #registration-tab .box .form form .twoinone input:first-child, body #change_cover-tab .box .form form .twoinone input:first-child, body #change_avatar-tab .box .form form .twoinone input:first-child, body #change_info-tab .box .form form .twoinone input:first-child {
   margin-right: 10px;
 }
 
-body #registration-tab .box .form form .birthday span, body #registration-tab .box .form form .gender span {
+body #registration-tab .box .form form .birthday span, body #registration-tab .box .form form .gender span, body #change_cover-tab .box .form form .birthday span, body #change_cover-tab .box .form form .gender span, body #change_avatar-tab .box .form form .birthday span, body #change_avatar-tab .box .form form .gender span, body #change_info-tab .box .form form .birthday span, body #change_info-tab .box .form form .gender span {
   display: block;
 }
 
-body #registration-tab .box .form form .birthday .select-area, body #registration-tab .box .form form .birthday .radio-area, body #registration-tab .box .form form .gender .select-area, body #registration-tab .box .form form .gender .radio-area {
+body #registration-tab .box .form form .birthday .select-area, body #registration-tab .box .form form .birthday .radio-area, body #registration-tab .box .form form .gender .select-area, body #registration-tab .box .form form .gender .radio-area, body #change_cover-tab .box .form form .birthday .select-area, body #change_cover-tab .box .form form .birthday .radio-area, body #change_cover-tab .box .form form .gender .select-area, body #change_cover-tab .box .form form .gender .radio-area, body #change_avatar-tab .box .form form .birthday .select-area, body #change_avatar-tab .box .form form .birthday .radio-area, body #change_avatar-tab .box .form form .gender .select-area, body #change_avatar-tab .box .form form .gender .radio-area, body #change_info-tab .box .form form .birthday .select-area, body #change_info-tab .box .form form .birthday .radio-area, body #change_info-tab .box .form form .gender .select-area, body #change_info-tab .box .form form .gender .radio-area {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body #registration-tab .box .form form .birthday .select-area .selection, body #registration-tab .box .form form .birthday .radio-area .selection, body #registration-tab .box .form form .gender .select-area .selection, body #registration-tab .box .form form .gender .radio-area .selection {
+body #registration-tab .box .form form .birthday .select-area .selection, body #registration-tab .box .form form .birthday .radio-area .selection, body #registration-tab .box .form form .gender .select-area .selection, body #registration-tab .box .form form .gender .radio-area .selection, body #change_cover-tab .box .form form .birthday .select-area .selection, body #change_cover-tab .box .form form .birthday .radio-area .selection, body #change_cover-tab .box .form form .gender .select-area .selection, body #change_cover-tab .box .form form .gender .radio-area .selection, body #change_avatar-tab .box .form form .birthday .select-area .selection, body #change_avatar-tab .box .form form .birthday .radio-area .selection, body #change_avatar-tab .box .form form .gender .select-area .selection, body #change_avatar-tab .box .form form .gender .radio-area .selection, body #change_info-tab .box .form form .birthday .select-area .selection, body #change_info-tab .box .form form .birthday .radio-area .selection, body #change_info-tab .box .form form .gender .select-area .selection, body #change_info-tab .box .form form .gender .radio-area .selection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -778,15 +794,15 @@ body #registration-tab .box .form form .birthday .select-area .selection, body #
   padding: 5px;
 }
 
-body #registration-tab .box .form form .birthday .select-area .selection label, body #registration-tab .box .form form .birthday .radio-area .selection label, body #registration-tab .box .form form .gender .select-area .selection label, body #registration-tab .box .form form .gender .radio-area .selection label {
+body #registration-tab .box .form form .birthday .select-area .selection label, body #registration-tab .box .form form .birthday .radio-area .selection label, body #registration-tab .box .form form .gender .select-area .selection label, body #registration-tab .box .form form .gender .radio-area .selection label, body #change_cover-tab .box .form form .birthday .select-area .selection label, body #change_cover-tab .box .form form .birthday .radio-area .selection label, body #change_cover-tab .box .form form .gender .select-area .selection label, body #change_cover-tab .box .form form .gender .radio-area .selection label, body #change_avatar-tab .box .form form .birthday .select-area .selection label, body #change_avatar-tab .box .form form .birthday .radio-area .selection label, body #change_avatar-tab .box .form form .gender .select-area .selection label, body #change_avatar-tab .box .form form .gender .radio-area .selection label, body #change_info-tab .box .form form .birthday .select-area .selection label, body #change_info-tab .box .form form .birthday .radio-area .selection label, body #change_info-tab .box .form form .gender .select-area .selection label, body #change_info-tab .box .form form .gender .radio-area .selection label {
   margin: 0 5px;
 }
 
-body #registration-tab .box .form form .birthday .select-area .selection:nth-child(5), body #registration-tab .box .form form .birthday .radio-area .selection:nth-child(5), body #registration-tab .box .form form .gender .select-area .selection:nth-child(5), body #registration-tab .box .form form .gender .radio-area .selection:nth-child(5) {
+body #registration-tab .box .form form .birthday .select-area .selection:nth-child(5), body #registration-tab .box .form form .birthday .radio-area .selection:nth-child(5), body #registration-tab .box .form form .gender .select-area .selection:nth-child(5), body #registration-tab .box .form form .gender .radio-area .selection:nth-child(5), body #change_cover-tab .box .form form .birthday .select-area .selection:nth-child(5), body #change_cover-tab .box .form form .birthday .radio-area .selection:nth-child(5), body #change_cover-tab .box .form form .gender .select-area .selection:nth-child(5), body #change_cover-tab .box .form form .gender .radio-area .selection:nth-child(5), body #change_avatar-tab .box .form form .birthday .select-area .selection:nth-child(5), body #change_avatar-tab .box .form form .birthday .radio-area .selection:nth-child(5), body #change_avatar-tab .box .form form .gender .select-area .selection:nth-child(5), body #change_avatar-tab .box .form form .gender .radio-area .selection:nth-child(5), body #change_info-tab .box .form form .birthday .select-area .selection:nth-child(5), body #change_info-tab .box .form form .birthday .radio-area .selection:nth-child(5), body #change_info-tab .box .form form .gender .select-area .selection:nth-child(5), body #change_info-tab .box .form form .gender .radio-area .selection:nth-child(5) {
   margin-right: 0px;
 }
 
-body #registration-tab .box .form form .birthday .select-area select, body #registration-tab .box .form form .birthday .radio-area select, body #registration-tab .box .form form .gender .select-area select, body #registration-tab .box .form form .gender .radio-area select {
+body #registration-tab .box .form form .birthday .select-area select, body #registration-tab .box .form form .birthday .radio-area select, body #registration-tab .box .form form .gender .select-area select, body #registration-tab .box .form form .gender .radio-area select, body #change_cover-tab .box .form form .birthday .select-area select, body #change_cover-tab .box .form form .birthday .radio-area select, body #change_cover-tab .box .form form .gender .select-area select, body #change_cover-tab .box .form form .gender .radio-area select, body #change_avatar-tab .box .form form .birthday .select-area select, body #change_avatar-tab .box .form form .birthday .radio-area select, body #change_avatar-tab .box .form form .gender .select-area select, body #change_avatar-tab .box .form form .gender .radio-area select, body #change_info-tab .box .form form .birthday .select-area select, body #change_info-tab .box .form form .birthday .radio-area select, body #change_info-tab .box .form form .gender .select-area select, body #change_info-tab .box .form form .gender .radio-area select {
   font-size: 1.2em;
   margin-right: 10px;
   border: 1px solid #CED4DA;
@@ -798,20 +814,24 @@ body #registration-tab .box .form form .birthday .select-area select, body #regi
   width: stretch;
 }
 
-body #registration-tab .box .form form .birthday .select-area select:last-child, body #registration-tab .box .form form .birthday .radio-area select:last-child, body #registration-tab .box .form form .gender .select-area select:last-child, body #registration-tab .box .form form .gender .radio-area select:last-child {
+body #registration-tab .box .form form .birthday .select-area select:last-child, body #registration-tab .box .form form .birthday .radio-area select:last-child, body #registration-tab .box .form form .gender .select-area select:last-child, body #registration-tab .box .form form .gender .radio-area select:last-child, body #change_cover-tab .box .form form .birthday .select-area select:last-child, body #change_cover-tab .box .form form .birthday .radio-area select:last-child, body #change_cover-tab .box .form form .gender .select-area select:last-child, body #change_cover-tab .box .form form .gender .radio-area select:last-child, body #change_avatar-tab .box .form form .birthday .select-area select:last-child, body #change_avatar-tab .box .form form .birthday .radio-area select:last-child, body #change_avatar-tab .box .form form .gender .select-area select:last-child, body #change_avatar-tab .box .form form .gender .radio-area select:last-child, body #change_info-tab .box .form form .birthday .select-area select:last-child, body #change_info-tab .box .form form .birthday .radio-area select:last-child, body #change_info-tab .box .form form .gender .select-area select:last-child, body #change_info-tab .box .form form .gender .radio-area select:last-child {
   margin-right: 0px;
 }
 
-body #registration-tab .box .form form .policies {
+body #registration-tab .box .form form .policies, body #change_cover-tab .box .form form .policies, body #change_avatar-tab .box .form form .policies, body #change_info-tab .box .form form .policies {
   font-size: 0.85em;
 }
 
-body #registration-tab .box .form form .btn-success {
+body #registration-tab .box .form form .btn-success, body #change_cover-tab .box .form form .btn-success, body #change_avatar-tab .box .form form .btn-success, body #change_info-tab .box .form form .btn-success {
   display: block;
   font-weight: bold;
   margin: auto;
   font-size: 1.5em;
   padding: 3px 60px;
+}
+
+body #profile {
+  position: relative;
 }
 
 body #profile .button {
@@ -868,6 +888,8 @@ body #profile .top .cover .avatar {
 
 body #profile .top .cover .avatar img {
   border-radius: 50%;
+  width: 170px;
+  height: 170px;
 }
 
 body #profile .top .cover .avatar .change_avatar {
@@ -1063,7 +1085,8 @@ body #profile .bottom .info-container .intro .profiles .friend-card:last-child, 
 }
 
 body #profile .bottom .info-container .intro .profiles .friend-card img, body #profile .bottom .info-container .friends .profiles .friend-card img {
-  width: 100%;
+  width: 111px;
+  height: 111px;
   border-radius: 10px;
 }
 
@@ -1123,6 +1146,7 @@ body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex
 
 body #profile .bottom .posts_container .posts .post .top-info .poster-info .flex .post_avatar img {
   width: 50px;
+  height: 50px;
   border-radius: 50%;
 }
 
@@ -1304,6 +1328,7 @@ body #profile .bottom .posts_container .posts .post .bottom-info .like-info .com
 
 body #profile .bottom .posts_container .posts .post .bottom-info .like-info .comment-form .comment-form_avatar img {
   width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 

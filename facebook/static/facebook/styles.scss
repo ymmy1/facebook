@@ -22,6 +22,7 @@ body
                 img
                 {
                     width: 35px;
+                    height: 35px;
                 }
             }
         }
@@ -171,6 +172,7 @@ body
                     img
                     {
                         width: 35px;
+                        height: 35px;
                         border-radius: 50%;
                     }
                     a
@@ -203,12 +205,14 @@ body
             }
             .contact-card
             {
+                margin: 10px 0;
                 .contact_avatar
                 {
                     position: relative;
                     img
                     {
                         width: 35px;
+                        height: 35px;
                         border-radius: 50%;
                     }
                     .online
@@ -414,6 +418,7 @@ body
                                         img
                                         {
                                             width: 30px;
+                                            height: 30px;
                                             border-radius: 50%;
                                         }
                                         .online
@@ -635,7 +640,7 @@ body
             }
         }
     }
-    #registration-tab
+    #registration-tab, #change_cover-tab, #change_avatar-tab, #change_info-tab
     {
         z-index: 100;
         position: absolute;
@@ -670,6 +675,14 @@ body
                 h2
                 {
                     margin: 0;
+                }
+                .current-img
+                {
+                    width: inherit;
+                    img
+                    {
+                        width: 100%;
+                    }
                 }
                 form
                 {
@@ -754,6 +767,7 @@ body
     }
     #profile
     {
+        position: relative;
         .button
         {
             background: #CED4DA;
@@ -806,6 +820,8 @@ body
                     img
                     {
                         border-radius: 50%;
+                        width: 170px;
+                        height: 170px;      
                     }
                     .change_avatar
                     {
@@ -987,7 +1003,8 @@ body
                             }
                             img
                             {
-                                width: 100%;
+                                width: 111px;
+                                height: 111px;
                                 border-radius: 10px;
                             }
                             span
@@ -1033,6 +1050,7 @@ body
                                         img
                                         {
                                             width: 50px;
+                                            height: 50px;
                                             border-radius: 50%;
                                         }
                                         .online
@@ -1184,6 +1202,7 @@ body
                                         img
                                         {
                                             width: 30px;
+                                            height: 30px;
                                             border-radius: 50%;
                                         }
                                         .online

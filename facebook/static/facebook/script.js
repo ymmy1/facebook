@@ -21,6 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       document.querySelector('#register_btn').addEventListener('click', () => register_popup());
     }
+    if (document.querySelector('.change_cover'))
+    {
+      document.querySelectorAll('.change_cover').forEach(link => {link.onclick = () => { change_popup(link) }});
+      document.querySelectorAll('.change_avatar').forEach(link => {link.onclick = () => { change_popup(link) }});
+      document.querySelectorAll('.change_info').forEach(link => {link.onclick = () => { change_popup(link) }});
+    }
     
   
   });
@@ -289,4 +295,31 @@ function friend_icon(link)
     })
   })
 
+}
+
+function change_popup(link)
+{
+  url = link.dataset.page
+  console.log(url)
+  var tab = document.querySelector(`#${url}-tab`)
+  var body = document.querySelector('body')
+
+  body.style.overflowY = "hidden";
+  tab.style.display = "flex";
+
+  // Registering close button
+  document.querySelectorAll('.close-btn').forEach(link => {link.onclick = () => { tab.style.display = "none";body.style.overflowY = "auto"; }});
+
+  $(document).mouseup(function(e) 
+  {
+    var container = $(".box");
+    
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+      tab.style.display = "none";
+      body.style.overflowY = "auto";
+      
+    }
+  });
 }
