@@ -129,11 +129,29 @@ def new_post(request):
     if request.method != "POST":
         return JsonResponse({"error": "POST request required."}, status=400)
 
-    data = json.loads(request.body)  
-    post = Post(
-            username=request.user,
-            body=data.get("body", ""),
-        )
+    data = json.loads(request.body)
+    if data['body']:
+        if data['img']:
+            post = Post(
+                    username=request.user,
+                    body=data.get("body", ""),
+                    img=data.get("img", "")
+                )
+        else:
+            post = Post(
+                    username=request.user,
+                    body=data.get("body", "")
+                )
+    else:
+        if data['img']:
+            post = Post(
+                    username=request.user,
+                    img=data.get("img", "")
+                )
+        else:
+            return HttpResponse(status=404)
+
+
     post.save()  
     return JsonResponse({"message": "Post was saved successfully."}, status=201)    
 
@@ -204,15 +222,12 @@ def like_post(request):
     # Query for requested email
     try:
         post = Post.objects.get(id=data["post_id"])
-        profile = User.objects.get(id=post.username_id)
     except Post.DoesNotExist:
         return JsonResponse({"error": "Email not found."}, status=404)
 
     user = User.objects.get(username=request.user)
     post.like_count = post.like_count + 1
     post.liked_user_count.add(user.id)
-    profile.like_count = profile.like_count + 1
-    profile.save()
     post.save()
     return HttpResponse(status=204)
 

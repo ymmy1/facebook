@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.unfollow_button').forEach(link => {link.onclick = () => { unfollow_user(link) }});
     document.querySelectorAll('.edit_post_button').forEach(link => {link.onclick = () => { edit_post(link) }});
     document.querySelectorAll('.delete_post_button').forEach(link => {link.onclick = () => { delete_post(link) }});
-    document.querySelectorAll('label').forEach(link => {link.onclick = () => { select_avatar(link) }});
+    document.querySelectorAll('label').forEach(link => {link.onclick = (e) => { select_avatar(link) }});
+    if (document.querySelector('.comment_form'))
+    {
+      document.querySelectorAll('.comment_form').forEach(link => {link.onsubmit = () => { comment_form(link) }});
+      $(".comment_form").on('submit', function(e){ e.preventDefault();}
     if (document.querySelector('.friend_icon'))
     {
       document.querySelectorAll('.friend_icon').forEach(link => {link.onclick = () => { friend_icon(link) }});
@@ -60,6 +64,7 @@ function new_post()
     method: 'POST',
     body: JSON.stringify({
         body : document.querySelector('#textarea').value,
+        img : document.querySelector('#img_url').value
     })
   }
   )
@@ -322,4 +327,11 @@ function change_popup(link)
       
     }
   });
+}
+
+function comment_form(link)
+{
+  alert(link.classList)
+  console.log(link)
+  link.style.display = 'none'
 }

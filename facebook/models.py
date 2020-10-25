@@ -30,4 +30,13 @@ class Post(models.Model):
     liked_user_count = models.ManyToManyField("Post", related_name="liked_id")
     body = models.TextField(blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    img = models.TextField(blank=True, null=True)
+    comments = models.ManyToManyField("Comment", related_name="post_id")
     
+
+class Comment(models.Model):
+    username = models.ForeignKey("User", on_delete=models.CASCADE, related_name="comment_user")
+    body = models.TextField(blank=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
+

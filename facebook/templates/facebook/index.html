@@ -46,6 +46,14 @@
     <div class="posts_container">
         <div class="posts">
             <h2 class="box">User's Posts</h2>
+            <form id="post_form" class="box">
+                <img src="{{ user.avatar }}" width="35px" alt="">
+                <div class="form-inputs">
+                    <textarea id="textarea" placeholder="Say something.."></textarea>
+                    <input id="img_url" type="text" name="image_url" placeholder="Attach Image URL ://">
+                    <button id="new_post" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+            </form>
             {% for post in page_obj %}
             <div class="post box">
                 <div class="top-info">
@@ -105,6 +113,10 @@
                 </div>
                 <div class="middle-info">
                     <p class="post_body" style="display: block;">{{ post.body }}</p>
+                    {% if post.img %}
+                    <p class="post_img" style="display: block;"></p><img src="{{ post.img }}" width="90%" alt=""></p>
+                    {% endif %}
+
                     <form style="display: none;">
                         <input type="text" style="display: none;" name="post_id" value="{{ post.id }}" disabled>
                         <textarea name="body"></textarea>
@@ -152,12 +164,14 @@
                         <hr>
                         <div class="comments-area">
                             <div class="comment-card">
-                                <img src="{{ user.avatar }}" alt="">
+                                {% for comment in post.comments.all %}
+                                <img src="{{ comment.username.avatar }}" alt="">
                                 <div class="middle-card">
-                                    <span>{{ user.first_name }} {{ user.last_name }}</span>
-                                    <p class="content">great post</p>
-                                    <span class="time"> 5 min ago</span>
+                                    <span>{{ comment.username.first_name }} {{ comment.username.last_name }}</span>
+                                    <p class="content">{{ comment.body }}</p>
+                                    <span class="time"> {{ comment.timestamp }}</span>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="comment-form">
@@ -169,7 +183,8 @@
                                 </div>
                                 {% endif %}
                             </div>
-                            <form>
+                            <form class="comment_form">
+                                <input type="hidden" value="{{ post.id }}">
                                 <input type="text" placeholder="Write a comment..">
                             </form>
                         </div>

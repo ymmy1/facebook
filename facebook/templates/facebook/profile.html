@@ -232,6 +232,10 @@
                     </div>
                     <div class="middle-info">
                         <p class="post_body" style="display: block;">{{ post.body }}</p>
+                        {% if post.img %}
+                        <p class="post_img" style="display: block;"></p><img src="{{ post.img }}" width="90%" alt=""></p>
+                        {% endif %}
+
                         <form style="display: none;">
                             <input type="text" style="display: none;" name="post_id" value="{{ post.id }}" disabled>
                             <textarea name="body"></textarea>
