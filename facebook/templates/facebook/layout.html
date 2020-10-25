@@ -62,6 +62,7 @@
                         </a>
                         <a href="/profile/{{ user.id }}">
                             <strong>{{ user.first_name }}</strong>
+                            <input id="user_name" type="hidden" value="{{ user.first_name }} {{ user.last_name }}">
                         </a>
                     </li>
                     <li class="nav-item">

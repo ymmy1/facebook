@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.comment_form'))
     {
       document.querySelectorAll('.comment_form').forEach(link => {link.onsubmit = () => { comment_form(link) }});
-      $(".comment_form").on('submit', function(e){ e.preventDefault();}
+      $(".comment_form").on('submit', function(e){ e.preventDefault();});
+    }
     if (document.querySelector('.friend_icon'))
     {
       document.querySelectorAll('.friend_icon').forEach(link => {link.onclick = () => { friend_icon(link) }});
@@ -224,7 +225,7 @@ function edit_post(link)
 function delete_post(link)
 {
   // Front End
-  parent = link.parentElement.parentElement.parentElement;
+  parent = link.parentElement.parentElement.parentElement.parentElement;
   parent.style.opacity = "0";
   parent.style.display = "none";
   // Back End
@@ -331,7 +332,40 @@ function change_popup(link)
 
 function comment_form(link)
 {
-  alert(link.classList)
-  console.log(link)
-  link.style.display = 'none'
+  text = link.querySelector('.comment-text').value
+  if(text[0] != " " && text[0] != " " )
+  {
+    // Front End
+    area = link.parentElement.parentElement.querySelector('.comments-area')
+    count = parseInt(link.parentElement.parentElement.querySelector('.comments_count').innerHTML)
+    console.log(area)
+    avatar = document.querySelector('#profile_avatar').getAttribute('src')
+    url = document.querySelector('#profile_avatar').parentElement.getAttribute('href')
+    name = document.querySelector('#user_name').value
+    div = document.createElement('div')
+    div.setAttribute('class', 'comment-card')
+    div.innerHTML =`<a href=${url}><img src=${avatar} alt=""></a>
+    <div class="middle-card">
+    <a href=${url}>
+        <span>${name}</span>
+    </a>
+        <p class="content">${text}</p>
+        <span class="time"> 1 min ago</span>
+    </div>`
+    area.appendChild(div)
+    link.querySelector('.comment-text').value = ""
+    area.scrollBy(0, 99999);
+    count = count + 1
+    link.parentElement.parentElement.querySelector('.comments_count').innerHTML = count
+
+    // Back End
+    fetch("/comment", {
+      method: 'POST',
+      body: JSON.stringify({
+        post_id : link.parentElement.querySelector('.comment-id').value,
+        body : text
+      })
+    })
+  }
+
 }

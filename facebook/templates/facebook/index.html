@@ -51,7 +51,7 @@
                 <div class="form-inputs">
                     <textarea id="textarea" placeholder="Say something.."></textarea>
                     <input id="img_url" type="text" name="image_url" placeholder="Attach Image URL ://">
-                    <button id="new_post" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    <button id="new_post" type="submit" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </div>
             </form>
             {% for post in page_obj %}
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                             <div class="right-side">
-                                <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }} Comments</span>
+                                <span class="comments_count">{{ post.comments.count }}</span><span> Comments</span>
                             </div>
                         </div>
                         {% if user.is_authenticated %}
@@ -163,16 +163,20 @@
                         </div>
                         <hr>
                         <div class="comments-area">
+                            {% for comment in post.comments.all %}
                             <div class="comment-card">
-                                {% for comment in post.comments.all %}
-                                <img src="{{ comment.username.avatar }}" alt="">
+                                <a href="/profile/{{ comment.username.id }}">
+                                    <img src="{{ comment.username.avatar }}" alt="">
+                                </a>
                                 <div class="middle-card">
-                                    <span>{{ comment.username.first_name }} {{ comment.username.last_name }}</span>
+                                    <a href="/profile/{{ comment.username.id }}">
+                                        <span>{{ comment.username.first_name }} {{ comment.username.last_name }}</span>
+                                    </a>
                                     <p class="content">{{ comment.body }}</p>
                                     <span class="time"> {{ comment.timestamp }}</span>
                                 </div>
-                                {% endfor %}
                             </div>
+                            {% endfor %}
                         </div>
                         <div class="comment-form">
                             <div class="comment-form_avatar">
@@ -184,8 +188,8 @@
                                 {% endif %}
                             </div>
                             <form class="comment_form">
-                                <input type="hidden" value="{{ post.id }}">
-                                <input type="text" placeholder="Write a comment..">
+                                <input class="comment-id" type="hidden" value="{{ post.id }}">
+                                <input class="comment-text" type="text" placeholder="Write a comment..">
                             </form>
                         </div>
                         {% else %}

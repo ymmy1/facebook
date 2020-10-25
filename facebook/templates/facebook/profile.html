@@ -260,7 +260,7 @@
                                     </div>
                                 </div>
                                 <div class="right-side">
-                                    <span id="like_for_{{ post.id }}">{{ post.liked_user_count.all.count }} Comments</span>
+                                    <span class="comments_count">{{ post.comments.count }}</span><span> Comments</span>
                                 </div>
                             </div>
                             {% if user.is_authenticated %}
@@ -282,26 +282,33 @@
                             </div>
                             <hr>
                             <div class="comments-area">
+                                {% for comment in post.comments.all %}
                                 <div class="comment-card">
-                                    <img src="{{ profile.avatar }}" alt="">
+                                    <a href="/profile/{{ comment.username.id }}">
+                                        <img src="{{ comment.username.avatar }}" alt="">
+                                    </a>
                                     <div class="middle-card">
-                                        <span>{{ profile.first_name }} {{ profile.last_name }}</span>
-                                        <p class="content">great post</p>
-                                        <span class="time"> 5 min ago</span>
+                                        <a href="/profile/{{ comment.username.id }}">
+                                            <span>{{ comment.username.first_name }} {{ comment.username.last_name }}</span>
+                                        </a>
+                                        <p class="content">{{ comment.body }}</p>
+                                        <span class="time"> {{ comment.timestamp }}</span>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
                             <div class="comment-form">
                                 <div class="comment-form_avatar">
-                                    <img src="{{ profile.avatar }}" alt="">
-                                    {% if profile.is_online %}
+                                    <img src="{{ user.avatar }}" alt="">
+                                    {% if user.is_online %}
                                     <div class="online">
                                         <i class="fas fa-circle"></i>
                                     </div>
                                     {% endif %}
                                 </div>
-                                <form>
-                                    <input type="text" placeholder="Write a comment..">
+                                <form class="comment_form">
+                                    <input class="comment-id" type="hidden" value="{{ post.id }}">
+                                    <input class="comment-text" type="text" placeholder="Write a comment..">
                                 </form>
                             </div>
                             {% else %}

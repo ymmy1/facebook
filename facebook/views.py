@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator
 
-from .models import User, Post
+from .models import User, Post, Comment
 
 
 def index(request):
@@ -36,27 +36,6 @@ def index(request):
 
     
     return render(request, "facebook/index.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'requested' : requested_list })
-
-@csrf_exempt
-@login_required
-def following_posts(request):
-    users = User.objects.all()
-    # liked posts get
-    liked = Post.objects.filter(
-            liked_user_count=request.user.id
-        ).all().values()
-    liked_posts = []
-    for i in range(len(liked)):
-        liked_posts.append(liked[i]["id"])
-    posts = []
-    # Show 5 posts per page.
-    paginator = Paginator(posts, 5) 
-
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-
-    
-    return render(request, "facebook/following_posts.html", {'posts': posts, "users": users,'page_obj': page_obj, 'liked_posts': liked_posts, 'following_users' : following_users})
 
 def login_view(request):
     if request.method == "POST":
@@ -253,45 +232,6 @@ def unlike_post(request):
     post.save()
     return HttpResponse(status=204)
 
-@csrf_exempt
-@login_required
-def follow_user(request):
-    if request.method != "POST":
-        return JsonResponse({"error": "POST request required."}, status=400)
-    
-    data = json.loads(request.body)
-    # Query for requested email
-    try:
-        post_user = User.objects.get(id=data["user_id"])
-        user = User.objects.get(username=request.user)
-    except Post.DoesNotExist:
-        return JsonResponse({"error": "Email not found."}, status=404)
-
-    post_user.followers.add(user.id)
-    user.following.add(post_user.id)
-    post_user.save()
-    user.save()
-    return HttpResponse(status=204)
-
-@csrf_exempt
-@login_required
-def unfollow_user(request):
-    if request.method != "POST":
-        return JsonResponse({"error": "POST request required."}, status=400)
-    
-    data = json.loads(request.body)
-    # Query for requested email
-    try:
-        post_user = User.objects.get(id=data["user_id"])
-        user = User.objects.get(username=request.user)
-    except Post.DoesNotExist:
-        return JsonResponse({"error": "Email not found."}, status=404)
-
-    post_user.followers.remove(user.id)
-    user.following.remove(post_user.id)
-    post_user.save()
-    user.save()
-    return HttpResponse(status=204)
 
 @csrf_exempt
 @login_required
@@ -355,19 +295,12 @@ def delete_post(request):
         profile = User.objects.get(id=post.username_id)
     except Post.DoesNotExist:
         return JsonResponse({"error": "Post not found."}, status=404)
-
-    if post.username_id == request.user.id:
-        likes = post.liked_user_count.filter(
-            liked_id=data["post_id"]
-        ).all()
-        for like in likes:
-            post.liked_user_count.remove(like)
-            profile.like_count = profile.like_count - 1
-        post.delete()
-        profile.save()
-        return HttpResponse(status=204)
-    else:
-        return JsonResponse({"error": "ID's not matching"}, status=400)
+    
+    for comment in post.comments:
+        post.comments.remove(comment)
+    post.save()
+    post.delete()
+    return HttpResponse(status=204)
 
 @csrf_exempt
 @login_required
@@ -438,3 +371,24 @@ def deny(request):
         return HttpResponse(status=204)
     else:
         return HttpResponse(status=404)
+
+@csrf_exempt
+@login_required
+def comment(request):
+    print("fetched")
+    if request.method != "POST":
+        return HttpResponse(status=404)
+    # Register a comment
+    # Assing comment to the post
+    data = json.loads(request.body)
+    print(data)
+
+    post = Post.objects.get(id=data['post_id'])
+    comment = Comment(
+                    username=request.user,
+                    body=data.get("body", "")
+                )
+    comment.save()
+    post.comments.add(comment.id) 
+    post.save()
+    return HttpResponse(status=204)

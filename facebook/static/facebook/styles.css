@@ -474,6 +474,21 @@ body #index .posts_container .posts .post .bottom-info .like-info .comments-area
   margin-left: 10px;
 }
 
+body #index .posts_container .posts .post .bottom-info .like-info .comments-area .comment-card .middle-card a {
+  text-decoration: none;
+}
+
+body #index .posts_container .posts .post .bottom-info .like-info .comments-area .comment-card .middle-card .content {
+  margin: 0;
+}
+
+body #index .posts_container .posts .post .bottom-info .like-info .comments-area .comment-card .middle-card .time {
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-top: 3px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
 body #index .posts_container .posts .post .bottom-info .like-info .comment-form {
   display: -webkit-box;
   display: -ms-flexbox;
