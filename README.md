@@ -27,7 +27,7 @@
 ### 4. Edit Cover Photo / Profile Photo / Public Information
 ![](https://i.imgur.com/AczmUeR.png)
 
-### 5. Sending Friend Requestssss / Canceling Friend Requests / Deleting existing friend
+### 5. Sending Friend Requests / Canceling Friend Requests / Deleting existing friend
 ![](https://i.imgur.com/xsNxpmj.png)
 
 ### 6. Notification menu -> Number of Notifications / Accept a friend request / Deny a friend request
