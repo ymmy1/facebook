@@ -292,13 +292,9 @@ def delete_post(request):
     # Query for requested email
     try:
         post = Post.objects.get(id=data["post_id"])
-        profile = User.objects.get(id=post.username_id)
     except Post.DoesNotExist:
         return JsonResponse({"error": "Post not found."}, status=404)
     
-    for comment in post.comments:
-        post.comments.remove(comment)
-    post.save()
     post.delete()
     return HttpResponse(status=204)
 
