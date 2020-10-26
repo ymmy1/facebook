@@ -2,7 +2,7 @@
 
 
 ## Web Programming with Python and JavaScript Final Project [2020]
-## Facebok [Capstone]
+## Facebook [Capstone]
 ### Main idea was to recreate facebook.com as close as possible including design and some of back end features for the final project.
 ### **Warning** ***this website is not the real facebook***, for safety purposes do not use your real credentials from your facebook account since this website does not obtain the same security level as facebook.com
 
@@ -30,9 +30,9 @@
 ### 5. Sending Friend Requestssss / Canceling Friend Requests / Deleting existing friend
 ![](https://i.imgur.com/xsNxpmj.png)
 
-### 6. Notification menu -> number of notifications / Accept a friend request / Deny a friend request
+### 6. Notification menu -> Number of Notifications / Accept a friend request / Deny a friend request
 ![](https://i.imgur.com/tuakPvY.png)
 
-### 7. Everythin is adaptive to mobile / tablets / laptops / monitors
+### 7. Everything is adaptive to mobile / tablets / laptops / monitors
 ![](https://i.imgur.com/N40g1EQ.png)
 
