@@ -14,25 +14,25 @@
 ## Usage & Features
 
 ### 1. Log In / Register
-![](https://i.imgur.com/NAjkvhO.png)
 ![](https://i.imgur.com/nbs5wiU.png)
 
-### 1. Post / Like / UnLike / Comment / Edit / Delete  Posts
+### 2. Post / Like / UnLike / Comment / Edit / Delete  Posts
 ![](https://i.imgur.com/o42WJB4.png)
+![](https://i.imgur.com/0mRulvm.png)
 
 
-### 1. Contacts(Friends online)
+### 3. Contacts(Friends online)
 ![](https://i.imgur.com/WmNhR0C.png)
 
-### 1. Edit Cover Photo / Profile Photo / Public Information
+### 4. Edit Cover Photo / Profile Photo / Public Information
 ![](https://i.imgur.com/AczmUeR.png)
 
-### 1. Sending Friend Requestssss / Canceling Friend Requests / Deleting existing friend
+### 5. Sending Friend Requestssss / Canceling Friend Requests / Deleting existing friend
 ![](https://i.imgur.com/xsNxpmj.png)
 
-### 1. Notification menu -> number of notifications / Accept a friend request / Deny a friend request
+### 6. Notification menu -> number of notifications / Accept a friend request / Deny a friend request
 ![](https://i.imgur.com/tuakPvY.png)
 
-### 1. Everythin is adaptive to mobile / tablets / laptops / monitors
+### 7. Everythin is adaptive to mobile / tablets / laptops / monitors
 ![](https://i.imgur.com/N40g1EQ.png)
 

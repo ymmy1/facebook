@@ -186,7 +186,7 @@ function unfollow_user(link)
 
 function edit_post(link)
 {
-  parent = link.parentElement.parentElement.parentElement;
+  parent = link.parentElement.parentElement.parentElement.parentElement;
   var textarea = parent.querySelector('textarea');
   var form = parent.querySelector('form');
   parent.querySelector('.post_body').style.display = "none";
