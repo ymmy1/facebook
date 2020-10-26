@@ -333,7 +333,7 @@ function change_popup(link)
 function comment_form(link)
 {
   text = link.querySelector('.comment-text').value
-  if(text[0] != " " && text[0] != " " )
+  if(text[0] != " " && text[0] != " " && text != "" )
   {
     // Front End
     area = link.parentElement.parentElement.querySelector('.comments-area')
