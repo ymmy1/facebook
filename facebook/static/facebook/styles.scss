@@ -2,6 +2,10 @@ $bg : #F0F2F5;
 $bg-darker : #D8DADF;
 $active : #1877F2;
 
+*
+{
+    box-sizing: border-box;
+}
 body
 {
     background: $bg;
@@ -607,6 +611,7 @@ body
                 flex-direction: column;
                 margin-right: 150px;
                 margin-bottom: 80px;
+                width: 50%;
                 .img
                 {
                     width: 250px;
@@ -622,6 +627,16 @@ body
                     {
                         font-size: 28px;
                         line-height: 1em;
+                    }
+                    .small
+                    {
+                        font-size: 0.7em;
+                        width: 70%;
+                        .red
+                        {
+                            color: red;
+                            font-weight: bold;
+                        }
                     }
                 }
             }
@@ -1031,22 +1046,23 @@ body
                     }
                     .profiles
                     {
-                        display: flex;
-                        flex-wrap: wrap;
+                        display: grid;
+                        grid-template-rows: auto auto auto;
+                        grid-template-columns: 1fr 1fr 1fr;
                         .friend-card
                         {
                             display: flex;
                             flex-direction: column;
-                            width: 31%;
-                            margin-right: 10px;
+                            padding: 10px;
                             &:last-child
                             {
                                 margin-right: 0px;
                             }
                             img
                             {
-                                width: 111px;
-                                height: 111px;
+                                width: 100%;
+                                object-fit: cover;
+                                height: inherit;
                                 border-radius: 10px;
                             }
                             span
@@ -1331,6 +1347,154 @@ body
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1000px) 
+{
+    body
+    {
+        #profile
+        {
+            .top
+            {
+                .cover, hr, .middle-nav
+                {
+                    width: 100%;
+                    justify-content: center;
+                    flex-direction: column;
+                    
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 825px) 
+{
+    body
+    {
+        padding-bottom: 0;
+        nav
+        {
+            .menu-center, .menu-right, .navbar-nav
+            {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                li
+                {
+                    padding: 10px 10px;
+                }
+                .dropdown-menu 
+                {
+                    position: absolute;
+                }
+            }
+        }
+        #login
+        {
+            height: 100vh;
+            padding: 10px;
+            .main
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                margin: 0;
+                .leftside
+                {
+                    margin: 0;
+                    width: 90%;
+                    .img
+                    {
+                        margin: auto;
+                        margin-bottom: 10px;
+                    }
+                    .text
+                    {
+                        .small
+                        {
+                            margin: auto;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+                .rightside
+                {
+                    .form
+                    {
+                        width: 335px;
+                    }
+                }
+            }
+        }
+        #index
+        {
+            .shortcuts, .birthday_contacts
+            {
+                display: none;
+            }
+            .posts_container
+            {
+                margin: 20px auto;
+            }
+        }
+        footer
+        {
+            display:none;
+        }
+    }
+}
+@media only screen and (max-width: 777px) 
+{
+    body
+    {
+        #profile
+        {
+            .top
+            {
+                .cover
+                {
+                    .change_cover
+                    {
+                        bottom: auto;
+                        top: 15px;
+                        right: 10px;
+                    }
+                }
+            }
+            .bottom
+            {
+                flex-direction: column;
+                align-items: center;
+                .info-container, .posts_container
+                {
+                    width: 90%;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 415px) 
+{
+    body
+    {
+        #profile
+        {
+            .top
+            {
+                .middle-nav
+                {
+                    .right-side
+                    {
+                        display: none;
                     }
                 }
             }
